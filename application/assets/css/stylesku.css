@@ -1,0 +1,133 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+    overflow-x:hidden;
+  }
+  
+
+
+.row .card:hover{
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    transform : scale(1.03);
+}
+.btn:hover {
+    background-position: right center; /* change the direction of the change here */
+  }
+  .btn-detailbrg {
+    flex: 1 1 auto;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+
+   }
+  
+.btn-detailbrg {
+    background-image: linear-gradient(to right, #66DA9E 0%, #DBDE7E 51%, #dd5555 100%);
+  }
+  .nav-link{
+    color:black;
+}
+.navbar-brand{
+    color:red;
+}
+.feature-box{
+    padding-top:20px;
+}
+
+.feature-text{
+    color: white;
+    
+}
+.jambrong-footer{
+    font-family: 'Roboto', sans-serif;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+
+span{
+    margin-right:10px;
+    padding:10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight:Bold;
+    font-size:15px;
+}
+
+.judul-text{
+    font-family: 'Roboto', sans-serif;
+    font-weight:Bold;
+}
+
+.text-description{
+    font-family: 'Lato', sans-serif;
+}
+.card{
+  -webkit-box-shadow: 18px 17px 19px -2px rgba(0,0,0,0.57);
+-moz-box-shadow: 18px 17px 19px -2px rgba(0,0,0,0.57);
+box-shadow: 18px 17px 19px -2px rgba(0,0,0,0.57);
+}
+
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 70px;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 150px;
+	background-color: #fff;
+	border-color: #66CC75;
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #fff;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
+@media only screen and (max-width: 768px) {
+            .form-inline{
+                position: absolute;
+                display:block;
+                margin-top:-50px;
+            }
+            .navmbrong{
+                position: relative;
+                margin-top:55px;
+            }
+        }
+
+@media only screen and (max-width:411px){
+    .card{
+        width:5rem;
+    }
+}
