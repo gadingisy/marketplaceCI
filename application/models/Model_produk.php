@@ -49,14 +49,13 @@ class Model_produk extends CI_Model{
                   'ukuran_produk'  => $post['ukuran_produk'],
                   'harga_produk'  => $post['harga_produk'],
                  'gambar_produk' => $post['gambar_produk'],
-                // 'thumb_produk1' => $post['thumb_produk1'],
-                // 'thumb_produk2' => $post['thumb_produk2'], 
-                // 'thumb_produk3' => $post['thumb_produk3'],  
-                // 'thumb_produk4' => $post['thumb_produk4'],        
+                'thumb_produk1' => $post['thumb_produk1'],
+                'thumb_produk2' => $post['thumb_produk2'],
+                'thumb_produk3' => $post['thumb_produk3'],                   
                 'slug_produk' => $post['slug_produk']
                 
    ];
-
+ 
    $this->db->insert('tb_produk',$data);
   
   }

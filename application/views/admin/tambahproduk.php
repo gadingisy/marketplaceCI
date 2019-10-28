@@ -22,8 +22,20 @@
                 <?= $title ?>
                 </div>
                 <div class="card-body">
-             <?= form_open_multipart(base_url('Produk/process'),' class="form-horizontal"'); ?>
-      
+        
+             <form method="post" action="<?php echo base_url('Produk/process'); ?>" enctype="multipart/form-data">
+             <?php if ($this->session->flashdata('error')) :?>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Data <strong> Gagal </strong> <?= $this->session->flashdata('error'); ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+          <?php endif; ?>
         
             <div class="form-group">
 
@@ -80,6 +92,26 @@
               
             </div>  
 
+            <div class="form-group">
+                <label for="gambar_produk">Thumb Produk 1</label>
+                <input type="file" class="form-control" name="thumb_produk1" value="<?=$row->thumb_produk1?>"> 
+              
+            </div>  
+            
+            <div class="form-group">
+                <label for="gambar_produk">Thumb Produk 2</label>
+                <input type="file" class="form-control" name="thumb_produk2" value="<?=$row->thumb_produk2?>"> 
+              
+            </div>  
+            
+            <div class="form-group">
+                <label for="gambar_produk">Thumb Produk 3 </label>
+                <input type="file" class="form-control" name="thumb_produk3" value="<?=$row->thumb_produk3?>"> 
+              
+            </div>  
+            
+         
+           
            
             <div class="form-group">
                 <label for="slug_produk">Slug Produk</label>
@@ -88,7 +120,7 @@
             </div>  
           
             <button type="submit" name="<?=$page?>" class="btn btn-danger btn-lg float-right"><i class="fas fa-save"> Submit</i></button>  
-        <?= form_close() ?>
+                    </form>
             </div>
             
           
