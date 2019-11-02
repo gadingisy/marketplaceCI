@@ -9,7 +9,7 @@ class Produk extends CI_Controller{
         
     }
        
-
+    
     public function lihatpenjual(){
         $data['title'] = 'Data penjual';
          $data['row'] = $this->Model_produk->get_penjual();
@@ -141,78 +141,74 @@ class Produk extends CI_Controller{
             redirect('Produk/lihatproduk');
             }     
             
-            // if ($result2) {
-            //     $this->load->view('Produk/lihatproduk');
-            // } else {
-            //     $this->load->view('Produk/tambahproduk');
-            // }       
-
-            // $config['upload_path'] = './assets/upload/images/';
-            // $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            // $config['max_size']  = '2400';
-            // $config['max_width']  = '2024';
-            // $config['max_height']  = '2024';
-       
-            // $this->load->library('upload', $config);
-        
-    
-            //         if ($this->upload->do_upload('gambar_produk')){
-            //             $data['gambar_produk'] = $this->input->post('gambar_produk');
-            //             $post['gambar_produk'] =  $data['gambar_produk'];
-            //             $post['gambar_produk'] = $this->upload->data('file_name');
-            //             $this->Model_produk->tambahproduk($post);                
-            //                 if($this->db->affected_rows() > 0){
-            //                     $this->session->set_flashdata('flash','Disimpan');
-            //                 }
-            //                 redirect('Produk/lihatproduk');
-                            
-            //         } else {
-            //             $error = $this->upload->display_errors();
-            //             $this->session->flashdata('error', $error);
-            //             redirect('Produk/tambahproduk');
-            //         }
-                
-       
-            // $config2['upload_path'] = './assets/upload/images/';
-            // $config2['allowed_types'] = 'gif|jpg|png|jpeg';
-            // $config2['max_size']  = '2400';
-            // $config2['max_width']  = '2024';
-            // $config2['max_height']  = '2024';
-       
-      
-            // $this->load->library('upload', $config2);
-
-            //         if ($this->upload->do_upload('thumb_produk1')){
-
-            //             $post['thumb_produk1'] = $this->upload->data('file_name');
-            //             $this->Model_produk->tambahproduk($post);                
-            //                 if($this->db->affected_rows() > 0){
-            //                     $this->session->set_flashdata('flash','Disimpan');
-
-                                
-            //                 }
-            //                 redirect('Produk/lihatproduk');
-                            
-            //         } else {
-            //             $error = $this->upload->display_errors();
-            //             $this->session->flashdata('error', $error);
-            //             redirect('Produk/tambahproduk');
-            //         }
-                
-                 
-                
-                
-                    // } else {
-                       
-                    //     $post['gambar_produk'] = $this->upload->data['file_name'];
-                    //     $this->Model_produk->tambahproduk($post);                
-                    //         if($this->db->affected_rows() > 0){
-                    //             $this->session->set_flashdata('flash','Disimpan');
-                    //         }
-                    //         redirect('Produk/lihatproduk');
-                
+  
         } else if(isset($_POST['editproduk'])) {
-            $this->Model_produk->edit($post);
+
+            $config['upload_path'] = './assets/upload/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size']  = '2400';
+            $config['max_width']  = '2024';
+            $config['max_height']  = '2024';
+   
+
+            $this->load->library('upload', $config);
+     
+            $post['gambar_produk'] = $this->input->post('gambar_produk');
+            $post['thumb_produk1'] = $this->input->post('thumb_produk1');
+            $post['thumb_produk2'] = $this->input->post('thumb_produk2');
+            $post['thumb_produk3'] = $this->input->post('thumb_produk3');
+       
+            if (!$this->upload->do_upload('gambar_produk')) {
+                $error = array('error' => $this->upload->display_errors());
+            } else {
+                $fileData = $this->upload->data();
+                $post['gambar_produk'] = $fileData['file_name'];
+            }
+
+            if (!$this->upload->do_upload('thumb_produk1')) {
+                $error = array('error' => $this->upload->display_errors()); 
+                
+            } else {
+                $fileData = $this->upload->data();
+                $post['thumb_produk1'] = $fileData['file_name'];
+            
+            }
+
+            if (!$this->upload->do_upload('thumb_produk2')) {
+                $error = array('error' => $this->upload->display_errors()); 
+                
+            } else {
+                $fileData = $this->upload->data();
+                $post['thumb_produk2'] = $fileData['file_name'];
+            
+            }
+
+            if (!$this->upload->do_upload('thumb_produk3')) {
+                $error = array('error' => $this->upload->display_errors()); 
+                
+            } else {
+                $fileData = $this->upload->data();
+                $post['thumb_produk3'] = $fileData['file_name'];
+            
+            }
+
+          
+            // Verify the data using print_r($data); die;
+            // print_r($post);
+            // die;
+            $result = $this->Model_produk->edit($post);
+     
+            if ($result) {
+                $error = $this->upload->display_errors();
+                $this->session->set_flashdata('error', $error);
+                redirect('Produk/tambahproduk');
+            } else {
+                if($this->db->affected_rows() > 0){
+                $this->session->set_flashdata('flash','Disimpan');
+            }
+            redirect('Produk/lihatproduk');
+            }     
+           
         }
         if($this->db->affected_rows() > 0){
             $this->session->set_flashdata('flash','Disimpan');
@@ -252,77 +248,7 @@ class Produk extends CI_Controller{
        $this->session->set_flashdata('flash','Data Sudah Dihapus');
        redirect('Produk/lihatproduk');
     }
-    
-    
-    //  public function hapus($id_penjual){
-    //      $this->Model_gerbang->hapusdatapenjual($id_penjual);
-    //      $this->session->set_flashdata('flash','Data Sudah Dihapus');
-    //      redirect('Overview/lihatdata');
-    //  }
-    //  public function edit($id_penjual){
-    //     $data['title'] = 'Form Ubah Penjual';
-    //     $data['data'] = $this->Model_gerbang->getDataByID($id_penjual);
-    //     $data['jk'] = ['Laki-Laki','Perempuan'];
 
-    //     $this->form_validation->set_rules('nama_penjual','Nama','required');
-    //     $this->form_validation->set_rules('hp_penjual','No HP','integer','required');
-    //     $this->form_validation->set_rules('alamat_penjual','Alamat','required');
-    //     $this->form_validation->set_rules('facebook_penjual','Facebook','required');
-    //     $this->form_validation->set_rules('instagram_penjual','Instagram','required');
-    //     if($this->form_validation->run() == FALSE){
-    //         $this->load->view('admin/_partials/head',$data);
-    //         $this->load->view('admin/_partials/navbar_add');
-    //         $this->load->view('admin/ubah_penjual',$data);          
-    //         $this->load->view('admin/_partials/footer');
-    //     } else {
-    //        $this->Model_gerbang->ubah_data_penjual();
-    //        $this->session->set_flashdata('flash', 'Data sudah diubah');
-    //        redirect('Overview/lihatdata');
-    //     }
-    // }
-
-    // public function tambahkategori(){
-    //     $data['title'] = 'Form Tambah Kategori';
-    //     $this->form_validation->set_rules('nama_kat','Nama','required');
-    //     $this->form_validation->set_rules('jenis_kat','Jenis','required');
-    //     $this->form_validation->set_rules('slug_kat','Slug','required');
-    //     $data['jenis'] = ['Barang','Jasa'];
-    //     if($this->form_validation->run() == FALSE){
-    //         $this->load->view('admin/_partials/head',$data);
-    //         $this->load->view('admin/_partials/navbar_add');
-    //         $this->load->view('admin/tambahkategori');          
-    //         $this->load->view('admin/_partials/footer');
-    //     } else {
-    //        $this->Model_gerbang->tambahkategori();
-    //        $this->session->set_flashdata('flash', 'Data sudah ditambahkan');
-    //        redirect('Overview/lihatkategori');
-    //     }
-    // }
-
-    // public function editkategori($id_kat){
-    //     $data['title'] = 'Form Ubah Kategori';
-    //     $data['data'] = $this->Model_gerbang->getDataByIDKat($id_kat);
-    //     $data['jenis'] = ['Barang','Jasa'];
-
-    //     $this->form_validation->set_rules('nama_kat','Nama','required');
-    //     $this->form_validation->set_rules('jenis_kat','Jenis','required');
-    //     if($this->form_validation->run() == FALSE){
-    //         $this->load->view('admin/_partials/head',$data);
-    //         $this->load->view('admin/_partials/navbar_add');
-    //         $this->load->view('admin/ubah_kat',$data);          
-    //         $this->load->view('admin/_partials/footer');
-    //     } else {
-    //        $this->Model_gerbang->ubahkategori();
-    //        $this->session->set_flashdata('flash', 'Data sudah diubah');
-    //        redirect('Overview/lihatkategori');
-    //     }
-    // }
-    // public function hapuskategori($id_kat){
-    //     $this->Model_gerbang->hapuskategori($id_kat);
-    //     $this->session->set_flashdata('flash','Data Sudah Dihapus');
-    //     redirect('Overview/lihatkategori');
-    // }
-  
 }
 
 ?>

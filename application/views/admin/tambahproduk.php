@@ -70,7 +70,7 @@
                 <select name="penjual" class="form-control" required>
                     <option value=""><--Pilih--></option>
                     <?php foreach($penjual->result() as $key => $data) { ?>
-                            <option value="<?= $data->id_penjual ?>" <?= set_select('penjual','$data->id_penjual'); ?>><?=$data->nama_penjual?></option>
+                            <option value="<?= $data->id_penjual ?>" <?= set_select('penjual','$data->nama_penjual'); ?>><?=$data->nama_penjual?></option>
                     <?php } ?>
                </select>
                     </div> 

@@ -7,14 +7,24 @@ class Model_gerbang extends CI_Model{
     public function get_kategori(){
       return $this->db->get('tb_kategori')->result_array();
    }
+
+   public function get_nama_kategori(){
+    $this->db->select('nama_kat,jenis_kat');
+    $this->db->from('tb_kategori');
+    $this->db->where('jenis_kat','Barang');
+  $query = $this->db->get();
+  return $query;
+ }
    
    public function get_produk(){
-   $this->db->select('tb_produk.*,tb_kategori.nama_kat,tb_kategori.slug_kat');
-   $this->db->from('tb_produk');
-   $this->db->join('tb_kategori', 'tb_kategori.id_kat = tb_produk.id_kat', 'left');
-  
-   $query = $this->db->get()->result_array(); 
-   return $query;
+    $this->db->select('tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual,tb_kategori.slug_kat');
+    $this->db->from('tb_produk');
+    $this->db->join('tb_kategori','tb_kategori.id_kat = tb_produk.id_kat');
+    $this->db->join('tb_penjual','tb_penjual.id_penjual = tb_produk.id_penjual');
+    $this->db->order_by("id_produk", "desc");
+    $this->db->limit(8); 
+  $query = $this->db->get();
+  return $query;
  }
 
    public function tambah_data_penjual(){

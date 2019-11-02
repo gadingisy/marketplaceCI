@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Font Awesome -->
 
- <link href="<?php echo base_url('assets/css/stylesku.css');?>" rel="stylesheet">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,7 @@
  
   <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link href="<?php echo base_url('./assets/css/stylesku.css');?>" rel="stylesheet">
 </head>
 
 <body>
@@ -59,7 +60,7 @@
 <section>
 
   <div class="row">
-    <div class="col-lg-12 mt-4 pt-4">
+    <div class="col-lg-12 col-md-12 col-xs-12 mt-4 pt-4">
           <!--Carousel Wrapper-->
           <div id="carouselfull" class="carousel slide carousel-fade" data-ride="carousel">
               <!--Indicators-->
@@ -110,82 +111,117 @@
 <!-- BODY BODY BODY BODY BODYBODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY-->
 <section>
     <h4 class="text-center pt-2 font-weight-bold mt-4" style="color:red;">PRODUK TERBARU</h4><br>
-  <div class="container-fluid bg-light p-3">
+  <div class="container-fluid p-3" style="background-color:#acacac">
         <div class="col-md-12">
     <!-- Card -->
-          <div class="row mx-auto justify-content-center mb-4">        
-              <div class="card mr-2 ml-2 mb-4" style="width: 18rem;">
-                  <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
+          <div class="row mx-auto justify-content-center mb-4">     
+          <?php
+                  
+                    foreach ($data->result() as  $key=>$data) : ?>   
+              <div class="card mr-2 ml-2 mb-4" style="width: 18rem; ">
+                  <img class="card-img-top img-thumbnail"  src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="Card image cap">
                   <div class="card-body">
-                      <h5 class="card-title">Sepatu</h5>
-                      <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
+                      <h5 class="card-title"><?= $data->nama_produk ?></h5>
+                      <p class="card-text"><?= $data->deskripsi_produk ?></p>
                       <a href="#" class="btn btn-detailbrg">Detail</a>
                   </div>
                 </div>
-                <div class="card mr-2 ml-2 mb-4" style="width: 18rem;">
-                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Sepatu</h5>
-                        <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                        <a href="#" class="btn btn-detailbrg">Detail</a>
-                    </div>
-                  </div>
-                  <div class="card mr-2 ml-2 mb-4" style="width: 18rem;">
-                      <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                      <div class="card-body">
-                          <h5 class="card-title">Sepatu</h5>
-                          <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                          <a href="#" class="btn btn-detailbrg">Detail</a>
-                      </div>
-                    </div>
-                
-                      
+              
+                   
               <!-- Card -->
-            </div>
+     
 
-            <!-- CARD KEDUA -->
-            <div class="row mx-auto mt-3 justify-content-center mb-4">
-                <div class="card mr-2 ml-2 mb-4" style="width: 18rem;">
-                    <div class="view overlay">
-                        <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                        
-                      </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Sepatu</h5>
-                      <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                      <a href="#" class="btn btn-detailbrg">Detail</a>
-                    </div>
-                  </div>
-               
-                    <div class="card mr-2 ml-2 mb-4" style="width: 18rem;">
-                        <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Sepatu</h5>
-                            <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                            <a href="#" class="btn btn-detailbrg">Detail</a>
-                        </div>
-                      </div>
-                      <div class="card mr-2 ml-2 mb-4" style="width: 18rem;">
-                          <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                          <div class="card-body">
-                              <h5 class="card-title">Sepatu</h5>
-                              <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                              <a href="#" class="btn btn-detailbrg">Detail</a>
-                          </div>
-                        </div>
-                  
-             
-  <!-- Card -->
-  </div>
-  
+            <?php endforeach; ?>    
+            </div>
    
 
 </section>
 <!-- NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD -->
+<section class="jambrong-kategori">
+<div class="container-fluid " style="background-color: #D4151B">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-lg-12 col-md-12">
+   <div class="kategori-section">
+   <h3 class="font-weight-bold text-center text-white mt-3">KATEGORI</h3> 
+   <div class="container-fluid mt-2 pt-2 mb-4 ml-3 mr-3 pr-5">
+
+                <div class="row">
+               
+                  <div class="col-md-12 border">
+                    <div>
+                        <p>
+                        <h1 class="text-center font-weight-bold border-bottom">Barang</h1>
+                        </p>
+                        <div class="row mx-auto justify-content-center mb-4">
+                          <div class="barang mr-5"> 
+                          <p>Baju</p>
+                            <p>Handphone</p>
+                            <p>Sembako</p>
+                            <p>Sepatu</p>
+                            <p>Celana</p>
+                            
+                          </div> 
+                        
+                        </div>
+                        <p>
+                            <h1 class="text-center font-weight-bold border-bottom border-top">Jasa</h1>
+                        </p>
+                        <div class="row mx-auto justify-content-center mb-4">
+                          <div class="barang mr-5"> 
+                            <p>Baju</p>
+                              <p>Handphone</p>
+                              <p>Sembako</p>
+                              <p>Sepatu</p>
+                              <p>Celana</p>
+                              
+                            </div> 
+                            <div class="barang2 mr-5">
+                              <p>Baju</p>
+                              <p>Handphone</p>
+                              <p>Sembako</p>
+                              <p>Sepatu</p>
+                              <p>Celana</p>
+                            </div> 
+                            <div class="barang2 mr-5">
+                              <p>Baju</p>
+                              <p>Handphone</p>
+                              <p>Sembako</p>
+                              <p>Sepatu</p>
+                              <p>Celana</p>
+                            </div>
+                            <div class="barang2 mr-5">
+                              <p>Baju</p>
+                              <p>Handphone</p>
+                              <p>Sembako</p>
+                              <p>Sepatu</p>
+                              <p>Celana</p>
+                            </div> 
+                            <div class="barang2 mr-5">
+                              <p>Baju</p>
+                              <p>Handphone</p>
+                              <p>Sembako</p>
+                              <p>Sepatu</p>
+                              <p>Celana</p>
+                            </div>  
+                            <div class="barang2 mr-5">
+                              <p>Baju</p>
+                              <p>Handphone</p>
+                              <p>Sembako</p>
+                              <p>Sepatu</p>
+                              <p>Celana</p>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</section>
+
+
 <section class="jambrong-features">
-  <div class="container-fluid " style="background-color: #D4151B">
+  <div class="container-fluid " style="background-color: #acacac">
     <div class="row justify-content-center mx-auto">
-      <div class="col-md-3 feature-box text-center">
+      <div class="col-md-3 col-lg-3 col-lg-3 feature-box text-center">
         <i class="fas fa-thumbs-up fa-3x mb-3 white-text"></i>
           <div class="feature-text">
               <h4 class="font-weight-bold"> 100% Barang Terjamin</h4>
@@ -216,9 +252,9 @@
 <!-- FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER -->
 <!-- BAWAH     --> 
 <section class="jambrong-footer">
-  <div class="container-fluid">
-    <div class="row justify-content-center bg-dark pt-3">
-      <div class="col-md-2 white-text">
+  <div class="container-fluid" >
+    <div class="row justify-content-center bg-dark pt-3" style="margin-right:-180px;">
+      <div class="col-md-2 white-text" >
         <h4 class="font-weight-bold">Address</h4>
         <div class="text-left">
         <p>Apartemenmu</p>
@@ -231,17 +267,6 @@
         <div class="col-md-3 white-text">
             <h4 class="font-weight-bold">Terms and Policy</h4>
         </div>
-            <div class="col-md-3 white-text">
-                <h4 class="font-weight-bold">Categories</h4>
-                <div class="text-left">
-                <p>Baju Pria</p>
-                <p>Baju Wanita</p>
-                <p>Celana Pria</p>
-                <p>Topi</p>
-                <p>Dompet</p>
-                </div>
-            </div>
-              
                 <div class="col-md-3 white-text">
                   <div class="social-media">
                 <h4 class="font-weight-bold text-left mt-1 mb-1 d-inline-block text-truncate">Social Media</h4>
