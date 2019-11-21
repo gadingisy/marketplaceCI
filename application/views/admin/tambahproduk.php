@@ -111,8 +111,7 @@
             </div>  
             
          
-           
-           
+
             <div class="form-group">
                 <label for="slug_produk">Slug Produk</label>
                 <input type="text" class="form-control" name="slug_produk" value="<?=$row->slug_produk?>"> 

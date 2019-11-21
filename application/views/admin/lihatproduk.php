@@ -120,8 +120,8 @@
                         <th>Jumlah</th>
                         <th>Ukuran</th>
                         <th>Harga</th>
+                        <th>Slug</th>
                         <th>Gambar</th>
-                     
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -139,6 +139,7 @@
                        <td><?= $data->jumlah_produk ?></td>
                        <td><?= $data->ukuran_produk ?></td>
                        <td>Rp. <?= number_format($data->harga_produk,'0',',','.') ?></td>
+                       <td><?= $data->slug_produk ?></td>
                        <td><img src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" width="100px" class="mb-3">
                        <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk1)?>" width="100px" class="mb-3">
                        <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk2)?>" width="100px" class="mb-3">

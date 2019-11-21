@@ -10,6 +10,7 @@ body{
 .card-img-top{
   height:240px;
 }
+
 .btn:hover {
     background-position: right center; /* change the direction of the change here */
   }
@@ -42,7 +43,18 @@ body{
     letter-spacing: 2px;
     color: red;
 }
-
+.barang{
+    font-size: 30px;
+    text-align: justify;
+}
+.listkategori:hover{
+    border-bottom: 5px solid;   
+    border-radius: 5px;
+}
+.kategori2{
+    letter-spacing: 2px;
+    font-weight: bold;
+}
 .feature-box{
     padding-top:20px;
 }

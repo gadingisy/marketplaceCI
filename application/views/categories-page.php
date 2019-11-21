@@ -5,7 +5,9 @@
     
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Categories</title>
+    <title>  <?php foreach ($produk as $data) : ?>
+                   <?=$data->nama_kat?>
+                    <?php endforeach; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Font Awesome -->
  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/slider.css">
@@ -38,11 +40,7 @@
                               <span class="navbar-toggler-icon"></span>
                           </button>
                               <div class="collapse navbar-collapse" id="navbarCollapse">
-                              <div class="navbar-nav navmbrong" style="color:red;">
-                                  <a href="#" class="nav-item nav-link active"style="color:red;">Home</a>
-                                  <a href="<?php echo site_url('Product') ?>" class="nav-item nav-link" style="color:red;">Categories</a>
-                                  <a href="#" class="nav-item nav-link" style="color:red;"> About Us</a>
-                              </div>
+                           
                             
                                   <div class="navbar-nav ml-auto">
                                       <form class="form-inline" action="#">
@@ -79,16 +77,15 @@
                             </a>
                           <div class="sidebar-submenu">
                             <ul>
+                              
+                              <?php foreach ($row->result() as $key=>$data) : ?>
                               <li>
-                                <a href="#">Dashboard 1
+                                <a href="<?php echo base_url('Categories_page/lihatkategori/'.$data->slug_kat);?>"><?=$data->nama_kat?>
                                 </a>
                               </li>
-                              <li>
-                                <a href="#">Dashboard 2</a>
-                              </li>
-                              <li>
-                                <a href="#">Dashboard 3</a>
-                              </li>
+                              <?php endforeach; ?>  
+                              
+                             
                             </ul>
                           </div>
                         </li>
@@ -96,21 +93,18 @@
                           <a href="#">
                             <i class="fa fa-shopping-cart"></i>
                             <span>Jasa</span>
-                           
                           </a>
                           <div class="sidebar-submenu">
                             <ul>
+                           
+                              <?php foreach ($row2->result() as $key=>$data) : ?>
                               <li>
-                                <a href="#">Products
-              
+                                <a href="<?php echo base_url('Categories_page/lihatkategori/'.$data->slug_kat);?>"><?=$data->nama_kat?>
                                 </a>
                               </li>
-                              <li>
-                                <a href="#">Orders</a>
-                              </li>
-                              <li>
-                                <a href="#">Credit cart</a>
-                              </li>
+                              <?php endforeach; ?>  
+                            
+                              
                             </ul>
                           </div>
                         </li>
@@ -119,144 +113,46 @@
                     <!-- sidebar-menu  -->
                   </div>
                 </nav>
+                              
                 <!-- sidebar-wrapper  -->
                 <div class="product-title">
-                    <h1 class="font-weight bold mt-5 ml-5 pt-4">Sepatu</h1>
+                <?php foreach ($produk as $data) : ?>
+                    <h1 class="font-weight bold mt-5 ml-5 pt-4"><?=$data->nama_kat?></h1>
+                    <?php endforeach; ?>
+                  
                 </div>
+                <?php foreach ($produk as $data) : ?>
                 <div class="row mx-auto mt-5 justify-content-center mb-3">
                         <div class="card mr-2 ml-2 mb-4">
                             <div class="view overlay">
-                                <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
+                                <img class="card-img-top img-thumbnail" src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="Card image cap">
                               </div>
                             <div class="card-body">
-                              <h5 class="card-title">Sepatu</h5>
-                              <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
+                            
+                  
+            
+                              <h5 class="card-title"><?= $data->nama_produk ?></h5>
+                              
+                              <p class="card-text"><?= $data->deskripsi_produk ?></p>
                               <a href="#" class="btn btn-detailbrg">Detail</a>
                             </div>
                           </div>
-                                <div class="card mr-2 ml-2 mb-4">
-                                    <div class="view overlay">
-                                        <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                        
-                                      </div>
-                                    <div class="card-body">
-                                      <h5 class="card-title">Sepatu</h5>
-                                      <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                      <a href="#" class="btn btn-detailbrg">Detail</a>
-                                    </div>
-                                  </div> 
-                                  <div class="card mr-2 ml-2 mb-4">
-                                        <div class="view overlay">
-                                            <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
+                          <?php endforeach; ?>
+                               
+                               
+                                   
                                             
-                                          </div>
-                                        <div class="card-body">
-                                          <h5 class="card-title">Sepatu</h5>
-                                          <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                          <a href="#" class="btn btn-detailbrg">Detail</a>
-                                        </div>
-                                      </div> 
-                                      <div class="card mr-2 ml-2 mb-4">
-                                            <div class="view overlay">
-                                                <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                              </div>
-                                            <div class="card-body">
-                                              <h5 class="card-title">Sepatu</h5>
-                                              <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                              <a href="#" class="btn btn-detailbrg">Detail</a>
-                                            </div>
-                                          </div> 
-                                          <div class="card mr-2 ml-2 mb-4">
-                                                <div class="view overlay">
-                                                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                                    
-                                                  </div>
-                                                <div class="card-body">
-                                                  <h5 class="card-title">Sepatu</h5>
-                                                  <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                                  <a href="#" class="btn btn-detailbrg">Detail</a>
-                                                </div>
-                                              </div> 
-                                              <div class="card mr-2 ml-2 mb-4">
-                                                    <div class="view overlay">
-                                                        <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                                        
-                                                      </div>
-                                                    <div class="card-body">
-                                                      <h5 class="card-title">Sepatu</h5>
-                                                      <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                                      <a href="#" class="btn btn-detailbrg">Detail</a>
-                                                    </div>
-                                                  </div> 
-                                                  <div class="card mr-2 ml-2 mb-4">
-                                                        <div class="view overlay">
-                                                            <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                                            
-                                                          </div>
-                                                        <div class="card-body">
-                                                          <h5 class="card-title">Sepatu</h5>
-                                                          <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                                          <a href="#" class="btn btn-detailbrg">Detail</a>
-                                                        </div>
-                                                      </div> 
-                                                      <div class="card mr-2 ml-2 mb-4">
-                                                            <div class="view overlay">
-                                                                <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                                              </div>
-                                                            <div class="card-body">
-                                                              <h5 class="card-title">Sepatu</h5>
-                                                              <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                                              <a href="#" class="btn btn-detailbrg">Detail</a>
-                                                            </div>
-                                                          </div> 
-                                                          <div class="card mr-2 ml-2 mb-4">
-                                                                <div class="view overlay">
-                                                                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                                                  </div>
-                                                                <div class="card-body">
-                                                                  <h5 class="card-title">Sepatu</h5>
-                                                                  <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                                                  <a href="#" class="btn btn-detailbrg">Detail</a>
-                                                                </div>
-                                                              </div> 
-                                                              <div class="card mr-2 ml-2 mb-4">
-                                                                    <div class="view overlay">
-                                                                        <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                                                      </div>
-                                                                    <div class="card-body">
-                                                                      <h5 class="card-title">Sepatu</h5>
-                                                                      <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                                                      <a href="#" class="btn btn-detailbrg">Detail</a>
-                                                                    </div>
-                                                                  </div> 
-                                                                  <div class="card mr-2 ml-2 mb-4">
-                                                                        <div class="view overlay">
-                                                                            <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                                                          </div>
-                                                                        <div class="card-body">
-                                                                          <h5 class="card-title">Sepatu</h5>
-                                                                          <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                                                          <a href="#" class="btn btn-detailbrg">Detail</a>
-                                                                        </div>
-                                                                      </div> 
-                                                                      <div class="card mr-2 ml-2 mb-4"  >
-                                                                            <div class="view overlay">
-                                                                                <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-                                                                              </div>
-                                                                            <div class="card-body">
-                                                                              <h5 class="card-title">Sepatu</h5>
-                                                                              <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-                                                                              <a href="#" class="btn btn-detailbrg">Detail</a>
-                                                                            </div>
-                                                                          </div> 
-                                         </div>   
+                                                       
+                </div>   
+                <div class="row justify-content-center">
                                          <ul class="pagination justify-content-center">
                                                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                                                 <li class="page-item active"><a class="page-link" href="#">2</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                              </ul>                                    
+                                              </ul>     
+              </div>                               
               </div>
               
             </div>

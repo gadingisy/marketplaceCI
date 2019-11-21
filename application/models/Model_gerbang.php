@@ -9,12 +9,25 @@ class Model_gerbang extends CI_Model{
    }
 
    public function get_nama_kategori(){
-    $this->db->select('nama_kat,jenis_kat');
+    $this->db->select('*');
     $this->db->from('tb_kategori');
-    $this->db->where('jenis_kat','Barang');
+    $this->db->where('jenis_kat', 'Barang');
   $query = $this->db->get();
   return $query;
  }
+ public function get_barang($id_produk){
+$query = $this->db->query("select tb_kategori.id_kat,tb_produk.*,tb_kategori.nama_kat from tb_produk join tb_kategori on tb_kategori.id_kat = tb_produk.id_kat WHERE tb_kategori.slug_kat = '$id_produk'");
+
+return $query->result();
+
+}
+ public function get_nama_kategori2(){
+  $this->db->select('*');
+  $this->db->from('tb_kategori');
+  $this->db->where('jenis_kat','Jasa');
+$query = $this->db->get();
+return $query;
+}
    
    public function get_produk(){
     $this->db->select('tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual,tb_kategori.slug_kat');

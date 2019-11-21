@@ -37,11 +37,7 @@
             </button>
                  <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav navmbrong">
-               
-                    <a href="#" class="nav-item nav-link active" style="color:red;">Home</a>
-                    <a href="<?php echo site_url('Categories_page') ?>" class="nav-item nav-link"style="color:red;">Categories</a>
-                    <a href="#" class="nav-item nav-link"style="color:red;">About Us</a>
-                    
+  
                 </div>
               
                      <div class="navbar-nav ml-auto">
@@ -142,73 +138,36 @@
   <div class="row justify-content-center">
     <div class="col-xs-12 col-lg-12 col-md-12">
    <div class="kategori-section">
-   <h3 class="font-weight-bold text-center text-white mt-3">KATEGORI</h3> 
-   <div class="container-fluid mt-2 pt-2 mb-4 ml-3 mr-3 pr-5">
+   <a href="<?php echo site_url('Categories_page') ?>"><h3 class="font-weight-bold text-center kategori2 text-white mt-3">KATEGORI</h3></a> 
+   <div class="container-fluid">
 
                 <div class="row">
                
-                  <div class="col-md-12 border">
+                  <div class="col-md-12 border mb-5">
                     <div>
+                  
                         <p>
-                        <h1 class="text-center font-weight-bold border-bottom">Barang</h1>
+                        <h1 class="text-center font-weight-bold border-bottom pb-3 text-light">Barang</h1>
+          
                         </p>
-                        <div class="row mx-auto justify-content-center mb-4">
-                          <div class="barang mr-5"> 
-                          <p>Baju</p>
-                            <p>Handphone</p>
-                            <p>Sembako</p>
-                            <p>Sepatu</p>
-                            <p>Celana</p>
-                            
-                          </div> 
+                        <div class="row mb-4">
+                          <div class="barang mr-2 ml-2"> 
+                            <?php foreach ($row->result() as $key=>$data) : ?>
+                              <a class="text-light listkategori" href="<?php echo base_url('Categories_page/lihatkategori/'.$data->slug_kat);?>"><span><?=$data->nama_kat?></span></a>
+                                            
+                            <?php endforeach; ?>    
+                          </div>
                         
                         </div>
                         <p>
-                            <h1 class="text-center font-weight-bold border-bottom border-top">Jasa</h1>
+                            <h1 class="text-center font-weight-bold border-bottom border-top text-light py-3 mb-3">Jasa</h1>
                         </p>
-                        <div class="row mx-auto justify-content-center mb-4">
-                          <div class="barang mr-5"> 
-                            <p>Baju</p>
-                              <p>Handphone</p>
-                              <p>Sembako</p>
-                              <p>Sepatu</p>
-                              <p>Celana</p>
-                              
-                            </div> 
-                            <div class="barang2 mr-5">
-                              <p>Baju</p>
-                              <p>Handphone</p>
-                              <p>Sembako</p>
-                              <p>Sepatu</p>
-                              <p>Celana</p>
-                            </div> 
-                            <div class="barang2 mr-5">
-                              <p>Baju</p>
-                              <p>Handphone</p>
-                              <p>Sembako</p>
-                              <p>Sepatu</p>
-                              <p>Celana</p>
-                            </div>
-                            <div class="barang2 mr-5">
-                              <p>Baju</p>
-                              <p>Handphone</p>
-                              <p>Sembako</p>
-                              <p>Sepatu</p>
-                              <p>Celana</p>
-                            </div> 
-                            <div class="barang2 mr-5">
-                              <p>Baju</p>
-                              <p>Handphone</p>
-                              <p>Sembako</p>
-                              <p>Sepatu</p>
-                              <p>Celana</p>
-                            </div>  
-                            <div class="barang2 mr-5">
-                              <p>Baju</p>
-                              <p>Handphone</p>
-                              <p>Sembako</p>
-                              <p>Sepatu</p>
-                              <p>Celana</p>
+                        <div class="row">
+                          <div class="barang mr-2 ml-2 mb-5"> 
+                                <?php foreach ($row2->result() as $key=>$data) : ?>
+                                <a class="text-light listkategori" href="<?php echo base_url('Categories_page/lihatkategori/'.$data->slug_kat);?>"><span><?=$data->nama_kat?></span></a>
+                                  
+                                    <?php endforeach; ?>    
                             </div> 
                         </div>
                     </div>
@@ -253,7 +212,7 @@
 <!-- BAWAH     --> 
 <section class="jambrong-footer">
   <div class="container-fluid" >
-    <div class="row justify-content-center bg-dark pt-3" style="margin-right:-180px;">
+    <div class="row justify-content-center bg-dark pt-3">
       <div class="col-md-2 white-text" >
         <h4 class="font-weight-bold">Address</h4>
         <div class="text-left">
@@ -284,7 +243,13 @@
          </div>
        </div>
 </section>
-
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.carousel').carousel({
+      interval: 1200
+    })
+  });
+</script>
    <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
