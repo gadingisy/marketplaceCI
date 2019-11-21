@@ -111,15 +111,15 @@
         <div class="col-md-12">
     <!-- Card -->
           <div class="row mx-auto justify-content-center mb-4">     
-          <?php
-                  
-                    foreach ($data->result() as  $key=>$data) : ?>   
+          <?php foreach ($data->result() as  $key=>$data) : ?>   
               <div class="card mr-2 ml-2 mb-4" style="width: 18rem; ">
                   <img class="card-img-top img-thumbnail"  src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="Card image cap">
                   <div class="card-body">
                       <h5 class="card-title"><?= $data->nama_produk ?></h5>
                       <p class="card-text"><?= $data->deskripsi_produk ?></p>
-                      <a href="#" class="btn btn-detailbrg">Detail</a>
+                
+                      <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>" class="btn btn-detailbrg">Detail</a>
+                    
                   </div>
                 </div>
               
@@ -153,7 +153,7 @@
                         <div class="row mb-4">
                           <div class="barang mr-2 ml-2"> 
                             <?php foreach ($row->result() as $key=>$data) : ?>
-                              <a class="text-light listkategori" href="<?php echo base_url('Categories_page/lihatkategori/'.$data->slug_kat);?>"><span><?=$data->nama_kat?></span></a>
+                              <a class="text-light listkategori" href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><span><?=$data->nama_kat?></span></a>
                                             
                             <?php endforeach; ?>    
                           </div>
@@ -165,7 +165,7 @@
                         <div class="row">
                           <div class="barang mr-2 ml-2 mb-5"> 
                                 <?php foreach ($row2->result() as $key=>$data) : ?>
-                                <a class="text-light listkategori" href="<?php echo base_url('Categories_page/lihatkategori/'.$data->slug_kat);?>"><span><?=$data->nama_kat?></span></a>
+                                <a class="text-light listkategori" href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><span><?=$data->nama_kat?></span></a>
                                   
                                     <?php endforeach; ?>    
                             </div> 

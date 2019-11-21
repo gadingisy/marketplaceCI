@@ -41,9 +41,8 @@
                           </button>
                               <div class="collapse navbar-collapse" id="navbarCollapse">
                               <div class="navbar-nav navmbrong" style="color:red;">
-                                  <a href="#" class="nav-item nav-link active"style="color:red;">Home</a>
-                                  <a href="<?php echo site_url('Categories_page') ?>" class="nav-item nav-link" style="color:red;">Categories</a>
-                                  <a href="#" class="nav-item nav-link" style="color:red;"> About Us</a>
+                                  <a href="<?= site_url('Index')?>" class="nav-item nav-link active"style="color:red;">Home</a>
+                             
                               </div>
                             
                                   <div class="navbar-nav ml-auto">
@@ -61,17 +60,14 @@
 <div class="container">
         <div class="row">
           <div class="col-md-3 mt-5 pt-5">  
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Library</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Data</li>
-            </ol>
-          </nav>
+         
         </div>
         </div>
-        <h1 class="mt-1 pt-1 judul-text" style="color:red;">Jam Tangan Mahal Cuy</h1>
-        <h6 class="pb-2">Penjual : </h4>
+      
+        <?php foreach ($item as $data) : ?>
+        <h1 class="mt-1 pt-1 judul-text" style="color:red;"><?=$data->nama_produk?></h1>
+        <h6 class="pb-2">Penjual : <?=$data->nama_penjual?> </h6>
+       
       </div>
       
         <!-- Portfolio Item Row -->
@@ -81,53 +77,51 @@
               <div class="outer">
                   <div id="big" class="owl-carousel owl-theme mb-2">
                     <div class="item">
-                          <img src="<?php echo base_url('assets/images/jam.jpeg'); ?>">
+                          <img src="<?=base_url("./assets/upload/images/".$data->gambar_produk); ?>">
                     </div>
                     <div class="item">
-                          <img src="<?php echo base_url('assets/images/jam.jpeg'); ?>">
+                          <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk1); ?>">
                     </div>
                     <div class="item">
-                          <img src="<?php echo base_url('assets/images/jam.jpeg'); ?>">
+                          <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk2); ?>">
                     </div>
                     <div class="item">
-                        <img src="https://picsum.photos/650/300">
+                        <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk3); ?>">
                   </div>
                   </div>
 
                    <div id="thumbs" class="owl-carousel owl-theme">
-                    <div class="item mx-auto">
-                          <img src="https://picsum.photos/80/80">
+                    <div class="item mx-auto" style="width:80px; height:80px;">
+                          <img src="<?=base_url("./assets/upload/images/".$data->gambar_produk); ?>">
                     </div>
                     <div class="item mx-auto">
-                          <img src="https://picsum.photos/80/80">
+                          <img src="h<?=base_url("./assets/upload/images/".$data->thumb_produk1); ?>">
                     </div>
                     <div class="item mx-auto">
-                          <img src="https://picsum.photos/80/80">
+                          <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk2); ?>">
                     </div>
                     <div class="item mx-auto  ">
-                          <img src="https://picsum.photos/80/80">
+                          <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk3); ?>">
                     </div>
                    </div>
               </div>                      
         </div>
                     <div class="col-md-6 text-description pl-4 bg-light">
                                     <h3 class="my-3 font-weight-bold" style="color:red;">Deskripsi Produk</h3>
-                                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+                                    <p> <?=$data->deskripsi_produk?></p>
                                     <h3 class="my-3 mt-4 font-weight-bold" style="color:red;">Detail Produk</h3>
                                     <ul>
-                                      <li>Lorem Ipsum</li>
-                                      <li>Dolor Sit Amet</li>
-                                      <li>Consectetur</li>
-                                      <li>Adipiscing Elit</li>
+                                      <li><?= $data->ukuran_produk ?></li>
+                                     
                                     </ul>
                                     <div>
                                         <h3 class="font-weight-bold" style="color:red;">Jumlah Produk</h3>
-                                        <h5 class="font-weight-bold">5</h5>
+                                        <h5 class="font-weight-bold"><?= $data->jumlah_produk ?></h5>
                                       </div> 
                                     <div class="d-flex">
                                       <div>
                                         <h3 class="font-weight-bold" style="color:red;">Harga</h3>
-                                        <h5 class="font-weight-bold">Rp. 500.000</h5>
+                                        <h5 class="font-weight-bold"><?= $data->harga_produk ?></h5>
                                       </div>
                                      
                                       <div class="ml-auto">
@@ -149,11 +143,11 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                           <p class="font-weight-bold">WA</p>
-                                           <p class="font-weight-bold">Facebook</p>
-                                           <p class="font-weight-bold">Instagram</p>
-                                           <p class="font-weight-bold">Description</p>
-                                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, molestias placeat quod dolorum eaque reprehenderit atque, alias asperiores magni nobis incidunt ipsam quibusdam! Aspernatur, repellendus.</p>
+                                           <p class="font-weight-bold">WA : 0<?= $data->hp_penjual ?></p>
+                                           <p class="font-weight-bold">Facebook : <?= $data->facebook_penjual?></p>
+                                           <p class="font-weight-bold">Instagram : <?= $data->instagram_penjual ?></p>
+                                           <!-- <p class="font-weight-bold">Description</p>
+                                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, molestias placeat quod dolorum eaque reprehenderit atque, alias asperiores magni nobis incidunt ipsam quibusdam! Aspernatur, repellendus.</p> -->
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -167,6 +161,7 @@
           </div>
         </div>
  </div>
+ <?php endforeach; ?>  
 <section class="other-product">
     
   <div class="container-fluid bg-light pb-1">

@@ -21,6 +21,14 @@ $query = $this->db->query("select tb_kategori.id_kat,tb_produk.*,tb_kategori.nam
 return $query->result();
 
 }
+
+public function get_item($id_item){
+  $query = $this->db->query("select tb_produk.*,tb_kategori.nama_kat,tb_penjual.*,tb_kategori.slug_kat from (tb_produk) join (tb_kategori) on tb_kategori.id_kat = tb_produk.id_kat join tb_penjual on tb_penjual.id_penjual = tb_produk.id_penjual where tb_produk.id_produk = $id_item");
+  return $query->result();
+  }
+
+
+
  public function get_nama_kategori2(){
   $this->db->select('*');
   $this->db->from('tb_kategori');

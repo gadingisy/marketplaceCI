@@ -10,6 +10,7 @@ class Index extends CI_Controller{
         $data['data'] = $this->Model_gerbang->get_produk();
         $data['row']= $this->Model_gerbang->get_nama_kategori();  
         $data['row2']= $this->Model_gerbang->get_nama_kategori2();  
+
         $this->load->view('jambrong.php',$data);
     }
    
