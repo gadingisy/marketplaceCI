@@ -10,10 +10,8 @@ class Product extends CI_Controller{
     public function produk($id_item){
         $this->load->model('Model_gerbang');
         $data['item'] = $this->Model_gerbang->get_item($id_item);
-        
+        $data['randomdata'] = $this->Model_gerbang->random_item($id_item);
         $this->load->view('product-details.php',$data);
-  
-
     }
 }
 

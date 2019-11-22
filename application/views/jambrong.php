@@ -37,7 +37,8 @@
             </button>
                  <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav navmbrong">
-  
+                  <a href="<?= site_url('Index')?>" class="nav-item nav-link active"style="color:red;">Home</a>
+                  <a href="<?= site_url('Categories_page')?>" class="nav-item nav-link active"style="color:red;">Categories</a>
                 </div>
               
                      <div class="navbar-nav ml-auto">
@@ -115,7 +116,7 @@
               <div class="card mr-2 ml-2 mb-4" style="width: 18rem; ">
                   <img class="card-img-top img-thumbnail"  src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="Card image cap">
                   <div class="card-body">
-                      <h5 class="card-title"><?= $data->nama_produk ?></h5>
+                      <h5 class="card-title font-weight-bold text-danger"><?= $data->nama_produk ?></h5>
                       <p class="card-text"><?= $data->deskripsi_produk ?></p>
                 
                       <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>" class="btn btn-detailbrg">Detail</a>

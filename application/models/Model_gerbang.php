@@ -27,7 +27,10 @@ public function get_item($id_item){
   return $query->result();
   }
 
-
+public function random_item($id_item){
+  $query = $this->db->query("select * from tb_produk where id_produk <> $id_item order by rand() limit 4");
+  return $query->result();
+}
 
  public function get_nama_kategori2(){
   $this->db->select('*');

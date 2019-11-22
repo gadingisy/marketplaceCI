@@ -5,11 +5,11 @@
     
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Product Details</title>
+<title><?php foreach ($item as $data) : ?><?= $data->nama_produk?><?php endforeach; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Font Awesome -->
 
- <link type="text/css" href="<?php echo base_url() ?>assets/css/slider.css" rel="stylesheet">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -21,8 +21,8 @@
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
   <link rel="stylesheet"  type="text/css" href="<?php echo base_url('assets/css/owl.carousel.min.css'); ?>" >
   <link rel="stylesheet"  type="text/css" href="<?php echo base_url('assets/css/owl.theme.default.min.css'); ?>" >
-  
-  
+  <link type="text/css" href="<?php echo base_url('./assets/css/slider.css');?>" rel="stylesheet">
+
 </head>
 
 
@@ -65,8 +65,8 @@
         </div>
       
         <?php foreach ($item as $data) : ?>
-        <h1 class="mt-1 pt-1 judul-text" style="color:red;"><?=$data->nama_produk?></h1>
-        <h6 class="pb-2">Penjual : <?=$data->nama_penjual?> </h6>
+        <h1 class="mt-1 pt-1 judul-text font-weight-bold " style="color:red;"><?=$data->nama_produk?></h1>
+        <h6 class="pb-2">Penjual : <?=$data->nama_penjual?></h6> 
        
       </div>
       
@@ -91,11 +91,11 @@
                   </div>
 
                    <div id="thumbs" class="owl-carousel owl-theme">
-                    <div class="item mx-auto" style="width:80px; height:80px;">
+                    <div class="item mx-auto">
                           <img src="<?=base_url("./assets/upload/images/".$data->gambar_produk); ?>">
                     </div>
                     <div class="item mx-auto">
-                          <img src="h<?=base_url("./assets/upload/images/".$data->thumb_produk1); ?>">
+                          <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk1); ?>">
                     </div>
                     <div class="item mx-auto">
                           <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk2); ?>">
@@ -121,7 +121,7 @@
                                     <div class="d-flex">
                                       <div>
                                         <h3 class="font-weight-bold" style="color:red;">Harga</h3>
-                                        <h5 class="font-weight-bold"><?= $data->harga_produk ?></h5>
+                                        <h5 class="font-weight-bold"><?= "Rp " . number_format($data->harga_produk,2,',','.') ?></h5>
                                       </div>
                                      
                                       <div class="ml-auto">
@@ -166,88 +166,55 @@
     
   <div class="container-fluid bg-light pb-1">
     <h3 class="mt-5 pt-3 text-description font-weight-bold"><div class="lines" data-text="Barang Yang Lain. . ."></div></h3>
-    <div class="row mx-auto justify-content-center mb-2 pt-3">        
-      <div class="card mr-2 ml-2 mb-4">
-          <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
+    <div class="row mx-auto justify-content-center mb-2 pt-3">     
+    <?php foreach ($randomdata as $data) : ?>   
+      <div class="card mr-2 ml-2 mb-4" style="width: 18rem; ">
+          <img class="card-img-top"  src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="Card image cap">
           <div class="card-body">
-              <h5 class="card-title">Sepatu</h5>
-              <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-              <a href="#" class="btn btn-detailbrg">Detail</a>
+              <h5 class="card-title font-weight-bold text-danger"><?= $data->nama_produk ?></h5>
+              <p class="card-text"><?= $data->deskripsi_produk ?></p>
+              <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>" class="btn btn-detailbrg">Detail</a>
           </div>
         </div>
-        <div class="card mr-2 ml-2 mb-4">
-          <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-          <div class="card-body">
-              <h5 class="card-title">Sepatu</h5>
-              <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-              <a href="#" class="btn btn-detailbrg">Detail</a>
-          </div>
-        </div>
-        <div class="card mr-2 ml-2 mb-4">
-          <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-          <div class="card-body">
-              <h5 class="card-title">Sepatu</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, laboriosam.</p>
-              <a href="#" class="btn btn-detailbrg">Detail</a>
-          </div>
-        </div>
-        <div class="card mr-2 ml-2 mb-4">
-          <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/sepatu1.jpg" alt="Card image cap">
-          <div class="card-body">
-              <h5 class="card-title">Sepatu</h5>
-              <p class="card-text">Sepatu ini sangat mantul dipakai melarikan istri orang gan.</p>
-              <a href="#" class="btn btn-detailbrg">Detail</a>
-          </div>
-        </div>
+    <?php endforeach; ?>    
     
         </div>
         </div>
       </div>
 </section>
-      <section class="jambrong-footer">
-            <div class="container-fluid">
-              <div class="row justify-content-center bg-dark pt-3">
-                <div class="col-md-2 white-text">
-                  <h4 class="font-weight-bold">Address</h4>
-                  <div class="text-left">
-                  <p>Apartemenmu</p>
-                  <p>Surabaya</p>
-                  <p>Jawa Timur</p>
-                  <p>Indonesia</p>
-                  <p>60421</p>
-                  </div>
-                  </div>
-                  <div class="col-md-3 white-text">
-                      <h4 class="font-weight-bold">Terms and Policy</h4>
-                  </div>
-                      <div class="col-md-3 white-text">
-                          <h4 class="font-weight-bold">Categories</h4>
-                          <div class="text-left">
-                          <p>Baju Pria</p>
-                          <p>Baju Wanita</p>
-                          <p>Celana Pria</p>
-                          <p>Topi</p>
-                          <p>Dompet</p>
-                          </div>
-                      </div>
-                          
-                          <div class="col-md-3 white-text">
-                              <div class="social-media">
-                          <h4 class="font-weight-bold text-left mt-1 d-inline-block text-truncate">Social Media</h4>
-                          <p><i class="fab fa-instagram fa-2x"><span>@Jambrong_Store</span></i></p>
-                          <p><i class="fab fa-facebook fa-2x" ><span>Jambrong Store</span></i></p>
-                          <p><i class="fab fa-whatsapp  fa-2x "><span>+6283213212</span></i></p>    
-                      </div>
-                    </div>
-                    </div>
-                 </div>
-                 <div class="copyright bg-dark white-text">
-                   <div class="col-md-12 py-1 ">
-                     <h6 class="text-center mt-2">Copyright <i class="far fa-copyright fa-1x"></i> by G-Dunk 2019</h6>
-                   
-                   </div>
-                 </div>
-          </section>
+<section class="jambrong-footer">
+  <div class="container-fluid" >
+    <div class="row justify-content-center bg-dark pt-3">
+      <div class="col-md-2 white-text" >
+        <h4 class="font-weight-bold">Address</h4>
+        <div class="text-left">
+        <p>Apartemenmu</p>
+        <p>Surabaya</p>
+        <p>Jawa Timur</p>
+        <p>Indonesia</p>
+        <p>60421</p>
+        </div>
+        </div>
+        <div class="col-md-3 white-text">
+            <h4 class="font-weight-bold">Terms and Policy</h4>
+        </div>
+                <div class="col-md-3 white-text">
+                  <div class="social-media">
+                <h4 class="font-weight-bold text-left mt-1 mb-1 d-inline-block text-truncate">Social Media</h4>
+                <p><i class="fab fa-instagram fa-2x "><span>@Jambrong_Store</span></i></p>
+                <p><i class="fab fa-facebook fa-2x" ><span>Jambrong Store</span></i></p>
+                <p><i class="fab fa-whatsapp  fa-2x "><span>+6283213212</span></i></p>    
+              </div>
+          </div>
+          </div>
+       </div>
+       <div class="copyright bg-dark  white-text">
+         <div class="col-md-12 py-1 ">
+           <h6 class="text-center mt-2">Copyright <i class="far fa-copyright fa-1x"></i> by G-Dunk</h6>
+           <h6><p class="text-center mt-1 pt-2">2019</h6></p>
+         </div>
+       </div>
+</section>
                     
   
              <!-- JQuery -->
@@ -262,6 +229,7 @@
           <!-- MDB core JavaScript -->
           <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
           <script type="text/javascript" language="JavaScript" src="<?php echo base_url();?>assets/js/product.js"></script>
+        
         </body>
           
           </html>
