@@ -32,6 +32,13 @@ class Overview extends CI_Controller{
         $data['title'] = 'Data Kategori';
          $data['row'] = $this->Model_produk->get_kategori();
     }
+    public function lihatkategori2(){
+        $data['title'] = "Data Kategori";
+        $this->load->model('Model_gerbang');
+        $data['data']= $this->Model_gerbang->get_kategori();  
+        $this->load->view('admin/lihatkategori.php', $data);
+       
+    }
     public function tambah(){
         $data['title'] = 'Form Tambah Penjual';
         $this->form_validation->set_rules('nama_penjual','Nama','required');

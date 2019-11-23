@@ -1,6 +1,6 @@
 <?php
 
-class Login_page extends CI_Controller{
+class Login_Page extends CI_Controller{
         protected $CI;
         
         public function __construct(){

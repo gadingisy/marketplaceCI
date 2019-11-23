@@ -40,7 +40,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('Overview/lihatkategori') ?>" >
+        <a class="nav-link" href="<?php echo site_url('Overview/lihatkategori2') ?>" >
           <i class="fas fa-fw fa-table"></i>
           <span>Lihat Kategori</span></a>
       </li>
