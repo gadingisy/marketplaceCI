@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    
+<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.jpg">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><?php foreach ($item as $data) : ?><?= $data->nama_produk?><?php endforeach; ?></title>
@@ -42,7 +42,7 @@
                               <div class="collapse navbar-collapse" id="navbarCollapse">
                               <div class="navbar-nav navmbrong" style="color:red;">
                                   <a href="<?= site_url('Index')?>" class="nav-item nav-link active"style="color:red;">Home</a>
-                             
+                                  <a href="<?= site_url('Categories_page')?>" class="nav-item nav-link active"style="color:red;">Categories</a>
                               </div>
                             
                                   <div class="navbar-nav ml-auto">
@@ -107,27 +107,28 @@
               </div>                      
         </div>
                     <div class="col-md-6 text-description pl-4 bg-light">
+             
                                     <h3 class="my-3 font-weight-bold" style="color:red;">Deskripsi Produk</h3>
                                     <p> <?=$data->deskripsi_produk?></p>
-                                    <h3 class="my-3 mt-4 font-weight-bold" style="color:red;">Detail Produk</h3>
-                                    <ul>
-                                      <li><?= $data->ukuran_produk ?></li>
-                                     
-                                    </ul>
-                                    <div>
-                                        <h3 class="font-weight-bold" style="color:red;">Jumlah Produk</h3>
-                                        <h5 class="font-weight-bold"><?= $data->jumlah_produk ?></h5>
-                                      </div> 
+                                    <h3 class="font-weight-bold" style="color:red;">Harga</h3>
+                                    <h5 class="font-weight-bold"><?= "Rp " . number_format($data->harga_produk,2,',','.') ?></h5>
+                                                          
+                                    <h3 class="font-weight-bold" style="color:red;">Jumlah Produk</h3>
+                                    <h5 class="font-weight-bold"><?= $data->jumlah_produk ?></h5>
+                                    
                                     <div class="d-flex">
                                       <div>
-                                        <h3 class="font-weight-bold" style="color:red;">Harga</h3>
-                                        <h5 class="font-weight-bold"><?= "Rp " . number_format($data->harga_produk,2,',','.') ?></h5>
-                                      </div>
+                                      <h3 class="my-3 mt-4 font-weight-bold" style="color:red;">Detail Produk</h3>
+                                      <ul>
+                                      <li><?= $data->ukuran_produk ?></li>
+                                    
                                      
+
+                                    </ul>
+                                      </div>
+                                      </div>  
                                       <div class="ml-auto">
 
-                                      
-                                    <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#kontak">
                                       Contact
                                     </button>
@@ -151,13 +152,12 @@
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                           
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                    </div>
-                                </div>            
+                                   </div>   
+                      
           </div>
         </div>
  </div>
@@ -168,10 +168,11 @@
     <h3 class="mt-5 pt-3 text-description font-weight-bold"><div class="lines" data-text="Barang Yang Lain. . ."></div></h3>
     <div class="row mx-auto justify-content-center mb-2 pt-3">     
     <?php foreach ($randomdata as $data) : ?>   
-      <div class="card mr-2 ml-2 mb-4" style="width: 18rem; ">
-          <img class="card-img-top"  src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="Card image cap">
+      <div class="card mr-2 ml-2 mb-4">
+          <img class="card-img-top"  src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="<?= $data->nama_produk ?>">
           <div class="card-body">
-              <h5 class="card-title font-weight-bold text-danger"><?= $data->nama_produk ?></h5>
+              <h4 class="card-title font-weight-bold text-danger"><?= $data->nama_produk ?></h4>
+              <h6 class="card-subtitle mb-2 text-muted">Penjual : <?= $data->nama_penjual ?></h6>
               <p class="card-text"><?= $data->deskripsi_produk ?></p>
               <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>" class="btn btn-detailbrg">Detail</a>
           </div>

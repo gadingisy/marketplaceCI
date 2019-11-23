@@ -5,6 +5,7 @@
     
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.jpg">
     <title>Gerbang Lamongan - Tempat Menjual Barang Terbaik</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Font Awesome -->
@@ -20,6 +21,7 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link href="<?php echo base_url('./assets/css/stylesku.css');?>" rel="stylesheet">
+  <link type="text/css" href="<?php echo base_url('./assets/css/slider.css');?>" rel="stylesheet">
 </head>
 
 <body>
@@ -116,7 +118,8 @@
               <div class="card mr-2 ml-2 mb-4" style="width: 18rem; ">
                   <img class="card-img-top img-thumbnail"  src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="Card image cap">
                   <div class="card-body">
-                      <h5 class="card-title font-weight-bold text-danger"><?= $data->nama_produk ?></h5>
+                      <h4 class="card-title font-weight-bold text-danger"><?= $data->nama_produk ?></h4>
+                      <h6 class="card-subtitle mb-2 text-muted">Penjual : <?= $data->nama_penjual ?></h6>
                       <p class="card-text"><?= $data->deskripsi_produk ?></p>
                 
                       <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>" class="btn btn-detailbrg">Detail</a>

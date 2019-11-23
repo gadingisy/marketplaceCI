@@ -4,6 +4,7 @@
 <head>
     
     <meta charset="utf-8" />
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.jpg">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Categories</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,7 +40,8 @@
             </button>
                  <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav navmbrong">
-  
+                <a href="<?= site_url('Index')?>" class="nav-item nav-link active"style="color:red;">Home</a>
+                  <a href="<?= site_url('Categories_page')?>" class="nav-item nav-link active"style="color:red;">Categories</a>
                 </div>
               
                      <div class="navbar-nav ml-auto">

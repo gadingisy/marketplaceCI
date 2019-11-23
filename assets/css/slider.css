@@ -13,7 +13,8 @@ body{
 .card-img-top {
   width: 100%;
   height: 15vw;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius:35px;
 }
 .lines {
   position: relative;
@@ -98,6 +99,7 @@ span{
 }
 .card{
   width: 18rem;
+  border-radius:35px;
 }  
 @media only screen and (max-width: 768px) {
     .text-description {
@@ -105,6 +107,12 @@ span{
     }
     .card{
       width: 10rem;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 65vw;
+      object-fit: contain;
+      border-radius:35px;
     }
     }
 
@@ -118,7 +126,7 @@ span{
      max-width:800px;
         }
 #big .item { 
-
+    background-color:white;
     color: #FFF;
     border-radius: 3px;
     text-align: center;
@@ -136,6 +144,16 @@ span{
         text-align: center; 
         cursor: pointer;
     }
+    .card-body{
+      height: auto;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 50vw;
+      object-fit: contain;
+      border-radius:35px;
+    }
+  
     }
 
 #thumbs .item { 

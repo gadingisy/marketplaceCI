@@ -16,7 +16,7 @@ class Model_gerbang extends CI_Model{
   return $query;
  }
  public function get_barang($id_produk){
-$query = $this->db->query("select tb_kategori.id_kat,tb_produk.*,tb_kategori.nama_kat from tb_produk join tb_kategori on tb_kategori.id_kat = tb_produk.id_kat WHERE tb_kategori.slug_kat = '$id_produk'");
+$query = $this->db->query("select tb_kategori.id_kat,tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual from tb_produk join tb_penjual on tb_penjual.id_penjual = tb_produk.id_penjual join tb_kategori on tb_kategori.id_kat = tb_produk.id_kat WHERE tb_kategori.slug_kat = '$id_produk'");
 
 return $query->result();
 
@@ -28,7 +28,7 @@ public function get_item($id_item){
   }
 
 public function random_item($id_item){
-  $query = $this->db->query("select * from tb_produk where id_produk <> $id_item order by rand() limit 4");
+  $query = $this->db->query("select tb_produk.*,tb_penjual.nama_penjual from tb_produk join tb_penjual on tb_penjual.id_penjual = tb_produk.id_penjual where id_produk <> $id_item order by rand() limit 4");
   return $query->result();
 }
 

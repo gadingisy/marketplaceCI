@@ -5,12 +5,13 @@
     
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.jpg">
     <title>  <?php foreach ($produk as $data) : ?>
                    <?=$data->nama_kat?>
                     <?php endforeach; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Font Awesome -->
- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/slider.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
- 
+  <link type="text/css" href="<?php echo base_url('./assets/css/slider.css');?>" rel="stylesheet">
 
 
 </head>
@@ -131,8 +132,8 @@
                                 <img class="card-img-top img-thumbnail" src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="Card image cap">
                               </div>
                             <div class="card-body">
-                              <h5 class="card-title font-weight-bold text-danger"><?= $data->nama_produk ?></h5>
-                              
+                              <h4 class="card-title font-weight-bold text-danger"><?= $data->nama_produk ?></h4>
+                              <h6 class="card-subtitle mb-2 text-muted">Penjual : <?= $data->nama_penjual ?></h6>
                               <p class="card-text"><?= $data->deskripsi_produk ?></p>
                               <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>" class="btn btn-detailbrg">Detail</a>
                             </div>

@@ -6,7 +6,7 @@
   <meta name="author" content="">
   <?php
 if ($this->session->userdata('status') !== TRUE){
-  redirect(base_url('login_page'));
+  redirect(base_url('Login_Page'));
 }
 ?>
   <title><?= $title ?></title>

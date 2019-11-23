@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<?php $this->load->view("admin/_partials/head.php") ?>
+ <?php $this->load->view("admin/_partials/head.php") ?>
 </head>
 
 <body id="page-top">
@@ -110,7 +108,7 @@
                 <div class="table-responsive">
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                 <a href="<?=site_url('Produk/tambahproduk')?>" class="btn btn-danger mb-2"><i class="fas fa-plus-circle"> Tambah Produk</i></a>
+                 <a href="<?=site_url('Overview/tambahproduk')?>" class="btn btn-danger mb-2"><i class="fas fa-plus-circle"> Tambah Produk</i></a>
                       <tr>
                         <th>No</th>
                         <th>Nama Produk</th>
@@ -118,7 +116,7 @@
                         <th>Penjual</th>
                         <th>Deskripsi</th>
                         <th>Jumlah</th>
-                        <th>Ukuran</th>
+                        <th>Detail</th>
                         <th>Harga</th>
                         <th>Slug</th>
                         <th>Gambar</th>
@@ -148,8 +146,8 @@
                       </td>
                       
                        <td>
-                    <a href='<?= base_url(); ?>Produk/edit/<?= $data->id_produk ?>' class='btn btn-sm btn-info mb-2'>Edit</a>
-                    <a href="<?= base_url(); ?>Produk/hapusproduk/<?= $data->id_produk ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" >Hapus</a>
+                    <a href='<?= base_url(); ?>Overview/editproduk/<?= $data->id_produk ?>' class='btn btn-sm btn-info mb-2'>Edit</a>
+                    <a href="<?= base_url(); ?>Overview/hapusproduk/<?= $data->id_produk ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" >Hapus</a>
             
 				              	</td>
                     

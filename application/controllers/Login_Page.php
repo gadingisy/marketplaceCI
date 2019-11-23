@@ -39,20 +39,20 @@ class Login_page extends CI_Controller{
                             $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
                             Password Salah!
                         </div>');
-                            redirect('Login_page');
+                            redirect('Login_Page');
                         }
                     } else{
                         $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
                     Tidak ada Username tersebut.
                 </div>');
-                    redirect('Login_page');
+                    redirect('Login_Page');
                     }
                     
         }else{
             $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
             Username atau Password Salah!
            </div>');
-             redirect('Login_page');
+             redirect('Login_Page');
         }
             
         
@@ -80,7 +80,7 @@ class Login_page extends CI_Controller{
         $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
                     Username telah terdaftar, silahkan login.
                 </div>');
-        redirect('Login_page');
+        redirect('Login_Page');
     
     }
         
@@ -95,7 +95,7 @@ class Login_page extends CI_Controller{
         </div>');
         session_destroy();
        
-        redirect('Login_page');
+        redirect('Login_Page');
     }
 
 }

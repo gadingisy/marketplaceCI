@@ -46,7 +46,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('Produk/lihatproduk') ?>" >
+        <a class="nav-link" href="<?php echo site_url('Overview/lihatproduk') ?>" >
           <i class="fas fa-box-open"></i>
           <span>Lihat Produk</span></a>
       </li>
