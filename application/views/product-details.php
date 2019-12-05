@@ -5,7 +5,7 @@
 <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.jpg">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title><?php foreach ($item as $data) : ?><?= $data->nama_produk?><?php endforeach; ?></title>
+<title><?php foreach ($item as $data) : ?><?= $data->nama_produk?> by <?= $data->nama_penjual ?><?php endforeach; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Font Awesome -->
 

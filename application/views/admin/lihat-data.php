@@ -112,6 +112,8 @@
                         <th>Alamat</th>
                         <th>Hp</th>
                         <th>Jenis Kelamin</th>
+                        <th>Nomor KTP</th>
+                        <th>Foto KTP</th>
                         <th>Facebook</th>
                         <th>Instagram</th>
                         <th>Detail</th>
@@ -127,6 +129,8 @@
                        <td><?= $data['alamat_penjual']; ?></td>
                        <td><?= $data['hp_penjual']; ?></td>
                        <td><?= $data['jk_penjual']; ?></td>
+                       <td><?= $data['no_ktp']; ?></td>
+                       <td><img src="<?=base_url("./assets/upload/images/".$data['foto_ktp'])?>" width="100px">
                        <td><?= $data['facebook_penjual']; ?></td>
                        <td><?= $data['instagram_penjual']; ?></td>
                    

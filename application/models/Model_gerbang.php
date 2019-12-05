@@ -51,16 +51,9 @@ return $query;
   return $query;
  }
 
-   public function tambah_data_penjual(){
+   public function tambah_data_penjual($data){
 
-    $data = array(
-                   'nama_penjual'  => $this->input->post('nama_penjual', true), 
-                   'alamat_penjual'  => $this->input->post('alamat_penjual', true), 
-                  'hp_penjual' => $this->input->post('hp_penjual', true), 
-                  'jk_penjual' => $this->input->post('jk_penjual'),
-                  'facebook_penjual' => $this->input->post('facebook_penjual', true),
-                  'instagram_penjual' => $this->input->post('instagram_penjual', true)
-              );
+   
     $this->db->insert('tb_penjual',$data);
   }
     public function tambahkategori(){
@@ -109,16 +102,9 @@ return $query;
 
    
 
-     public function ubah_data_penjual(){
+     public function ubah_data_penjual($data){
 
-      $data = array(
-                     'nama_penjual'  => $this->input->post('nama_penjual', true), 
-                     'alamat_penjual'  => $this->input->post('alamat_penjual', true), 
-                    'hp_penjual' => $this->input->post('hp_penjual', true), 
-                    'jk_penjual' => $this->input->post('jk_penjual'),
-                    'facebook_penjual' => $this->input->post('facebook_penjual', true),
-                    'instagram_penjual' => $this->input->post('instagram_penjual', true)
-                );
+   
       $this->db->where('id_penjual', $this->input->post('id_penjual'));
       $this->db->update('tb_penjual',$data);
     }

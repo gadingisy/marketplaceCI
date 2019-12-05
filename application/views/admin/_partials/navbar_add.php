@@ -15,7 +15,7 @@
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihatkategori') ?>">
         <div class="sidebar-brand-text mx-3">Lihat Data Kategori</div>
       </a>
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Produk/lihatproduk') ?>">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihatproduk') ?>">
         <div class="sidebar-brand-text mx-3">Lihat Data Produk</div>
       </a>
           <!-- Topbar Search -->

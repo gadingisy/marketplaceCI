@@ -12,7 +12,7 @@
               <?= validation_errors(); ?> 
               </div>
          <?php endif; ?>
-            <form action="" method="post">
+         <form action="" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id_penjual" value="<?= $data['id_penjual']; ?>">
             <div class="form-group">
                 <label for="nama_penjual">Nama Penjual</label>
@@ -28,6 +28,16 @@
                 <label for="hp_penjual">No HP Penjual</label>
                 <input type="text" class="form-control" name="hp_penjual" value="<?= $data['hp_penjual']; ?>" id="hp_penjual"> 
                 <small class="form-text text-danger"><?= form_error('hp_penjual'); ?></small>
+            </div>  
+            <div class="form-group">
+                <label for="hp_penjual">No KTP</label>
+                <input type="text" class="form-control" name="no_ktp"  id="no_ktp" value="<?= $data['no_ktp']; ?>"> 
+                <small class="form-text text-danger"><?= form_error('no_ktp'); ?></small>
+            </div>  
+            <div class="form-group">
+                <label for="foto_ktp">Foto KTP</label>
+                <input type="file" class="form-control" name="foto_ktp"> 
+                <img src="<?=base_url("./assets/upload/images/".$data['foto_ktp'])?>" width="100px">
             </div>  
             <div class="form-group">
             <label for="jk_penjual" name="jk_penjual">Jenis Kelamin</label>

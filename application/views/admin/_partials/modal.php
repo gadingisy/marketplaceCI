@@ -7,10 +7,10 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        
+       
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-danger" href="<?= base_url('Login_page/logout') ?>">Logout</a>
+          <a class="btn btn-danger" href="<?= base_url('Login_Page/logout') ?>">Logout</a>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@
     
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.jpg">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.png">
     <title>Gerbang Lamongan - Tempat Menjual Barang Terbaik</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Font Awesome -->
@@ -20,7 +20,7 @@
  
   <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link href="<?php echo base_url('./assets/css/stylesku.css');?>" rel="stylesheet">
+  <link type="text/css" href="<?php echo base_url('./assets/css/stylesku.css');?>" rel="stylesheet">
   <link type="text/css" href="<?php echo base_url('./assets/css/slider.css');?>" rel="stylesheet">
 </head>
 
@@ -41,6 +41,7 @@
                 <div class="navbar-nav navmbrong">
                   <a href="<?= site_url('Index')?>" class="nav-item nav-link active"style="color:red;">Home</a>
                   <a href="<?= site_url('Categories_page')?>" class="nav-item nav-link active"style="color:red;">Categories</a>
+                  
                 </div>
               
                      <div class="navbar-nav ml-auto">
@@ -133,9 +134,12 @@
 
             <?php endforeach; ?>    
             </div>
-   
+            <a href="<?= base_url('Registrasi') ?>" class="btn btn-danger floatingbutton font-weight-bold" role="button">Daftar</a>
 
 </section>
+
+
+
 <!-- NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD -->
 <section class="jambrong-kategori">
 <div class="container-fluid " style="background-color: #D4151B">
