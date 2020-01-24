@@ -173,7 +173,7 @@ class Overview extends CI_Controller{
         } else {
            $this->Model_gerbang->tambahkategori();
            $this->session->set_flashdata('flash', 'Data sudah ditambahkan');
-           redirect('Overview/lihatkategori');
+           redirect('Overview/lihatkategori2');
         }
     }
 
@@ -192,13 +192,13 @@ class Overview extends CI_Controller{
         } else {
            $this->Model_gerbang->ubahkategori();
            $this->session->set_flashdata('flash', 'Data sudah diubah');
-           redirect('Overview/lihatkategori');
+           redirect('Overview/lihatkategori2');
         }
     }
     public function hapuskategori($id_kat){
         $this->Model_gerbang->hapuskategori($id_kat);
         $this->session->set_flashdata('flash','Data Sudah Dihapus');
-        redirect('Overview/lihatkategori');
+        redirect('Overview/lihatkategori2');
     }
     
     public function tambahproduk(){

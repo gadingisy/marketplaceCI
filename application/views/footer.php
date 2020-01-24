@@ -1,4 +1,42 @@
   <!-- Footer Section Begin -->
+  <div class="partner-logo">
+        <div class="container">
+            <div class="logo-carousel owl-carousel">
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
+												
+                    </div>
+								</div>
+								<div class="logo-item">
+                    <div class="tablecell-inner">
+												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
+												
+                    </div>
+								</div>
+								<div class="logo-item">
+                    <div class="tablecell-inner">
+												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
+												
+                    </div>
+								</div>
+								<div class="logo-item">
+                    <div class="tablecell-inner">
+												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
+												
+                    </div>
+								</div>
+								<div class="logo-item">
+                    <div class="tablecell-inner">
+												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
+												
+                    </div>
+								</div>
+								
+               
+            </div>
+        </div>
+    </div>
   <footer class="footer-section">
         <div class="container">
             <div class="row">

@@ -68,7 +68,7 @@
                             <ul class="dropdown">
 							<?php foreach ($row->result() as $key=>$data) : ?>
 
-                                <li><a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></li>
+                                <li><a href="<?php echo base_url('Categories_page/index/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></li>
                             
 								<?php endforeach; ?>   
                             </ul>
@@ -77,7 +77,7 @@
                             <ul class="dropdown">
 							<?php foreach ($row2->result() as $key=>$data) : ?>
 
-							<li><a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></li>
+							<li><a href="<?php echo base_url('Categories_page/index/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></li>
 
 							<?php endforeach; ?>   
                             </ul>

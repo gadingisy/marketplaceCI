@@ -1,207 +1,211 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.jpg">
-    <title>  <?php foreach ($produk as $data) : ?>
-                   <?=$data->nama_kat?>
-                    <?php endforeach; ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- Font Awesome -->
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<!-- Bootstrap core CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-  <link type="text/css" href="<?php echo base_url('./assets/css/slider.css');?>" rel="stylesheet">
-
-
-</head>
-
-
-<body>
-    <!-- NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBARNAVBAR NAVBAR NAVBARNAVBAR -->
-    <header>
-                    
-                    <nav class="navbar navbar-expand-md navbar-light fixed-top"  style="background-color:#ffffff;">
-                      <div class="container">
-                      <a class="navbar-brand " href="#">
-                        <img src="<?php echo base_url(); ?>assets/images/logo.jpg" alt="logo" style="width:40px;">
-                     </a>      
-                          <a href="<?php echo site_url('Index') ?>" class="navbar-brand mr-3" style="color:red;">Gerbang Lamongan</a>
-                          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                              <span class="navbar-toggler-icon"></span>
-                          </button>
-                              <div class="collapse navbar-collapse" id="navbarCollapse">
-                              <div class="navbar-nav navmbrong">
-                              <a href="<?= site_url('Index')?>" class="nav-item nav-link active"style="color:red;">Home</a>
-                              <a href="<?= site_url('Categories_page')?>" class="nav-item nav-link active"style="color:red;">Categories</a>
-                            </div>
-                            
-                                  <div class="navbar-nav ml-auto">
-                                      <form class="form-inline" action="#">
-                                        <input type="search" placeholder="Search">
-                                        <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-search"></i></button>
-                                      </form>
-                                    
-                                  </div>
-                              </div>
-                            </div>
-                  </nav>
-            
-            </header>   
-            <div class="container-fluid">
-            <div class="page-wrapper mt-5 chiller-theme">
-                <a id="show-sidebar" class="btn btn-sm btn-danger" href="#">
-                  <i class="fas fa-bars"></i>
-                </a>
-                <nav id="sidebar" class="sidebar-wrapper mt-5 pt-3">
-                  <div class="sidebar-content">
-                    <div class="sidebar-brand">
-                      <a href="#">Menu Lain</a>
-                      <div id="close-sidebar">
-                        <i class="fas fa-times"></i>
-                      </div>
+<?php	
+$this->load->view('header');
+?>
+  <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <span>Shop</span>
                     </div>
-
-                    <div class="sidebar-menu">
-                      <ul>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Barang</span>
-                            </a>
-                          <div class="sidebar-submenu">
-                            <ul>
-                              
-                              <?php foreach ($row->result() as $key=>$data) : ?>
-                              <li>
-                                <a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><?=$data->nama_kat?>
-                                </a>
-                              </li>
-                              <?php endforeach; ?>  
-                              
-                             
-                            </ul>
-                          </div>
-                        </li>
-                        <li class="sidebar-dropdown">
-                          <a href="#">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Jasa</span>
-                          </a>
-                          <div class="sidebar-submenu">
-                            <ul>
-                           
-                              <?php foreach ($row2->result() as $key=>$data) : ?>
-                              <li>
-                                <a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><?=$data->nama_kat?>
-                                </a>
-                              </li>
-                              <?php endforeach; ?>  
-                            
-                              
-                            </ul>
-                          </div>
-                        </li>
-                        <div class="sidebar-menu"></div>
-                    </div>
-                    <!-- sidebar-menu  -->
-                  </div>
-                </nav>
-                              
-                <!-- sidebar-wrapper  -->
-                <div class="product-title">
-                <?php foreach ($produk as $data) : ?>
-                    <h1 class="font-weight-bold text-danger mt-5 ml-5 pt-4"><?=$data->nama_kat?></h1>
-                    <?php endforeach; ?>
-                  
                 </div>
-                <?php foreach ($produk as $data) : ?>
-                <div class="row mx-auto mt-5 justify-content-center mb-3">
-                        <div class="card mr-2 ml-2 mb-4">
-                            <div class="view overlay">
-                                <img class="card-img-top img-thumbnail" src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" alt="Card image cap">
-                              </div>
-                            <div class="card-body">
-                              <h4 class="card-title font-weight-bold text-danger"><?= $data->nama_produk ?></h4>
-                              <h6 class="card-subtitle mb-2 text-muted">Penjual : <?= $data->nama_penjual ?></h6>
-                              <p class="card-text"><?= $data->deskripsi_produk ?></p>
-                              <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>" class="btn btn-detailbrg">Detail</a>
-                            </div>
-                          </div>
-                          <?php endforeach; ?>
-                               
-                               
-                                   
-                                            
-                                                       
-                </div>   
-                <div class="row justify-content-center">
-                                         <ul class="pagination justify-content-center">
-                                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                              </ul>     
-              </div>                               
-              </div>
-              
             </div>
-                   <!-- End Sidebar -->
-                  
-                   
-               <!-- JQuery -->
+        </div>
+    </div>
+    <!-- Breadcrumb Section Begin -->
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
-<script type="text/javascript">
-$(".sidebar-dropdown > a").click(function() {
-  $(".sidebar-submenu").slideUp(200);
-  if (
-    $(this)
-      .parent()
-      .hasClass("active")
-  ) {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .parent()
-      .removeClass("active");
-  } else {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .next(".sidebar-submenu")
-      .slideDown(200);
-    $(this)
-      .parent()
-      .addClass("active");
-  }
-});
-
-$("#close-sidebar").click(function() {
-  $(".page-wrapper").removeClass("toggled");
-});
-$("#show-sidebar").click(function() {
-  $(".page-wrapper").addClass("toggled");
-});
-
-
-
-</script>
-</body>
-
-</html>
+    <!-- Product Shop Section Begin -->
+    <section class="product-shop spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1 produts-sidebar-filter">
+                    <div class="filter-widget">
+                        <h4 class="fw-title">Categories</h4>
+                        <ul class="filter-catagories">
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Kids</a></li>
+                        </ul>
+                    </div>
+                    <div class="filter-widget">
+                        <h4 class="fw-title">Brand</h4>
+                        <div class="fw-brand-check">
+                            <div class="bc-item">
+                                <label for="bc-calvin">
+                                    Calvin Klein
+                                    <input type="checkbox" id="bc-calvin">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="bc-item">
+                                <label for="bc-diesel">
+                                    Diesel
+                                    <input type="checkbox" id="bc-diesel">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="bc-item">
+                                <label for="bc-polo">
+                                    Polo
+                                    <input type="checkbox" id="bc-polo">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="bc-item">
+                                <label for="bc-tommy">
+                                    Tommy Hilfiger
+                                    <input type="checkbox" id="bc-tommy">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-widget">
+                        <h4 class="fw-title">Price</h4>
+                        <div class="filter-range-wrap">
+                            <div class="range-slider">
+                                <div class="price-input">
+                                    <input type="text" id="minamount">
+                                    <input type="text" id="maxamount">
+                                </div>
+                            </div>
+                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                data-min="33" data-max="98">
+                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                            </div>
+                        </div>
+                        <a href="#" class="filter-btn">Filter</a>
+                    </div>
+                    <div class="filter-widget">
+                        <h4 class="fw-title">Color</h4>
+                        <div class="fw-color-choose">
+                            <div class="cs-item">
+                                <input type="radio" id="cs-black">
+                                <label class="cs-black" for="cs-black">Black</label>
+                            </div>
+                            <div class="cs-item">
+                                <input type="radio" id="cs-violet">
+                                <label class="cs-violet" for="cs-violet">Violet</label>
+                            </div>
+                            <div class="cs-item">
+                                <input type="radio" id="cs-blue">
+                                <label class="cs-blue" for="cs-blue">Blue</label>
+                            </div>
+                            <div class="cs-item">
+                                <input type="radio" id="cs-yellow">
+                                <label class="cs-yellow" for="cs-yellow">Yellow</label>
+                            </div>
+                            <div class="cs-item">
+                                <input type="radio" id="cs-red">
+                                <label class="cs-red" for="cs-red">Red</label>
+                            </div>
+                            <div class="cs-item">
+                                <input type="radio" id="cs-green">
+                                <label class="cs-green" for="cs-green">Green</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-widget">
+                        <h4 class="fw-title">Size</h4>
+                        <div class="fw-size-choose">
+                            <div class="sc-item">
+                                <input type="radio" id="s-size">
+                                <label for="s-size">s</label>
+                            </div>
+                            <div class="sc-item">
+                                <input type="radio" id="m-size">
+                                <label for="m-size">m</label>
+                            </div>
+                            <div class="sc-item">
+                                <input type="radio" id="l-size">
+                                <label for="l-size">l</label>
+                            </div>
+                            <div class="sc-item">
+                                <input type="radio" id="xs-size">
+                                <label for="xs-size">xs</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-widget">
+                        <h4 class="fw-title">Tags</h4>
+                        <div class="fw-tags">
+                            <a href="#">Towel</a>
+                            <a href="#">Shoes</a>
+                            <a href="#">Coat</a>
+                            <a href="#">Dresses</a>
+                            <a href="#">Trousers</a>
+                            <a href="#">Men's hats</a>
+                            <a href="#">Backpack</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 order-1 order-lg-2">
+                    <div class="product-show-option">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7">
+                                <div class="select-option">
+                                    <select class="sorting">
+                                        <option value="">Default Sorting</option>
+                                    </select>
+                                    <select class="p-show">
+                                        <option value="">Show:</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 text-right">
+                                <p>Show 01- 09 Of 36 Product</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-list">
+                        <div class="row">
+										
+               
+											
+													<?php foreach ($produk as $data) : ?>
+                            <div class="col-lg-4 col-sm-6">
+                                  <div class="product-item col-md">
+                            <div class="pi-pic">
+															
+                                <img src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>"  alt="">
+                                <div class="sale">Sale</div>
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="quick-view"><a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>">Lihat Produk</a></li>
+																</ul>
+														</div>				
+                           		 <div class="pi-text">
+                                        <div class="catagory-name"><?= $data->nama_kat ?></div>		
+                              	  <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>">
+                                    <h5 style="word-break: break-all;"><?= $data->nama_produk ?></h5>
+                                    </a>
+                                <div class="product-price">
+															<?= "Rp " . number_format($data->harga_produk,2,',','.') ?>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+														<?php endforeach; ?>
+                           
+                        </div>
+                    </div>
+                    <!-- <div class="loading-more">
+                        <i class="icon_loading"></i>
+                        <a href="#">
+                            Loading More
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Shop Section End -->
+	
+							 <?php	
+$this->load->view('footer');
+?>

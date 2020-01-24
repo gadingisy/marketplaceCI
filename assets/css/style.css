@@ -1397,7 +1397,7 @@ ol {
 }
 
 .instagram-photo .insta-item .inside-text {
-	padding-top: 130px;
+	padding-top: 100px;
 	opacity: 1;
 	position: relative;
 	-webkit-transition: all 0.3s;
@@ -1406,17 +1406,27 @@ ol {
 	transition: 0.3s;
 }
 
+
 .instagram-photo .insta-item .inside-text i {
-	font-size: 40px;
+	
 	color: #ffffff;
+}
+
+ .pict-category {
+	width:60px;
 }
 
 .instagram-photo .insta-item .inside-text h5 {
 	margin-top: 14px;
+	font-size:22px;
+	font-weight: bold;
+	
+
 }
 
 .instagram-photo .insta-item .inside-text h5 a {
 	color: #ffffff;
+
 }
 
 /*---------------------
@@ -1528,6 +1538,11 @@ ol {
 	display: block;
 	width: auto;
 	margin: auto;
+}
+
+.owl-carousel .owl-item .pict-category {
+width:120px;
+margin-top:-8px;
 }
 
 /*---------------------
@@ -4017,6 +4032,7 @@ ol {
 		margin-left: 0;
 		margin-right: 0;
 	}
+	
 	.product-slider .owl-nav button[type=button] {
 		display: none;
 	}

@@ -57,7 +57,7 @@ $this->load->view('header');
                     </div>
                     <div class="product-slider owl-carousel">
 										<?php foreach ($data->result() as  $key=>$data) : ?>  
-                        <div class="product-item">
+                        <div class="product-item col-md">
                             <div class="pi-pic">
 															
                                 <img src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>"  alt="">
@@ -68,21 +68,17 @@ $this->load->view('header');
                                 <ul>
                                  
                                     <li class="quick-view"><a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>">Lihat Produk</a></li>
-                                  
-                                </ul>
-														</div>
+								</ul>
+						</div>
 														
                             <div class="pi-text">
-																<div class="catagory-name"><?= $data->nama_kat ?></div>
-														
+                                        <div class="catagory-name"><?= $data->nama_kat ?></div>		
                                 <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>">
-                                    <h5><?= $data->nama_produk ?></h5>
-																</a>
-													
+                                    <h5 style="word-break: break-all;"><?= $data->nama_produk ?></h5>
+                                    </a>
                                 <div class="product-price">
-													
-																<?= "Rp " . number_format($data->harga_produk,2,',','.') ?>
-												
+									<?= "Rp " . number_format($data->harga_produk,2,',','.') ?>
+
                                 </div>
                             </div>
                         </div>
@@ -99,11 +95,11 @@ $this->load->view('header');
 
 
     <!-- Deal Of The Week Section Begin-->
-    <section class="deal-of-week set-bg spad" data-setbg="<?= base_url('./assets/img/time-bg.jpg'); ?>">
+    <section class="deal-of-week set-bg spad" data-setbg="<?= base_url('./assets/images/banner1.png'); ?>">
         <div class="container">
             <div class="col-lg-6 text-center">
                 <div class="section-title">
-                    <h2>Promo</h2>
+                    <h2>Gerbang Lamongan</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed<br /> do ipsum dolor sit amet,
                         consectetur adipisicing elit </p>
                   
@@ -125,9 +121,9 @@ $this->load->view('header');
         <div class="product-slider owl-carousel">
 				<?php foreach ($row->result() as $key=>$data) : ?>
             <div class="product-item">
-                <div class="insta-item set-bg" data-setbg="<?= base_url('./assets/img/insta-5.jpg'); ?>">
+                <div class="insta-item set-bg bg-danger">
                     <div class="inside-text">
-                        <i class="ti-instagram"></i>
+					<a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><img class="pict-category" src="<?=$data->icon_kat?>"></a>
 												<h5><a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></h5>
                     </div>
                 </div>
@@ -146,9 +142,9 @@ $this->load->view('header');
         <div class="product-slider owl-carousel">
 				<?php foreach ($row2->result() as $key=>$data) : ?>
             <div class="product-item">
-                <div class="insta-item set-bg" data-setbg="<?= base_url('./assets/img/insta-5.jpg'); ?>">
-                    <div class="inside-text">
-                        <i class="ti-instagram"></i>
+                <div class="insta-item set-bg bg-danger">
+                <div class="inside-text">
+					<a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><img class="pict-category" src="<?=$data->icon_kat?>"></a>
 												<h5><a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></h5>
                     </div>
                 </div>
@@ -159,44 +155,7 @@ $this->load->view('header');
 </section>
 
 <!-- NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD NISORE CARD -->
-<div class="partner-logo">
-        <div class="container">
-            <div class="logo-carousel owl-carousel">
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
-												
-                    </div>
-								</div>
-								<div class="logo-item">
-                    <div class="tablecell-inner">
-												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
-												
-                    </div>
-								</div>
-								<div class="logo-item">
-                    <div class="tablecell-inner">
-												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
-												
-                    </div>
-								</div>
-								<div class="logo-item">
-                    <div class="tablecell-inner">
-												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
-												
-                    </div>
-								</div>
-								<div class="logo-item">
-                    <div class="tablecell-inner">
-												<img src="<?= base_url('./assets/img/logo-carousel/logo-1.png'); ?>" alt="">
-												
-                    </div>
-								</div>
-								
-               
-            </div>
-        </div>
-    </div>
+
 <!-- FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER -->
 <!-- BAWAH     --> 
 <?php	
