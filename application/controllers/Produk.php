@@ -39,7 +39,7 @@ class Produk extends CI_Controller{
        // $item->id_penjual = null;
         $item->nama_produk = null;
         $item->deskripsi_produk = null;
-        $item->jumlah_produk = null;
+        $item->berat_produk = null;
         $item->ukuran_produk = null;
         $item->harga_produk = null;
         $item->gambar_produk = null;

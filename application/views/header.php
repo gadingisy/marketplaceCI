@@ -2,13 +2,14 @@
 <html lang="zxx">
 
 <head>
+	
     <meta charset="UTF-8">
     <meta name="description" content="Fashi Template">
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.png">
-    <title>Gerbang Lamongan - Tempat Menjual Barang Terbaik</title>
+    <title><?= $title="Test";$title; ?></title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -62,7 +63,7 @@
              
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li class="active"><a href="<?= site_url('Index'); ?>">Home</a></li>
                      
                         <li><a href="#">Barang</a>
                             <ul class="dropdown">

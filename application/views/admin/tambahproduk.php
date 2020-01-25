@@ -47,14 +47,11 @@
            
             <div class="form-group">
                 <label for="desk_produk">Deskripsi Produk</label>
-               <textarea type="text" class="form-control" name="deskripsi_produk" value="<?=$row->deskripsi_produk?>"><?=$row->deskripsi_produk?></textarea>
+			   <textarea type="text" class="form-control" name="deskripsi_produk" id="editor" value="<?=$row->deskripsi_produk?>"><?=$row->deskripsi_produk?></textarea>
+			   
            
             </div>    
-            <div class="form-group">
-                <label for="jumlah_produk">Jumlah Produk</label>
-                <input type="text" class="form-control" name="jumlah_produk" value="<?=$row->jumlah_produk?>" required> 
-         
-            </div>    
+           
             <div class="form-group">
                 <label for="nama_kat">Kategori</label>
                 <select name="kategori" class="form-control" required>
@@ -76,11 +73,16 @@
                     </div> 
               
             <div class="form-group">
-            <label for="ukuran_produk">Detail Produk*</label>
-               <textarea type="text" class="form-control" name="ukuran_produk" id="editor" value="<?=$row->ukuran_produk?>"></textarea>
-               <span class="badge badge-secondary mt-2">Isikan dengan detail dari produk, misal : ukuran, spesifikasi, fitur dan lain-lain</span>
+            <label for="ukuran_produk">Berat Produk*</label>
+			<input type="text" class="form-control" name="berat_produk" value="<?=$row->berat_produk?>"> 
+               <span class="badge badge-secondary mt-2">Isikan juga satuan barang, misal : 200gr, 1kg, 1ton dan lain-lain.</span>
                 
-            </div>    
+			</div>  
+			<div class="form-group">
+                <label for="ukuran_produk">Ukuran Produk</label>
+                <input type="text" class="form-control" name="ukuran_produk" value="<?=$row->ukuran_produk?>"> 
+       
+            </div>     
             <div class="form-group">
                 <label for="harga_produk">Harga Produk</label>
                 <input type="text" class="form-control" name="harga_produk" value="<?=$row->harga_produk?>"> 

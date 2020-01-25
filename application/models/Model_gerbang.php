@@ -69,9 +69,8 @@ return $query;
 
       $data = array(
                      'nama_produk'  => $this->input->post('nama_produk', true),
-                    
                      'deskripsi_produk'  => $this->input->post('deskripsi_produk', true),
-                     'jumlah_produk' => $this->input->post('jumlah_produk',true),
+                     'berat_produk' => $this->input->post('berat_produk',true),
                      'ukuran_produk'  => $this->input->post('ukuran_produk', true),
                      'harga_produk'  => $this->input->post('harga_produk', true),
                      'gambar_produk' => $this->input->post('gambar_produk',true),

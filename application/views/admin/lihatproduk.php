@@ -115,8 +115,8 @@
                         <th>Kategori</th>
                         <th>Penjual</th>
                         <th>Deskripsi</th>
-                        <th>Jumlah</th>
-                        <th>Detail</th>
+                        <th>Berat</th>
+                        <th>Ukuran</th>
                         <th>Harga</th>
                         <th>Slug</th>
                         <th>Gambar</th>
@@ -134,7 +134,7 @@
                        <td><?= $data->nama_kat ?></td> 
                        <td><?= $data->nama_penjual ?></td>
                        <td><?= $data->deskripsi_produk ?></td>
-                       <td><?= $data->jumlah_produk ?></td>
+                       <td><?= $data->berat_produk ?></td>
                        <td><?= $data->ukuran_produk ?></td>
                        <td>Rp. <?= number_format($data->harga_produk,'0',',','.') ?></td>
                        <td><?= $data->slug_produk ?></td>

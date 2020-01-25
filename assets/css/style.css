@@ -1284,6 +1284,7 @@ ol {
 
 .product-item .pi-text a h5 {
 	color: #252525;
+	word-break: break-all;
 }
 
 .product-item .pi-text .product-price {
