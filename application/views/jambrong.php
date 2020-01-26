@@ -67,13 +67,13 @@ $this->load->view('header');
                                 </div>
                                 <ul>
                                  
-                                    <li class="quick-view"><a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>">Lihat Produk</a></li>
+                                    <li class="quick-view"><a href="<?php echo base_url('Product/index/'.$data->id_produk);?>">Lihat Produk</a></li>
 								</ul>
 						</div>
 														
                             <div class="pi-text">
                                         <div class="catagory-name"><?= $data->nama_kat ?></div>		
-                                <a href="<?php echo base_url('Product/produk/'.$data->id_produk);?>">
+                                <a href="<?php echo base_url('Product/index/'.$data->id_produk);?>">
 								<h5 style="word-break: break-all;"><?= $data->nama_produk ?></h5>
                                     </a>
                                 <div class="product-price">
@@ -124,7 +124,7 @@ $this->load->view('header');
                 <div class="insta-item set-bg bg-danger">
                     <div class="inside-text">
 					<a href="<?php echo base_url('Categories_page/index/'.$data->slug_kat);?>"><img class="pict-category" src="<?=$data->icon_kat?>"></a>
-												<h5><a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></h5>
+												<h5><a href="<?php echo base_url('Categories_page/index/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></h5>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@ $this->load->view('header');
                 <div class="insta-item set-bg bg-danger">
                 <div class="inside-text">
 					<a href="<?php echo base_url('Categories_page/index/'.$data->slug_kat);?>"><img class="pict-category" src="<?=$data->icon_kat?>"></a>
-												<h5><a href="<?php echo base_url('Categories_page/kategori/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></h5>
+												<h5><a href="<?php echo base_url('Categories_page/index/'.$data->slug_kat);?>"><?=$data->nama_kat?></a></h5>
                     </div>
                 </div>
             </div>

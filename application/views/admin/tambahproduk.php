@@ -73,7 +73,7 @@
                     </div> 
               
             <div class="form-group">
-            <label for="ukuran_produk">Berat Produk*</label>
+            <label for="berat_produk">Berat Produk*</label>
 			<input type="text" class="form-control" name="berat_produk" value="<?=$row->berat_produk?>"> 
                <span class="badge badge-secondary mt-2">Isikan juga satuan barang, misal : 200gr, 1kg, 1ton dan lain-lain.</span>
                 

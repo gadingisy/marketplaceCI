@@ -7,7 +7,11 @@ class Model_gerbang extends CI_Model{
     public function get_kategori(){
       return $this->db->get('tb_kategori')->result_array();
    }
-
+	 public function breadcrumb($id_produk){
+		$query = $this->db->query("select tb_kategori.id_kat,tb_produk.*,tb_kategori.nama_kat from tb_produk join tb_kategori on tb_kategori.id_kat = tb_produk.id_kat WHERE tb_kategori.slug_kat = '$id_produk' LIMIT 1");
+		return $query->result();
+		
+ }
    public function get_nama_kategori(){
     $this->db->select('*');
     $this->db->from('tb_kategori');
@@ -120,6 +124,6 @@ return $query;
       $this->db->update('tb_kategori',$data);
     }
 
-
+		
 
 }
