@@ -21,9 +21,33 @@ class Model_gerbang extends CI_Model{
  }
  public function get_barang($id_produk){
 $query = $this->db->query("select tb_kategori.id_kat,tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual from tb_produk join tb_penjual on tb_penjual.id_penjual = tb_produk.id_penjual join tb_kategori on tb_kategori.id_kat = tb_produk.id_kat WHERE tb_kategori.slug_kat = '$id_produk'");
-
 return $query->result();
 
+}
+
+public function get_All($id_produk){
+
+	$this->db->select('tb_kategori.id_kat,tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual');
+	$this->db->from('tb_produk');
+	$this->db->join('tb_penjual', 'tb_penjual.id_penjual = tb_produk.id_penjual');
+	$this->db->join('tb_kategori', 'tb_kategori.id_kat = tb_produk.id_kat');
+	$this->db->where('tb_kategori.slug_kat', $id_produk);
+	
+	return $this->db->get();
+	
+	}
+	
+
+public function hitung_barang($id_produk,$limit,$offset){
+
+$this->db->select('tb_kategori.id_kat,tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual');
+$this->db->from('tb_produk');
+$this->db->join('tb_penjual', 'tb_penjual.id_penjual = tb_produk.id_penjual');
+$this->db->join('tb_kategori', 'tb_kategori.id_kat = tb_produk.id_kat');
+$this->db->where('tb_kategori.slug_kat', $id_produk);
+$this->db->limit($limit, $offset);
+$query = $this->db->get();
+return $query->result();
 }
 
 public function get_item($id_item){

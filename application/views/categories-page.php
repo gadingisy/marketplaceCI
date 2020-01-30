@@ -9,9 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.png">
-	<?php foreach($produk as $data2 ) : ?>
+	<?php if(!empty($produk)){ ?>
+	<?php foreach($produk as $data2 ) { ?>
     <title>	<?= $data2->nama_kat; ?></title>
-	<?php endforeach; ?>
+	<?php } ?>
+	<?php } else { ?>
+	
+    <title>Coming Soon!</title>
+	
+	<?php } ?>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
@@ -26,7 +32,8 @@
 	<link rel="stylesheet" href="<?php echo base_url('./assets/css/jquery-ui.min.css') ?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url('./assets/css/slicknav.min.css') ?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url('./assets/css/style.css') ?>" type="text/css">
-   
+	
+	
 </head>
 
 <body>
@@ -100,9 +107,14 @@
 				<div class="breadcrumb-text">
 				
 						<a href="<?= site_url('Index'); ?>"><i class="fa fa-home"></i> Home</a>
-						<?php foreach ($breadcrumb as $breadcrumb) : ?>
-                        <span><?= $breadcrumb->nama_kat ?></span>
-					<?php endforeach;?>
+						<?php if(!empty($breadcrumb)) { ?>
+						<?php foreach ($breadcrumb as $breadcrumb) { ?>					
+						<span><?= $breadcrumb->nama_kat ?></span>
+						<?php } ?>
+						<?php } else { ?>
+							<span>Coming Soon!</span>
+						<?php } ?>
+					
                     </div>
                 </div>
             </div>
@@ -143,7 +155,7 @@
                                     <select class="sorting">
                                         <option value="">Urutkan Berdasarkan...</option>
                                     </select>
-                                   
+						
                                 </div>
                             </div>
                            
@@ -151,15 +163,12 @@
                     </div>
                     <div class="product-list">
                         <div class="row">
-										
-							
-											
-													<?php if(!empty($produk)){ foreach ($produk as $data){ ?>
-                            <div class="col-lg-4 col-sm-6">
+					<?php if(!empty($semua_pengguna)){ foreach ($semua_pengguna as $data){ ?>
 						
-                                  <div class="product-item col-md">
-                            <div class="pi-pic">
-															
+                    <div class="col-lg-4 col-sm-6">
+						
+                        <div class="product-item col-md">
+                            <div class="pi-pic">							
                                 <img src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>"  alt="">
                                 <div class="sale">Sale</div>
                                 <div class="icon">
@@ -170,31 +179,34 @@
 																</ul>
 														</div>				
                            		 <div class="pi-text">
-                                        <div class="catagory-name"><?= $data->nama_kat ?></div>		
+                                        <div class="catagory-name"><?= $data->nama_penjual ?></div>		
                               	  <a href="<?php echo base_url('Product/index/'.$data->id_produk);?>">
                                     <h5 style="word-break: break-all;"><?= $data->nama_produk ?></h5>
                                     </a>
                                 <div class="product-price">
-															<?= "Rp " . number_format($data->harga_produk,2,',','.') ?>
+									<?= "Rp " . number_format($data->harga_produk,2,',','.') ?>
                                 </div>
                             </div>
-                        </div>
-							</div>
+						</div>
+						
+					</div>
 							<?php } ?>
 							<?php }else{ ?>
 								<p>Tidak Ada Barang</p>
    						
 							<?php } ?>
                            
-                        </div>
+						</div>
+						<div class="pagination p1 justify-content-center">
+						<ul>
+							<?php echo $this->pagination->create_links(); ?>
+						</ul>
+						</div>
+						
+				
+				
 					</div>
 					
-					<div class="loading-more">
-                        <i class="icon_loading"></i>
-                        <a href="#">
-                            Loading More
-                        </a>
-                    </div>
 				</div>
                     <!-- <div class="loading-more">
                         <i class="icon_loading"></i>
