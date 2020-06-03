@@ -414,7 +414,7 @@ ol {
 }
 
 .inner-header {
-	padding: 40px 0;
+	padding: 1.5px 0;
 }
 
 .inner-header .logo {
@@ -2136,9 +2136,10 @@ margin-top:-8px;
 	text-align: center;
   }
   
-  .p1 a.is-active{
-	background-color: #2ecc71;
+  .page-item.active .page-link {
+	background-color: rgba(188, 32, 34, 1);
 	border-radius: 100%;
+	border-color: #ffff;
 	color: #fff;
   }
   

@@ -32,7 +32,7 @@ class Overview extends CI_Controller{
         $data['title'] = 'Data Kategori';
          $data['row'] = $this->Model_produk->get_kategori();
     }
-    public function lihatkategori2(){
+    public function lihat_kategori(){
         $data['title'] = "Data Kategori";
         $this->load->model('Model_gerbang');
         $data['data']= $this->Model_gerbang->get_kategori();  
@@ -215,10 +215,7 @@ class Overview extends CI_Controller{
         $item->thumb_produk1 = null;
         $item->thumb_produk2 = null;
         $item->thumb_produk3 = null;
-   
         $item->slug_produk = null;
-        
-
         
     
         $kategori = $this->Model_produk->get_kategori();
@@ -227,7 +224,6 @@ class Overview extends CI_Controller{
         $data = array(
                     'page' => 'tambahproduk',
                     'row' => $item,
-                  
                     'kategori' => $kategori,
                      'penjual' => $penjual
         );

@@ -57,8 +57,8 @@ class Model_produk extends CI_Model{
    ];
  
  $this->db->insert('tb_produk',$data);
- print_r($this->db->last_query());
-	die;
+//  print_r($this->db->last_query());
+// 	die;
   }
 
   public function edit($post){

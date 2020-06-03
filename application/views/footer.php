@@ -121,5 +121,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="<?php echo base_url('./assets/js/jquery.slicknav.js') ?>"></script>
 	<script src="<?php echo base_url('./assets/js/owl.carousel.min.js') ?>"></script>
 	<script src="<?php echo base_url('./assets/js/main.js') ?>"></script>
-  
+  <script>
+	  $(window).scroll(function() {
+  if( $(this).scrollTop() > 0 ) {
+    $('.header-section').addClass('sticky');
+  } else {
+    $('.header-section').removeClass('sticky');
+  }
+});
+</script>
 </body>

@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-body">
         
-             <form method="post" action="<?php echo base_url('Produk/process'); ?>" enctype="multipart/form-data">
+             <form method="post" action="<?php echo base_url('Overview/process'); ?>" enctype="multipart/form-data">
              <?php if ($this->session->flashdata('error')) :?>
               <div class="row mt-3">
                 <div class="col-md-6">

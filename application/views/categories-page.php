@@ -32,7 +32,16 @@
 	<link rel="stylesheet" href="<?php echo base_url('./assets/css/jquery-ui.min.css') ?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url('./assets/css/slicknav.min.css') ?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url('./assets/css/style.css') ?>" type="text/css">
-	
+	<style>
+	.sticky {
+  position:fixed;
+  top:0;
+  width: 100%;
+  left:0;
+  background-color:white;
+  z-index:999;
+}
+</style>
 	
 </head>
 

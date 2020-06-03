@@ -12,7 +12,7 @@
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihatdata') ?>">
         <div class="sidebar-brand-text mx-3">Lihat Data Penjual</div>
       </a>
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihatkategori') ?>">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihat_kategori') ?>">
         <div class="sidebar-brand-text mx-3">Lihat Data Kategori</div>
       </a>
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihatproduk') ?>">

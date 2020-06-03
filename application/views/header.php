@@ -25,15 +25,23 @@
 	<link rel="stylesheet" href="<?php echo base_url('./assets/css/jquery-ui.min.css') ?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url('./assets/css/slicknav.min.css') ?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url('./assets/css/style.css') ?>" type="text/css">
-   
+    <style>
+	.sticky {
+  position:fixed;
+  top:0;
+  width: 100%;
+  left:0;
+  background-color:white;
+  z-index:999;
+}
+</style>
 </head>
 
 <body>
     <!-- Page Preloder -->
+	<!-- Header Section Begin -->
 
-    <!-- Header Section Begin -->
     <header class="header-section">
-       
         <div class="container">
             <div class="inner-header">
                 <div class="row">
@@ -61,7 +69,7 @@
         <div class="nav-item">
             <div class="container">
              
-                <nav class="nav-menu mobile-menu">
+                <nav class="nav-menu mobile-menu ">
                     <ul>
                         <li class="active"><a href="<?= site_url('Index'); ?>">Home</a></li>
                      
@@ -90,4 +98,5 @@
             </div>
         </div>
     </header>
+
     <!-- Header End -->
