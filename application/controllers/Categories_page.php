@@ -42,7 +42,7 @@ class Categories_page extends CI_Controller{
 	
 	
 		$this->load->view('categories-page.php',$data);
-		$this->load->view('search.php',$data);
+	
 }
 
 }

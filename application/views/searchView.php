@@ -61,16 +61,18 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-md-7 mb-5 mt-4">
-                        <div class="advanced-search">
-
-                            <div class="input-group">
-                                
-                                <input type="text" placeholder="Apa yang anda butuhkan?">
-                                <button type="button"><i class="ti-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
+					<div class="col-lg-10 col-md-10 mb-5 mt-4">
+						<div class="advanced-search">
+							<div class="input-group">
+							<?php echo form_open('search', array(
+								'class' => 'col-md-12'
+							)); ?>
+								<input type="text" name="keyword" placeholder="Apa yang anda butuhkan?">
+								<button type="button"><i class="ti-search"></i></button>
+							<?php echo form_close() ?>
+							</div>
+						</div>
+					</div>
                     
                 </div>
             </div>
