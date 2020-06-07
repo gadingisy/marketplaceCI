@@ -8,7 +8,7 @@
 	<meta name="keywords" content="Fashi, unica, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.png">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logoold.png">
 	<?php foreach ($item as $data2) : ?>
 		<title> <?= $data2->nama_produk; ?> by <?= $data2->nama_penjual; ?></title>
 	<?php endforeach; ?>
@@ -50,7 +50,7 @@
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
 							<a href="<?php echo site_url('Index') ?>">
-								<img src="<?= base_url('./assets/images/logo.png'); ?>" class="w-50" alt="">
+								<img src="<?= base_url('./assets/images/logo.png'); ?>" class="logo_site" alt="">
 							</a>
 						</div>
 					</div>

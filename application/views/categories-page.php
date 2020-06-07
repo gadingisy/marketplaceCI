@@ -8,7 +8,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logo.png">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logoold.png">
 	<?php if(!empty($produk)){ ?>
 	<?php foreach($produk as $data2 ) { ?>
     <title>	<?= $data2->nama_kat; ?></title>
@@ -57,7 +57,7 @@
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="<?php echo site_url('Index') ?>">
-                                <img src="<?= base_url('./assets/images/logo.png'); ?>" class="w-50" alt="">
+                                <img src="<?= base_url('./assets/images/logo.png'); ?>" class="logo_site" alt="">
                             </a>
                         </div>
                     </div>
@@ -180,9 +180,7 @@
                             <div class="pi-pic">							
                                 <img src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>"  alt="">
                                 <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
+                              
                                 <ul>
                                     <li class="quick-view"><a href="<?php echo base_url('Product/index/'.$data->id_produk);?>">Lihat Produk</a></li>
 																</ul>

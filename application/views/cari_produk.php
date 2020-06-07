@@ -41,7 +41,7 @@
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="<?php echo site_url('Index') ?>">
-                                <img src="<?= base_url('./assets/images/logo.png'); ?>" class="w-50" alt="">
+                                <img src="<?= base_url('./assets/images/logo.png'); ?>" class="logo_site" alt="">
                             </a>
                         </div>
                     </div>

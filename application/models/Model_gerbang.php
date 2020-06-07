@@ -146,7 +146,16 @@ return $query;
                 );
       $this->db->where('id_kat', $this->input->post('id_kat'));
       $this->db->update('tb_kategori',$data);
-    }
+		}
+		
+		public function cari_barang($keyword){
+			$this->db->select('tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual,tb_kategori.slug_kat');
+			$this->db->from('tb_produk');
+			$this->db->join('tb_kategori','tb_kategori.id_kat = tb_produk.id_kat');
+			$this->db->join('tb_penjual','tb_penjual.id_penjual = tb_produk.id_penjual');
+			$this->db->like('nama_produk',$keyword);
+			return $this->db->get()->result();
+		}
 
 		
 

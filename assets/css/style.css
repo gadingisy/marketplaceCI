@@ -268,7 +268,9 @@ ol {
 /*---------------------
   Header
 -----------------------*/
-
+.logo_site{
+	width:1200px;
+}
 .ht-right .lan-selector {
 	max-width: 142px;
 	cursor: pointer;
@@ -418,7 +420,7 @@ ol {
 }
 
 .inner-header .logo {
-	padding: 12px 0;
+	padding: 30px 0;
 }
 
 .inner-header .logo a {
@@ -789,7 +791,7 @@ ol {
 .nav-item .nav-menu li a {
 	font-size: 14px;
 	font-weight: 700;
-	display: block;
+	display: inline-block;
 	color: #ffffff;
 	border-right: 2px solid #3b3b3b;
 	text-transform: uppercase;
@@ -797,10 +799,12 @@ ol {
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
+
 }
 
 .nav-item .nav-menu li:hover>a {
 	background: #bc2022;
+	
 }
 
 .nav-item .nav-menu li:hover .dropdown {
@@ -821,7 +825,12 @@ ol {
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
+	height:700%;
+overflow-y:scroll;
+	
 }
+
+
 
 .nav-item .nav-menu li .dropdown li {
 	display: block;
@@ -1202,7 +1211,9 @@ ol {
 }
 
 .product-item .pi-pic img {
-	height: 300px;
+	max-height: 200px;
+    min-height: 150px;
+    object-fit: cover;
 	
 }
 
@@ -4164,6 +4175,9 @@ margin-top:-8px;
 /* Large Device: 480px */
 
 @media only screen and (max-width: 767px) {
+	.logo_site{
+		width:170px;
+	}
 	.instagram-photo .insta-item {
 		width: 50%;
 		height: 300px;
@@ -4200,6 +4214,7 @@ margin-top:-8px;
 	}
 	.inner-header .logo {
 		text-align: center;
+		padding: 15px 0;
 	}
 	.inner-header .nav-right {
 		text-align: left;
@@ -4228,6 +4243,8 @@ margin-top:-8px;
 	.slicknav_nav ul {
 		margin: 0;
 		text-align: left;
+		height:700%;
+		overflow-y:scroll;
 	}
 	.slicknav_nav a,
 	.slicknav_nav .slicknav_row {
@@ -4248,6 +4265,7 @@ margin-top:-8px;
 	.slicknav_nav .slicknav_row,
 	.slicknav_nav a {
 		padding: 8px 15px;
+		
 	}
 	.slicknav_nav a:hover {
 		border-radius: 0;

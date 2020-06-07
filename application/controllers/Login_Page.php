@@ -1,5 +1,5 @@
 <?php
-
+ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Login_Page extends CI_Controller{
         protected $CI;
         
