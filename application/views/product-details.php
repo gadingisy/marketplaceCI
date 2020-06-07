@@ -254,7 +254,8 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<p class="font-weight-bold">WA : 0<?= $data->hp_penjual ?></p>
+				
+						<p class="font-weight-bold"><a href="https://wa.me/0<?= $data->hp_penjual ?>?text=Halo, ada yang saya tanyakan dengan produk <?= $data->nama_produk ?>">Klik untuk terhubung dengan WhatsApp Penjual</a></p>
 						<p class="font-weight-bold">Facebook : <?= $data->facebook_penjual ?></p>
 						<p class="font-weight-bold">Instagram : <?= $data->instagram_penjual ?></p>
 						<!-- <p class="font-weight-bold">Description</p>
