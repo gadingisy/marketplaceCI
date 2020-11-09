@@ -85,7 +85,7 @@
             </div>     
             <div class="form-group">
                 <label for="harga_produk">Harga Produk</label>
-                <input type="text" class="form-control" name="harga_produk" value="<?=$row->harga_produk?>"> 
+                <input type="text" id="rupiah" class="form-control" name="harga_produk" value="<?=$row->harga_produk?>"> 
        
             </div>    
            

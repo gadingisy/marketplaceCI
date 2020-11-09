@@ -82,7 +82,7 @@
              
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="<?= site_url('Index'); ?>">Home</a></li>
+                        <li class="active"><a href="<?= site_url(''); ?>">Beranda</a></li>
                      
                         <li><a href="#">Barang</a>
                             <ul class="dropdown">
@@ -116,7 +116,7 @@
             <div class="row">
                 <div class="col-lg-12">
 				<div class="breadcrumb-text">
-						<a href="<?= site_url('Index'); ?>"><i class="fa fa-home"></i> Home</a>
+						<a href="<?= site_url(''); ?>"><i class="fa fa-home"></i> Beranda</a>
 						<span>Hasil Pencarian</span>
                     </div>
                 </div>
@@ -157,6 +157,8 @@
                                 <div class="select-option">
                                     <select class="sorting">
                                         <option value="">Urutkan Berdasarkan...</option>
+										<option value="">Urutkan Berdasarkan...</option>
+										<option value="">Urutkan Berdasarkan...</option>
                                     </select>
 						
                                 </div>

@@ -49,7 +49,7 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="<?php echo site_url('Index') ?>">
+							<a href="<?php echo site_url('') ?>">
 								<img src="<?= base_url('./assets/images/logo.png'); ?>" class="logo_site" alt="">
 							</a>
 						</div>
@@ -57,12 +57,12 @@
 					<div class="col-lg-10 col-md-10 mb-5 mt-4">
 						<div class="advanced-search">
 							<div class="input-group">
-							<?php echo form_open('search', array(
-								'class' => 'col-md-12'
-							)); ?>
+								<?php echo form_open('search', array(
+									'class' => 'col-md-12'
+								)); ?>
 								<input type="text" name="keyword" placeholder="Apa yang anda butuhkan?">
 								<button type="button"><i class="ti-search"></i></button>
-							<?php echo form_close() ?>
+								<?php echo form_close() ?>
 							</div>
 						</div>
 					</div>
@@ -75,13 +75,13 @@
 
 				<nav class="nav-menu mobile-menu">
 					<ul>
-						<li class="active"><a href="<?= site_url('Index'); ?>">Home</a></li>
+						<li class="active"><a href="<?= site_url(''); ?>">Beranda</a></li>
 
 						<li><a href="#">Barang</a>
 							<ul class="dropdown">
 								<?php foreach ($row->result() as $key => $data) : ?>
 
-									<li><a href="<?php echo base_url('Categories_page/index/' . $data->slug_kat); ?>"><?= $data->nama_kat ?></a></li>
+									<li><a href="<?php echo base_url('categories_page/index/' . $data->slug_kat); ?>"><?= $data->nama_kat ?></a></li>
 
 								<?php endforeach; ?>
 							</ul>
@@ -90,7 +90,7 @@
 							<ul class="dropdown">
 								<?php foreach ($row2->result() as $key => $data) : ?>
 
-									<li><a href="<?php echo base_url('Categories_page/index/' . $data->slug_kat); ?>"><?= $data->nama_kat ?></a></li>
+									<li><a href="<?php echo base_url('categories_page/index/' . $data->slug_kat); ?>"><?= $data->nama_kat ?></a></li>
 
 								<?php endforeach; ?>
 							</ul>
@@ -110,7 +110,7 @@
 				<div class="col-lg-12">
 					<div class="breadcrumb-text product-more">
 						<?php foreach ($item as $breadcrumb) : ?>
-							<a href="<?= site_url('Index'); ?>"><i class="fa fa-home"></i> Home</a>
+							<a href="<?= site_url(''); ?>"><i class="fa fa-home"></i> Home</a>
 							<a href="<?php echo base_url('Categories_page/index/' . $breadcrumb->slug_kat); ?>"><?= $breadcrumb->nama_kat ?></a>
 							<span><?= $breadcrumb->nama_produk ?></span>
 						<?php endforeach; ?>
@@ -187,6 +187,9 @@
 							<li>
 								<a data-toggle="tab" href="#tab-2" role="tab">SPESIFIKASI</a>
 							</li>
+							<li>
+								<a data-toggle="tab" href="#tab-3" role="tab">ARTIKEL</a>
+							</li>
 
 						</ul>
 					</div>
@@ -235,6 +238,19 @@
 								</div>
 							</div>
 
+							<div class="tab-pane fade" id="tab-3" role="tabpanel">
+								<div class="specification-table">
+									<div class="row">
+										<div class="col-md-12  text-center">
+											<h4 class="font-weight-bold mb-3">Judul Artikel</h4>
+											<img src="<?= base_url(); ?>/assets/images/2.png" class="my-3" style="width:20%;" alt="">
+											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quo, dolorem adipisci doloribus deserunt, fuga, illum amet illo excepturi accusamus sapiente consequatur vitae. Assumenda corporis doloremque ipsum tempora molestias doloribus voluptatibus nam, quaerat dolores veniam vitae corrupti illo quae eum at iure, optio repellat laudantium molestiae et sit! Dignissimos adipisci quibusdam ab quos dolor! Ad deleniti eos exercitationem laboriosam ipsa recusandae molestiae praesentium nulla? Unde cupiditate voluptates vitae, delectus corrupti, sed doloribus expedita, id esse qui asperiores nihil enim et perferendis. Eaque at ut mollitia reprehenderit quia, velit consectetur omnis molestias iure eos optio officiis fugiat non earum iusto qui quibusdam voluptas consequuntur necessitatibus voluptates odio! Impedit eligendi, odio aliquam asperiores at debitis veritatis culpa obcaecati quis ipsum? Sint magni, molestiae, id eligendi hic animi tenetur officiis unde soluta rerum laborum cupiditate doloremque sapiente iste eius quod. Accusantium excepturi, aliquam distinctio possimus voluptas ipsa tenetur accusamus voluptatibus dignissimos eum nam ad impedit quas ea neque nesciunt vel veniam! Molestiae ipsum, harum deleniti ducimus iusto eum alias perspiciatis aspernatur. Architecto, sequi. Delectus beatae similique cumque impedit suscipit qui consectetur culpa repellendus unde, officia molestias eius enim magnam dignissimos in? Veniam, quia iste nam ut consectetur adipisci accusamus error reprehenderit, optio beatae ipsum mollitia ad minima voluptatum enim aut quos minus accusantium sed perspiciatis. Qui beatae perspiciatis dolores consequatur est quia sed ex labore voluptatibus adipisci assumenda laboriosam saepe consectetur blanditiis rem, omnis voluptas modi, nisi reprehenderit suscipit dolorem dignissimos aliquid impedit? Suscipit molestiae quam consequatur neque, dolorem nesciunt reiciendis illum obcaecati molestias, distinctio dolore. Animi, eveniet?</p>
+										</div>
+									</div>
+									</table>
+								</div>
+							</div>
+
 
 						</div>
 					</div>
@@ -254,7 +270,7 @@
 						</button>
 					</div>
 					<div class="modal-body">
-				
+
 						<p class="font-weight-bold"><a href="https://wa.me/0<?= $data->hp_penjual ?>?text=Halo, ada yang saya tanyakan dengan produk <?= $data->nama_produk ?>">Klik untuk terhubung dengan WhatsApp Penjual</a></p>
 						<p class="font-weight-bold">Facebook : <?= $data->facebook_penjual ?></p>
 						<p class="font-weight-bold">Instagram : <?= $data->instagram_penjual ?></p>
@@ -288,18 +304,16 @@
 
 								<img src="<?= base_url("./assets/upload/images/" . $data->gambar_produk) ?>" alt="">
 								<div class="sale">Sale</div>
-								<div class="icon">
-									<i class="icon_heart_alt"></i>
-								</div>
+
 								<ul>
 
-									<li class="quick-view"><a href="<?php echo base_url('Product/index/' . $data->id_produk); ?>">Lihat Produk</a></li>
+									<li class="quick-view"><a href="<?php echo base_url('product/index/' . $data->id_produk); ?>">Lihat Produk</a></li>
 								</ul>
 							</div>
 
 							<div class="pi-text">
 
-								<a href="<?php echo base_url('Product/index/' . $data->id_produk); ?>">
+								<a href="<?php echo base_url('product/index/' . $data->id_produk); ?>">
 									<h5 style="word-break: break-all;"><?= $data->nama_produk ?></h5>
 								</a>
 								<div class="product-price">
@@ -315,7 +329,97 @@
 		</div>
 	</div>
 	<!-- Related Products Section End -->
+	<div class="partner-logo">
+		<div class="container">
+		<div class="row my-3 justify-content-center section-title">
+			<h2 class="text-white">Blog</h2>
+		</div>
+			<div class="row">
+				<div class="col-lg-3 col-sm-6">
+					
+					<div class="product-item col-md">
+						<div class="pi-pic">
 
+							<img src="<?= base_url(); ?>/assets/images/2.png" alt="">
+
+						</div>
+						<div class="pi-text">
+
+							<a href="">
+								<h6 style="word-break: break-all;" class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, a. Assumenda incidunt quo quos explicabo.</h6>
+							</a>
+							<div class="product-price mt-3">
+								<button class="btn btn-danger btn-block rounded">Baca</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-sm-6">
+
+					<div class="product-item col-md">
+						<div class="pi-pic">
+
+							<img src="<?= base_url(); ?>/assets/images/1.png" alt="">
+
+
+						</div>
+
+						<div class="pi-text">
+
+							<a href="">
+								<h6 style="word-break: break-all;" class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, a. Assumenda incidunt quo quos explicabo.</h6>
+							</a>
+							<div class="product-price mt-3">
+								<button class="btn btn-danger btn-block rounded">Baca</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-sm-6">
+
+					<div class="product-item col-md">
+						<div class="pi-pic">
+
+							<img src="<?= base_url(); ?>/assets/images/1.png" alt="">
+
+
+						</div>
+
+						<div class="pi-text">
+							<a href="">
+								<h6 style="word-break: break-all;" class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, a. Assumenda incidunt quo quos explicabo.</h6>
+							</a>
+							<div class="product-price mt-3">
+								<button class="btn btn-danger btn-block rounded">Baca</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-sm-6">
+
+					<div class="product-item col-md">
+						<div class="pi-pic">
+							<img class="text-center" src="<?= base_url(); ?>/assets/images/1.png" alt="">
+						</div>
+
+						<div class="pi-text">
+
+							<a href="">
+								<h6 style="word-break: break-all;" class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, a. Assumenda incidunt quo quos explicabo.</h6>
+							</a>
+							<div class="product-price mt-3">
+								<button class="btn btn-danger btn-block rounded">Baca</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
 	<?php
 	$this->load->view('footer');
 	?>

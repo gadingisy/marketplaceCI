@@ -116,6 +116,7 @@
                         <th>Foto KTP</th>
                         <th>Facebook</th>
                         <th>Instagram</th>
+												<th>Status</th>
                         <th>Detail</th>
                       </tr>
                     </thead>
@@ -133,7 +134,10 @@
                        <td><img src="<?=base_url("./assets/upload/images/".$data['foto_ktp'])?>" width="100px">
                        <td><?= $data['facebook_penjual']; ?></td>
                        <td><?= $data['instagram_penjual']; ?></td>
-                   
+											 <td><?= $data['status_penjual'] ? $data['status_penjual'] : 'Regular';  ?></td>
+											
+												
+										
                         <td>
                     <a href='<?= base_url(); ?>Overview/edit/<?= $data['id_penjual']; ?>' class='btn btn-sm btn-info'><i class="fa fa-edit"> Edit</i></a>
                     <a href="<?= base_url(); ?>Overview/hapus/<?= $data['id_penjual']; ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" ><i class="fa fa-trash"> Hapus</i></a>

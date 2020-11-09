@@ -72,7 +72,7 @@ $this->load->view('header');
 								<div class="sale">Sale</div>
 								<ul>
 
-									<li class="quick-view"><a href="<?php echo base_url('Product/index/' . $data->id_produk); ?>">Lihat Produk</a></li>
+									<li class="quick-view"><a href="<?php echo base_url('product/index/' . $data->id_produk); ?>">Lihat Produk</a></li>
 								</ul>
 							</div>
 
@@ -163,6 +163,99 @@ $this->load->view('header');
 
 <!-- FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER -->
 <!-- BAWAH     -->
+<div class="partner-logo">
+  	<div class="container">
+	  <div class="row my-3 justify-content-center section-title">
+			<h2 class="text-white">Blog</h2>
+		</div>
+  		<div class="row">
+  			<div class="col-lg-3 col-sm-6">
+
+  				<div class="product-item col-md">
+  					<div class="pi-pic">
+
+  						<img src="<?= base_url(); ?>/assets/images/2.png" alt="">
+
+  					</div>
+  					<div class="pi-text">
+
+  						<a href="">
+  							<h6 style="word-break: break-all;" class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, a. Assumenda incidunt quo quos explicabo.</h6>
+  						</a>
+  						<div class="product-price mt-3">
+  							<button class="btn btn-danger btn-block rounded">Baca</button>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+
+  			<div class="col-lg-3 col-sm-6">
+
+  				<div class="product-item col-md">
+  					<div class="pi-pic">
+
+  						<img src="<?= base_url(); ?>/assets/images/1.png" alt="">
+  				
+
+  					</div>
+
+  					<div class="pi-text">
+
+  						<a href="">
+  							<h6 style="word-break: break-all;" class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, a. Assumenda incidunt quo quos explicabo.</h6>
+  						</a>
+  						<div class="product-price mt-3">
+  							<button class="btn btn-danger btn-block rounded">Baca</button>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+
+  			<div class="col-lg-3 col-sm-6">
+
+  				<div class="product-item col-md">
+  					<div class="pi-pic">
+
+  						<img src="<?= base_url(); ?>/assets/images/1.png" alt="">
+  				
+
+  					</div>
+
+  					<div class="pi-text">
+  						<a href="">
+  							<h6 style="word-break: break-all;" class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, a. Assumenda incidunt quo quos explicabo.</h6>
+  						</a>
+  						<div class="product-price mt-3">
+  							<button class="btn btn-danger btn-block rounded">Baca</button>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+
+  			<div class="col-lg-3 col-sm-6">
+
+  				<div class="product-item col-md">
+  					<div class="pi-pic">
+  						<img class="text-center" src="<?= base_url(); ?>/assets/images/1.png" alt="">
+  					</div>
+
+  					<div class="pi-text">
+
+  						
+  							<h6 style="word-break: break-all;" class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, a. Assumenda incidunt quo quos explicabo.</h6>
+  					
+  						<div class="product-price mt-3">
+						  <a href="">
+							  <button class="btn btn-danger btn-block rounded">Baca</button>
+							</a>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+
+  		</div>
+  	</div>
+  </div>
 <?php
 $this->load->view('footer');
 ?>

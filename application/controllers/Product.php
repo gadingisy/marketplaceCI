@@ -18,6 +18,10 @@ class Product extends CI_Controller{
         $data['randomdata'] = $this->Model_gerbang->random_item($id_item);
         $this->load->view('product-details.php',$data);
 	}
+
+	public function sorting(){
+		$this->load->model('Model_gerbang');
+	}
 	
 	
 }

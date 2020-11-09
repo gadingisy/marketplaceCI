@@ -79,9 +79,7 @@ return $query;
   return $query;
  }
 
-   public function tambah_data_penjual($data){
-
-   
+   public function tambah_data_penjual($data){   
     $this->db->insert('tb_penjual',$data);
   }
     public function tambahkategori(){
@@ -129,9 +127,7 @@ return $query;
 
    
 
-     public function ubah_data_penjual($data){
-
-   
+     public function ubah_data_penjual($data){   
       $this->db->where('id_penjual', $this->input->post('id_penjual'));
       $this->db->update('tb_penjual',$data);
     }

@@ -36,11 +36,11 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo site_url('Overview/lihatdata') ?>" >
           <i class="fas fa-fw fa-table"></i>
-          <span>Lihat Data</span></a>
+          <span>Lihat Data Penjual</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('Overview/lihatkategori2') ?>" >
+        <a class="nav-link" href="<?php echo site_url('Overview/lihat_kategori') ?>" >
           <i class="fas fa-fw fa-table"></i>
           <span>Lihat Kategori</span></a>
       </li>
@@ -50,10 +50,22 @@
           <i class="fas fa-box-open"></i>
           <span>Lihat Produk</span></a>
       </li>
+			<li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('Overview/lihatproduk') ?>" >
+          <i class="fas fa-book-open"></i>
+          <span>Lihat Artikel</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-
+			<div class="sidebar-heading">
+        Manajemen Website
+      </div>
+			<li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('Overview/lihatproduk') ?>" >
+          <i class="fas fa-camera"></i>
+          <span>Ganti Foto Iklan</span></a>
+      </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

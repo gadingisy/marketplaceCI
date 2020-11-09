@@ -47,7 +47,7 @@
 				<div class="row">
 					<div class="col-lg-2 col-md-2">
 						<div class="logo">
-							<a href="<?php echo site_url('Index') ?>">
+							<a href="<?php echo site_url('index') ?>">
 								<img src="<?= base_url('./assets/images/logo.png'); ?>" class="logo_site" alt="">
 							</a>
 						</div>
@@ -73,13 +73,13 @@
 
 				<nav class="nav-menu mobile-menu ">
 					<ul>
-						<li class="active"><a href="<?= site_url('Index'); ?>">Home</a></li>
+					<li class="active"><a href="<?= site_url(''); ?>">Beranda</a></li>
 						<li>
 							<a href="#">Barang</a>
 							<ul class="dropdown">
 								<?php foreach ($row->result() as $key => $data) : ?>
 								<li>
-										<a href="<?php echo base_url('Categories_page/index/' . $data->slug_kat); ?>"><?= $data->nama_kat ?></a>
+										<a href="<?php echo base_url('categories_page/index/' . $data->slug_kat); ?>"><?= $data->nama_kat ?></a>
 									</li>
 								<?php endforeach; ?>
 							</ul>
@@ -88,7 +88,7 @@
 							<ul class="dropdown">
 								<?php foreach ($row2->result() as $key => $data) : ?>
 
-									<li><a href="<?php echo base_url('Categories_page/index/' . $data->slug_kat); ?>"><?= $data->nama_kat ?></a></li>
+									<li><a href="<?php echo base_url('categories_page/index/' . $data->slug_kat); ?>"><?= $data->nama_kat ?></a></li>
 
 								<?php endforeach; ?>
 							</ul>

@@ -9,13 +9,13 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihatdata') ?>">
+          <a class="sidebar-brand btn btn-danger d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihatdata') ?>">
         <div class="sidebar-brand-text mx-3">Lihat Data Penjual</div>
       </a>
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihat_kategori') ?>">
+      <a class="sidebar-brand d-flex btn btn-danger  ml-2 align-items-center justify-content-center" href="<?php echo site_url('Overview/lihat_kategori') ?>">
         <div class="sidebar-brand-text mx-3">Lihat Data Kategori</div>
       </a>
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('Overview/lihatproduk') ?>">
+      <a class="sidebar-brand d-flex btn btn-danger ml-2 align-items-center justify-content-center" href="<?php echo site_url('Overview/lihatproduk') ?>">
         <div class="sidebar-brand-text mx-3">Lihat Data Produk</div>
       </a>
           <!-- Topbar Search -->

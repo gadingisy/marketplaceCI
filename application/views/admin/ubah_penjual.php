@@ -58,7 +58,19 @@
             <div class="form-group">
                 <label for="instagram_penjual">Instagram Penjual</label>
                 <input type="text" class="form-control" name="instagram_penjual"  id="instagram_penjual" value="<?= $data['instagram_penjual']; ?>">  
-            </div>
+			</div>
+			<div class="form-group">
+            <label for="status_penjual" name="status_penjual">Status Penjual</label>
+            <select class="form-control" name="status_penjual">
+                        <?php foreach( $status_penjual as $status_penjual ) : ?>
+                            <?php if($status_penjual == $data['status_penjual']) : ?>  
+                                  <option value="<?= $status_penjual; ?>" selected><?= $status_penjual; ?></option>
+                            <?php else : ?>
+                                  <option value="<?= $status_penjual; ?>"><?= $status_penjual; ?></option>
+                            <?php endif; ?>
+                            <?php endforeach; ?>
+            </select>
+             </div>
             <button type="submit" name="edit" class="btn btn-danger float-right">Edit</button>  
             </div>
         </div>
