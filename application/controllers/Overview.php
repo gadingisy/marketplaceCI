@@ -31,19 +31,38 @@ class Overview extends CI_Controller
 	{
 		$data['title'] = 'Data Produk';
 		$data['row'] = $this->Model_produk->get();
+	
 		$this->load->view('admin/lihatproduk', $data);
 	}
+	public function manajemenwebsite()
+	{
+		$data['title'] = 'Ganti Banner';
+		$data['row'] = $this->Model_produk->getbanner();
+	
+		$this->load->view('admin/manajemenwebsite_banner', $data);
+		
+	}
+
+	public function iklan1()
+	{
+		$data['title'] = 'Ganti Iklan 1';
+		$data['row'] = $this->Model_produk->get();
+		$this->load->view('admin/manajemeniklan1', $data);
+	}
+	public function iklan2()
+	{
+		$data['title'] = 'Ganti Iklan 2';
+		$data['row'] = $this->Model_produk->get();
+		$this->load->view('admin/manajemeniklan2', $data);
+	}
+
 	public function lihatartikel()
 	{
 		$data['title'] = 'Data Artikel';
 		$data['row'] = $this->Model_produk->get();
 		$this->load->view('admin/lihatartikel', $data);
 	}
-	public function lihatkategori()
-	{
-		$data['title'] = 'Data Kategori';
-		$data['row'] = $this->Model_produk->get_kategori();
-	}
+
 	public function lihat_kategori()
 	{
 		$data['title'] = "Data Kategori";
@@ -411,6 +430,8 @@ class Overview extends CI_Controller
 		$this->session->set_flashdata('flash', 'Data Sudah Dihapus');
 		redirect('Overview/lihatproduk');
 	}
+
+	
 }
 
 ?>

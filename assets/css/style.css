@@ -856,11 +856,6 @@ overflow-y:scroll;
   Hero Section
 -----------------------*/
 
-.hero-items .single-hero-items {
-	height: 725px;
-	padding-top: 210px;
-}
-
 .hero-items .single-hero-items span {
 	color: #bc2022;
 	font-size: 12px;
@@ -4002,6 +3997,19 @@ margin-top:-8px;
 
 /* ------------------------------ Responsive Media Styles ---------------------------- */
 
+@media only screen and (min-width: 1920px) and (max-width: 2560px) {
+	
+	.inner-header .advanced-search .input-group button {
+		right: -14px;
+	}
+	.product-item .pi-pic ul li a {
+		padding: 16px 12px 12px 11px;
+	}
+	.nav-item .nav-menu li a {
+		padding: 16px 45px 15px;
+	}
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 1920px) {
 	.inner-header .advanced-search .input-group button {
 		right: -14px;
@@ -4175,6 +4183,7 @@ margin-top:-8px;
 /* Large Device: 480px */
 
 @media only screen and (max-width: 767px) {
+	
 	.logo_site{
 		width:170px;
 	}
@@ -4296,7 +4305,7 @@ margin-top:-8px;
 	.hero-items .single-hero-items {
 		padding: 110px 25px 80px;
 		height: auto;
-		background: left center;
+	
 	}
 	.hero-items .single-hero-items h1 {
 		font-size: 40px;
@@ -4353,6 +4362,11 @@ margin-top:-8px;
 /* Small Device: 320px */
 
 @media only screen and (max-width: 479px) {
+	.hero-items .single-hero-items {
+		padding: 110px 25px 80px;
+		height: auto;
+	
+	}
 	.instagram-photo .insta-item {
 		width: 100%;
 	}

@@ -4,8 +4,8 @@
 <head>
 
 	<meta charset="UTF-8">
-	<meta name="description" content="Fashi Template">
-	<meta name="keywords" content="Fashi, unica, creative, html">
+	<meta name="description" content="Gerbang Lamongan">
+	<meta name="keywords" content="UMKM, gerbang lamongan, pasar, lamongan">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/logoold.png">

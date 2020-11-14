@@ -143,7 +143,7 @@
                     <a href="<?= base_url(); ?>Overview/hapus/<?= $data['id_penjual']; ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" ><i class="fa fa-trash"> Hapus</i></a>
             
 				              	</td>
-                        
+										</tr>
                         <?php endforeach; ?>
                    
                  

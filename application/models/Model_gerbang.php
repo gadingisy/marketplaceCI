@@ -36,7 +36,24 @@ public function get_All($id_produk){
 	return $this->db->get();
 	
 	}
+
+	public function get_published_banner(){
+		$this->db->from('tb_manajemen_website');
+		$this->db->where('published','publish');
+		$query = $this->db->get()->result();
+		return $query;
+	}
 	
+	public function get_produk(){
+    $this->db->select('tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual,tb_kategori.slug_kat');
+    $this->db->from('tb_produk');
+    $this->db->join('tb_kategori','tb_kategori.id_kat = tb_produk.id_kat');
+    $this->db->join('tb_penjual','tb_penjual.id_penjual = tb_produk.id_penjual');
+    $this->db->order_by("id_produk", "desc");
+    $this->db->limit(8); 
+		$query = $this->db->get()->result();
+		return $query;
+ }
 
 public function hitung_barang($id_produk,$limit,$offset){
 
@@ -68,16 +85,7 @@ $query = $this->db->get();
 return $query;
 }
    
-   public function get_produk(){
-    $this->db->select('tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual,tb_kategori.slug_kat');
-    $this->db->from('tb_produk');
-    $this->db->join('tb_kategori','tb_kategori.id_kat = tb_produk.id_kat');
-    $this->db->join('tb_penjual','tb_penjual.id_penjual = tb_produk.id_penjual');
-    $this->db->order_by("id_produk", "desc");
-    $this->db->limit(8); 
-  $query = $this->db->get();
-  return $query;
- }
+  
 
    public function tambah_data_penjual($data){   
     $this->db->insert('tb_penjual',$data);

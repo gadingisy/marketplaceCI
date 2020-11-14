@@ -3,46 +3,31 @@ $this->load->view('header');
 ?>
 <!-- ATAS -->
 <!-- ATAS -->
-<!-- ATAS -->
-<!-- ATAS -->
-<!-- ATAS -->
-<!-- ATAS -->
-<!-- ATAS -->
-<!-- ATAS -->
-<!-- ATAS -->
 <!-- Hero Section Begin -->
-<section class="hero-section">
-	<div class="hero-items owl-carousel">
-		<div class="single-hero-items set-bg" data-setbg="<?= base_url('./assets/img/hero-1.jpg') ?>">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-5">
-						<span>Welcome To</span>
-						<h1>Gerbang Lamongan</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-							incididunt ut labore et dolore</p>
+<div class="hero-section">
+<div id="iklanCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner ">
+  <div class="carousel-item active">
+      <img class="d-block w-100" src="<?= base_url("./assets/img/dummy1.png") ?>">
+    </div>
+  <?php foreach ($banner as  $key => $data) : ?>
 
-					</div>
-				</div>
+    <div class="carousel-item">
 
-			</div>
-		</div>
-		<div class="single-hero-items set-bg" data-setbg="<?= base_url('./assets/img/hero-2.jpg') ?>">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-5">
-						<span>Welcome To</span>
-						<h1>Gerbang Lamongan</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-							incididunt ut labore et dolore</p>
-
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-</section>
+      <img class="d-block w-100" src="<?= base_url("./assets/upload/images/" . $data->hero_iklan) ?>" alt="<?= $data->alt_hero; ?>">
+    </div>
+  <?php endforeach; ?>
+  </div>
+  <a class="carousel-control-prev" href="#iklanCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#iklanCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
 <!-- Hero Section End -->
 
 <!-- BODY BODY BODY BODY BODYBODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY-->
@@ -64,25 +49,26 @@ $this->load->view('header');
 					</ul>
 				</div>
 				<div class="product-slider owl-carousel">
-					<?php foreach ($data->result() as  $key => $data) : ?>
+					<?php foreach ($produk as  $key => $produk) : ?>
+					
 						<div class="product-item col-md">
 							<div class="pi-pic">
 
-								<img src="<?= base_url("./assets/upload/images/" . $data->gambar_produk) ?>" alt="<?= $data->nama_produk?>">
+								<img src="<?= base_url("./assets/upload/images/" . $produk->gambar_produk) ?>" alt="<?= $produk->nama_produk?>">
 								<div class="sale">Sale</div>
 								<ul>
 
-									<li class="quick-view"><a href="<?php echo base_url('product/index/' . $data->id_produk); ?>">Lihat Produk</a></li>
+									<li class="quick-view"><a href="<?php echo base_url('product/index/' . $produk->id_produk); ?>">Lihat Produk</a></li>
 								</ul>
 							</div>
 
 							<div class="pi-text">
-								<div class="catagory-name"><?= $data->nama_kat ?></div>
-								<a href="<?php echo base_url('Product/index/' . $data->id_produk); ?>">
-									<h5 style="word-break: break-all;"><?= $data->nama_produk ?></h5>
+								<div class="catagory-name"><?= $produk->nama_kat ?></div>
+								<a href="<?php echo base_url('Product/index/' . $produk->id_produk); ?>">
+									<h5 style="word-break: break-all;"><?= $produk->nama_produk ?></h5>
 								</a>
 								<div class="product-price">
-									<?= "Rp " . number_format($data->harga_produk, 2, ',', '.') ?>
+									<?= "Rp " . number_format($produk->harga_produk, 2, ',', '.') ?>
 
 								</div>
 							</div>

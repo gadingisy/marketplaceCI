@@ -1,4 +1,3 @@
-
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Produk extends CI_Controller{
@@ -27,10 +26,6 @@ class Produk extends CI_Controller{
          $data['row'] = $this->Model_produk->get_kategori();
     }
     
-   
-
-
-
 
     public function tambahproduk(){
         $item = new stdClass();
@@ -49,16 +44,12 @@ class Produk extends CI_Controller{
    
         $item->slug_produk = null;
         
-
-        
-    
         $kategori = $this->Model_produk->get_kategori();
         $penjual= $this->Model_produk->get_penjual();
         
         $data = array(
                     'page' => 'tambahproduk',
                     'row' => $item,
-                  
                     'kategori' => $kategori,
                      'penjual' => $penjual
         );

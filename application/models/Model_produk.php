@@ -6,7 +6,6 @@ class Model_produk extends CI_Model{
     public function __construct(){
         parent::__construct();
         $this->load->database();
-        
     }
     
     public function get_penjual($id_penjual = null){
@@ -36,7 +35,9 @@ class Model_produk extends CI_Model{
     $query = $this->db->get();
     return $query;
  
-  }
+	}
+	
+
  
 
  public function tambahproduk($post){
@@ -89,7 +90,44 @@ class Model_produk extends CI_Model{
    $this->db->where('id_produk', $id_produk);
   $this->db->delete('tb_produk');
  }
+
+
+ public function getbanner(){
+	$this->db->from('tb_manajemen_website');
+	$query = $this->db->get();
+	return $query;
+
 }
 
+ public function hapusbanner($id_iklan){
+		$this->db->where('id_iklan', $id_iklan);
+		$this->db->delete('tb_manajemen_website');
+	}
 
-
+ 
+ public function uploadbanner($post){
+  $data = [
+                  'hero_iklan'  => $post['hero_iklan'],
+                  'alt_hero'  => $post['alt_hero']
+   ];
+ 
+ $this->db->insert('tb_manajemen_website',$data);
+//  print_r($this->db->last_query());
+// 	die;
+	}
+	
+	public function publish($id)
+	{
+		$publish_status = array('published' => 'publish');    
+		$this->db->where('id_iklan', $id);
+		$this->db->update('tb_manajemen_website', $publish_status); 
+		
+		}
+		public function dontpublish($id)
+		{
+			$publish_status = array('published' => 'batal');    
+			$this->db->where('id_iklan', $id);
+			$this->db->update('tb_manajemen_website', $publish_status); 
+			
+			}
+}

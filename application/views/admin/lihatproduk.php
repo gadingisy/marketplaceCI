@@ -124,9 +124,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php
+										<?php
+									
                     $no=1;
-                    foreach ($row->result() as $key => $data) : ?>
+                    foreach ($row->result() as $key => $data) :;?>
                    
                     <tr>
                        <td><?= $no++ ?></td>
