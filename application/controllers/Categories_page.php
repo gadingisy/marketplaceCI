@@ -22,7 +22,7 @@ class Categories_page extends CI_Controller{
  
 		$offset = ($this->uri->segment(4))? $this->uri->segment(4) : 0;;
 		$data['semua_pengguna'] = $this->Model_gerbang->hitung_barang($id_produk,$config["per_page"],$offset);
-		$config['base_url'] = base_url() . "Categories_page/index/$id_produk/";
+		$config['base_url'] = base_url() . "categories_page/index/$id_produk/";
 		$config['total_rows'] = $this->Model_gerbang->get_All($id_produk)->num_rows();
 		$config['full_tag_open'] = '<ul class="pagination justify-content-center">';
 		$config['full_tag_close'] = '</ul>';

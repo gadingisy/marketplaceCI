@@ -36,23 +36,25 @@ class Overview extends CI_Controller
 	}
 	public function manajemenwebsite()
 	{
+		$tipe = 'banner';
 		$data['title'] = 'Ganti Banner';
-		$data['row'] = $this->Model_produk->getbanner();
-	
+		$data['row'] = $this->Model_produk->getbanner($tipe);
 		$this->load->view('admin/manajemenwebsite_banner', $data);
 		
 	}
 
 	public function iklan1()
 	{
+		$tipe = 'iklan1';
 		$data['title'] = 'Ganti Iklan 1';
-		$data['row'] = $this->Model_produk->get();
+		$data['row'] = $this->Model_produk->getbanner($tipe);
 		$this->load->view('admin/manajemeniklan1', $data);
 	}
 	public function iklan2()
 	{
+		$tipe = 'iklan2';
 		$data['title'] = 'Ganti Iklan 2';
-		$data['row'] = $this->Model_produk->get();
+		$data['row'] = $this->Model_produk->getbanner($tipe);
 		$this->load->view('admin/manajemeniklan2', $data);
 	}
 

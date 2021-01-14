@@ -133,7 +133,9 @@
 													</div>
 												</div>
 											</div>
+											
 											<?php endif; ?>
+
 											<span class="badge badge-secondary mt-1 mb-3">Pastikan foto berukuran <span
 													class="font-weight-bold">1366 x 490 </span></span>
 											<div class="form-group">
@@ -145,6 +147,10 @@
 												<label for="nama_penjual">Alt Gambar Banner</label>
 												<input type="text" class="form-control" name="alt_hero" id="alt_hero">
 												<small class="form-text text-danger"></small>
+											</div>
+
+											<div class="form-group">
+											<input type="hidden" class="form-control" name="tipe_iklan" value="banner">
 											</div>
 
 
@@ -193,7 +199,7 @@
 										<td>
 										<a href="<?= base_url(); ?>Manajemenwebsite/hapusbanner/<?= $data->id_iklan ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" ><i class="fas fa-times-circle mr-2"></i>Hapus</a>
 										</td>
-										</tr>
+									</tr>
 										<?php endforeach; ?>
 									
 										</tbody>

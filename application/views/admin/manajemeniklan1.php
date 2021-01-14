@@ -37,8 +37,8 @@
 
 						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
 						<li class="nav-item dropdown no-arrow d-sm-none">
-							<a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fas fa-search fa-fw"></i>
 							</a>
 							<!-- Dropdown - Messages -->
@@ -46,8 +46,9 @@
 								aria-labelledby="searchDropdown">
 								<form class="form-inline mr-auto w-100 navbar-search">
 									<div class="input-group">
-										<input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-											aria-label="Search" aria-describedby="basic-addon2">
+										<input type="text" class="form-control bg-light border-0 small"
+											placeholder="Search for..." aria-label="Search"
+											aria-describedby="basic-addon2">
 										<div class="input-group-append">
 											<button class="btn btn-danger" type="button">
 												<i class="fas fa-search fa-sm"></i>
@@ -63,14 +64,15 @@
 
 						<!-- Nav Item - User Information -->
 						<li class="nav-item dropdown no-arrow">
-							<a class="nav-link dropdown-toggle" href="#" data-toggle="modal" data-target="#logoutModal" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" data-toggle="modal" data-target="#logoutModal"
+								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<span
 									class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('user_admin'); ?></span>
 								<img class="img-profile bg-danger rounded-circle">
 							</a>
 							<!-- Dropdown - User Information -->
-							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
 
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -108,31 +110,96 @@
 					<div class="col-xl-12 col-lg-12 col-md-12 mb-4">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-danger">Ganti Foto Iklan</h6>
+								<h6 class="m-0 font-weight-bold text-danger">Ganti Iklan 1</h6>
 							</div>
 							<div class="card-body">
 								<div class="row justify-content-between">
 									<div class="col-md-12">
 
-										<form method="post" class="mt-3" action="<?php echo base_url('Overview/process'); ?>"
+										<form method="post"
+											action="<?php echo base_url('Manajemenwebsite/uploadbanner'); ?>"
 											enctype="multipart/form-data">
-
-											
-
+											<?php if ($this->session->flashdata('error')) :?>
+											<div class="row mt-3">
+												<div class="col-md-6">
+													<div class="alert alert-danger alert-dismissible fade show"
+														role="alert">
+														Data <strong> Gagal </strong>
+														<?= $this->session->flashdata('error'); ?>
+														<button type="button" class="close" data-dismiss="alert"
+															aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+												</div>
+											</div>
+											<?php endif; ?>
+											<span class="badge badge-secondary mt-1 mb-3">Pastikan foto berukuran dengan <span
+													class="font-weight-bold"> HEIGHT : 620px </span></span>
 											<div class="form-group">
-												<label for="foto_ktp">Iklan 1</label>
-												<input type="file" class="form-control" name="foto_ktp">
+												<label for="foto_ktp">Iklan</label>
+												<input type="file" class="form-control" name="gambar_iklan1">
 
 											</div>
 											<div class="form-group">
-												<label for="nama_penjual">Alt Iklan 1</label>
-												<input type="text" class="form-control" name="nama_penjual" id="nama_penjual">
+												<label for="nama_penjual">Alt Gambar Iklan 1</label>
+												<input type="text" class="form-control" name="alt_iklan1" id="alt_iklan1">
 												<small class="form-text text-danger"></small>
 											</div>
 
-													<button type="submit" class="btn btn-danger mt-3">Simpan</button>
+											<div class="form-group">
+											<input type="hidden" class="form-control" name="tipe_iklan" value="iklan1">
+											</div>
+
+											<button type="submit" name="uploadbanner"
+												class="btn btn-danger mt-3">Simpan</button>
 										</form>
 									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold text-danger">Data Banner</h6>
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-bordered" id="tabel_banner" width="100%" cellspacing="0">
+										<thead>
+
+											<tr>
+												
+												<th>Gambar</th>
+												<th>Alt Iklan 1</th>
+												<th>Status</th>
+												<th>Aksi</th>
+											</tr>
+										</thead>
+										<tbody>
+									
+										<?php
+										
+										$no=1;
+										foreach ($row->result() as $key => $data) :;?>
+									
+									<tr>
+										<td><img src="<?=base_url("./assets/upload/images/".$data->gambar_iklan1)?>" width="100px" class="mb-3"></td>
+										<td><?= $data->alt_iklan1 ?></td>
+										<?php if ($data->published != 'publish'){ ?>
+										<td><a href="<?= base_url(); ?>Manajemenwebsite/publishiklan1/<?= $data->id_iklan1 ?>" class='btn btn-sm btn-success mb-2'><i class="fas fa-check mr-2"></i>Publish</a></td>
+										
+										<?php } else {?>
+										<td><a href="<?= base_url(); ?>Manajemenwebsite/dontpublishiklan1/<?= $data->id_iklan1 ?>" class='btn btn-sm btn-warning mb-2'><i class="fas fa-times mr-2"></i>Batal</a></td>
+
+										<?php }?>
+										<td>
+										<a href="<?= base_url(); ?>Manajemenwebsite/hapusiklan1/<?= $data->id_iklan1 ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" ><i class="fas fa-times-circle mr-2"></i>Hapus</a>
+										</td>
+									</tr>
+										<?php endforeach; ?>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
@@ -182,9 +249,13 @@
 
 	<!-- Page level plugins -->
 	<script type="text/javascript" src="<?php echo base_url();?>assets/datatables/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>assets/datatables/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>assets/datatables/dataTables.bootstrap4.min.js">
+	</script>
 
 	<!-- Page level custom scripts -->
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/datatables-demo.js"></script>
-
+	
+<script type="text/javascript">
+</script>
+</body>
 </html>

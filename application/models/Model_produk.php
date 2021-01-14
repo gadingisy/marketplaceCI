@@ -92,18 +92,22 @@ class Model_produk extends CI_Model{
  }
 
 
- public function getbanner(){
-	$this->db->from('tb_manajemen_website');
-	$query = $this->db->get();
-	return $query;
-
-}
-
- public function hapusbanner($id_iklan){
-		$this->db->where('id_iklan', $id_iklan);
-		$this->db->delete('tb_manajemen_website');
+ public function getbanner($tipe){
+	if ($tipe == 'banner'){
+		$this->db->from('tb_manajemen_website');
+		$query = $this->db->get();
+		return $query;
+	} else if ($tipe == 'iklan1' ){
+		$this->db->from('tb_iklan1');
+		$query = $this->db->get();
+		return $query;
+	} else if($tipe == 'iklan2'){
+		$this->db->from('tb_iklan2');
+		$query = $this->db->get();
+		return $query;
 	}
 
+}
  
  public function uploadbanner($post){
   $data = [
@@ -112,22 +116,76 @@ class Model_produk extends CI_Model{
    ];
  
  $this->db->insert('tb_manajemen_website',$data);
-//  print_r($this->db->last_query());
-// 	die;
 	}
+
 	
-	public function publish($id)
+	public function uploadiklan1($post){
+	
+		$data = [
+										'gambar_iklan1'  => $post['gambar_iklan1'],
+										'alt_iklan1'  => $post['alt_iklan1']
+		 ];
+	 
+	 $this->db->insert('tb_iklan1',$data);
+		}
+
+	public function uploadiklan2($post){
+	
+		$data = [
+			'gambar_iklan2'  => $post['gambar_iklan2'],
+			'alt_iklan2'  => $post['alt_iklan2']
+		 ];
+	 
+	 $this->db->insert('tb_iklan2',$data);
+	}
+
+		public function hapusbanner($id_iklan,$tipe){
+			if ($tipe == 'banner'){
+			$this->db->where('id_iklan', $id_iklan);
+			$this->db->delete('tb_manajemen_website');
+			} else if($tipe == 'iklan1'){
+				$this->db->where('id_iklan1', $id_iklan);
+				$this->db->delete('tb_iklan1');
+			} else if($tipe == 'iklan2'){
+				$this->db->where('id_iklan2', $id_iklan);
+				$this->db->delete('tb_iklan2');
+			}
+		}
+	
+	
+	public function publish($id,$tipe)
 	{
+		if ($tipe == 'banner'){
 		$publish_status = array('published' => 'publish');    
 		$this->db->where('id_iklan', $id);
 		$this->db->update('tb_manajemen_website', $publish_status); 
+		} else if($tipe == 'iklan1'){
+			$publish_status = array('published' => 'publish');    
+			$this->db->where('id_iklan1', $id);
+			$this->db->update('tb_iklan1', $publish_status); 
+		} else if($tipe == 'iklan2'){
+			$publish_status = array('published' => 'publish');    
+			$this->db->where('id_iklan2', $id);
+			$this->db->update('tb_iklan2', $publish_status); 
+		}
 		
 		}
-		public function dontpublish($id)
-		{
-			$publish_status = array('published' => 'batal');    
-			$this->db->where('id_iklan', $id);
-			$this->db->update('tb_manajemen_website', $publish_status); 
-			
-			}
+		public function dontpublish($id,$tipe)
+	{
+		if ($tipe == 'banner'){
+		$publish_status = array('published' => 'batal');    
+		$this->db->where('id_iklan', $id);
+		$this->db->update('tb_manajemen_website', $publish_status); 
+	} else if($tipe == 'iklan1'){
+		$publish_status = array('published' => 'batal');    
+		$this->db->where('id_iklan1', $id);
+		$this->db->update('tb_iklan1', $publish_status); 
+	} else if($tipe == 'iklan2'){
+		$publish_status = array('published' => 'batal');    
+		$this->db->where('id_iklan2', $id);
+		$this->db->update('tb_iklan2', $publish_status); 
+	}
+		
+		}
+		
 }

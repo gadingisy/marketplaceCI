@@ -43,6 +43,19 @@ public function get_All($id_produk){
 		$query = $this->db->get()->result();
 		return $query;
 	}
+
+	public function get_iklan1(){
+		$this->db->from('tb_iklan1');
+		$this->db->where('published','publish');
+		$query = $this->db->get()->result();
+		return $query;
+	}
+	public function get_iklan2(){
+		$this->db->from('tb_iklan2');
+		$this->db->where('published','publish');
+		$query = $this->db->get()->result();
+		return $query;
+	}
 	
 	public function get_produk(){
     $this->db->select('tb_produk.*,tb_kategori.nama_kat,tb_penjual.nama_penjual,tb_kategori.slug_kat');
