@@ -61,7 +61,8 @@ class Overview extends CI_Controller
 	public function lihatartikel()
 	{
 		$data['title'] = 'Data Artikel';
-		$data['row'] = $this->Model_produk->get();
+		$data['row'] =  $this->Model_gerbang->get_artikel();
+	
 		$this->load->view('admin/lihatartikel', $data);
 	}
 
@@ -70,7 +71,7 @@ class Overview extends CI_Controller
 		$data['title'] = "Data Kategori";
 		$this->load->model('Model_gerbang');
 		$data['data'] = $this->Model_gerbang->get_kategori();
-		$this->load->view('admin/lihatkategori.php', $data);
+		$this->load->view('admin/lihatkategori', $data);
 	}
 
 	public function lihat_kategori_artikel()
@@ -92,10 +93,8 @@ class Overview extends CI_Controller
 		$this->form_validation->set_rules('instagram_penjual', 'Instagram', 'required');
 
 
-
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('admin/_partials/head', $data);
-			$this->load->view('admin/_partials/navbar_add');
+			$this->load->view('admin/_partials/head', $data);		
 			$this->load->view('admin/tambah_penjual');
 			$this->load->view('admin/_partials/footer');
 		} else {
@@ -133,6 +132,54 @@ class Overview extends CI_Controller
 			redirect('Overview/lihatdata');
 		}
 	}
+	public function tambahartikel()
+	{
+		$data['title'] = 'Form Tambah Artikel';
+		$this->form_validation->set_rules('judul_artikel', 'Judul Artikel', 'required');
+		$this->form_validation->set_rules('konten_artikel', 'Konten Artikel', 'required');
+		$this->form_validation->set_rules('gambar_artikel', 'Gambar Artikel');
+		$data['kategori'] = $this->Model_gerbang->get_nama_kategori_artikel()->result();
+		$data['penjual'] = $this->Model_gerbang->get_penjual_premium();
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('admin/_partials/head', $data);		
+			$this->load->view('admin/tambahartikel', $data);
+			$this->load->view('admin/_partials/footer');
+		} else {
+			$config['upload_path'] = './assets/upload/images/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size']  = '2400';
+			$config['max_width']  = '2024';
+			$config['max_height']  = '2024';
+
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if (!$this->upload->do_upload('gambar_artikel')) {
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			} else {
+				$fileData = $this->upload->data();
+				$post['gambar_artikel'] = $fileData['file_name'];
+			}
+			date_default_timezone_set('Asia/Jakarta'); # add your city to set local time zone
+			$now = date('d-m-Y');
+			$gambar = $post['gambar_artikel'];
+			$data = array(
+				'judul_artikel'  => $this->input->post('judul_artikel', true),
+				'konten_artikel'  => $this->input->post('konten_artikel', true),
+				'gambar_artikel' => $gambar,
+				'id_penjual_artikel' => $this->input->post('id_penjual_artikel',true),
+				'id_artikel_kategori' => $this->input->post('id_artikel_kategori', true),
+				'slug_artikel' => $this->input->post('slug_artikel', true),
+				'published' => $this->input->post('published', true),
+				'created_at' => $now
+			);
+
+			$this->Model_gerbang->tambah_data_artikel($data);
+			$this->session->set_flashdata('flash', 'Data sudah ditambahkan');
+			redirect('Overview/lihatartikel');
+		}
+	}
 
 	public function hapus($id_penjual)
 	{
@@ -156,7 +203,7 @@ class Overview extends CI_Controller
 		$this->form_validation->set_rules('status_penjual', 'Status Penjual', 'required');
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('admin/_partials/head', $data);
-			$this->load->view('admin/_partials/navbar_add');
+		
 			$this->load->view('admin/ubah_penjual', $data);
 			$this->load->view('admin/_partials/footer');
 		} else {
@@ -204,7 +251,7 @@ class Overview extends CI_Controller
 		$data['jenis'] = ['Barang', 'Jasa'];
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('admin/_partials/head', $data);
-			$this->load->view('admin/_partials/navbar_add');
+		
 			$this->load->view('admin/tambahkategori');
 			$this->load->view('admin/_partials/footer');
 		} else {
@@ -221,7 +268,7 @@ class Overview extends CI_Controller
 		$this->form_validation->set_rules('slug_artikel_kategori', 'Slug', 'required');
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('admin/_partials/head', $data);
-			$this->load->view('admin/_partials/navbar_add');
+	
 			$this->load->view('admin/tambahkategori_artikel');
 			$this->load->view('admin/_partials/footer');
 		} else {
@@ -241,7 +288,7 @@ class Overview extends CI_Controller
 		$this->form_validation->set_rules('jenis_kat', 'Jenis', 'required');
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('admin/_partials/head', $data);
-			$this->load->view('admin/_partials/navbar_add');
+		
 			$this->load->view('admin/ubah_kat', $data);
 			$this->load->view('admin/_partials/footer');
 		} else {
@@ -261,7 +308,7 @@ class Overview extends CI_Controller
 		$this->form_validation->set_rules('slug_artikel_kategori', 'Slug', 'required');
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('admin/_partials/head', $data);
-			$this->load->view('admin/_partials/navbar_add');
+	
 			$this->load->view('admin/ubah_kat_artikel', $data);
 			$this->load->view('admin/_partials/footer');
 		} else {
@@ -314,7 +361,7 @@ class Overview extends CI_Controller
 		);
 		$data['title'] = 'Form Tambah Produk';
 		$this->load->view('admin/_partials/head', $data);
-		$this->load->view('admin/_partials/navbar_add');
+	
 		$this->load->view('admin/tambahproduk', $data);
 		$this->load->view('admin/_partials/footer');
 	}
@@ -468,10 +515,10 @@ class Overview extends CI_Controller
 			);
 			$data['title'] = 'Form Edit Produk';
 			$this->load->view('admin/_partials/head', $data);
-			$this->load->view('admin/_partials/navbar_add');
+	
 			$this->load->view('admin/tambahproduk', $data);
 			$this->load->view('admin/_partials/footer');
-			$this->load->view('admin/_partials/js');
+			
 		} else {
 			echo "<script>alert('Data tidak ditemukan!');</script>";
 
@@ -485,6 +532,8 @@ class Overview extends CI_Controller
 		$this->session->set_flashdata('flash', 'Data Sudah Dihapus');
 		redirect('Overview/lihatproduk');
 	}
+
+
 
 	
 }

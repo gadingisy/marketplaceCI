@@ -6,6 +6,10 @@ class Model_gerbang extends CI_Model
 	{
 		return $this->db->get('tb_penjual')->result_array();
 	}
+	public function get_artikel()
+	{
+		return $this->db->get('tb_artikel')->result_array();
+	}
 	public function get_kategori()
 	{
 		return $this->db->get('tb_kategori')->result_array();
@@ -25,6 +29,13 @@ class Model_gerbang extends CI_Model
 		$this->db->select('*');
 		$this->db->from('tb_kategori');
 		$this->db->where('jenis_kat', 'Barang');
+		$query = $this->db->get();
+		return $query;
+	}
+	public function get_nama_kategori_artikel()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_kategori_artikel');
 		$query = $this->db->get();
 		return $query;
 	}
@@ -50,6 +61,14 @@ class Model_gerbang extends CI_Model
 	{
 		$this->db->from('tb_manajemen_website');
 		$this->db->where('published', 'publish');
+		$query = $this->db->get()->result();
+		return $query;
+	}
+
+	public function get_penjual_premium()
+	{
+		$this->db->from('tb_penjual');
+		$this->db->where('status_penjual', 'Premium');
 		$query = $this->db->get()->result();
 		return $query;
 	}
@@ -121,6 +140,12 @@ class Model_gerbang extends CI_Model
 	{
 		$this->db->insert('tb_penjual', $data);
 	}
+
+	public function tambah_data_artikel($data)
+	{
+		$this->db->insert('tb_artikel', $data);
+	}
+
 	public function tambahkategori()
 	{
 

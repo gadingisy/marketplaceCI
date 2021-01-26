@@ -15,7 +15,15 @@ class Model_produk extends CI_Model{
       }
       $query = $this->db->get();
       return $query;
-    }
+	}
+	public function get_artikel($id_artikel = null){
+		$this->db->from('tb_artikel');
+		if($id_penjual != NULL) {
+		  $this->db->where('id_artikel', $id_artikel);
+		}
+		$query = $this->db->get();
+		return $query;
+	  }
     public function get_kategori($id_kat = null){
       $this->db->from('tb_kategori');
       if($id_kat!= NULL) {

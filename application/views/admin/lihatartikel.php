@@ -111,43 +111,35 @@
                  <a href="<?=site_url('Overview/tambahartikel')?>" class="btn btn-danger mb-2"><i class="fas fa-plus-circle"> Tambah Artikel</i></a>
                       <tr>
                         <th>No</th>
-                        <th>Nama Produk</th>
-                        <th>Kategori</th>
-                        <th>Penjual</th>
-                        <th>Deskripsi</th>
-                        <th>Berat</th>
-                        <th>Ukuran</th>
-                        <th>Harga</th>
-                        <th>Slug</th>
-                        <th>Gambar</th>
+                        <th>Judul Artikel</th>
+                        <th>Kategori Artikel</th>
+												<th>Penjual</th>
+												<th>Konten Artikel</th>
+                        <th>Gambar Artikel</th>
+                        <th>Publish</th>
+                        <th>Slug Artikel</th>												
                         <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
                     $no=1;
-                    foreach ($row->result() as $key => $data) : ?>
-                   
+                    foreach ($row as $key => $data) : ?>
+                 
                     <tr>
                        <td><?= $no++ ?></td>
-                       <td><?= $data->nama_produk ?></td> 
-                       <td><?= $data->nama_kat ?></td> 
-                       <td><?= $data->nama_penjual ?></td>
-                       <td><?= strlen($data->deskripsi_produk) > 200 ? implode(' ', array_slice(explode(' ', $data->deskripsi_produk ), 0, 30)) . '....' : $data->deskripsi_produk;  ?></td>
-                       <td><?= $data->berat_produk ?></td>
-                       <td><?= $data->ukuran_produk ?></td>
-                       <td>Rp. <?= number_format($data->harga_produk,'0',',','.') ?></td>
-                       <td><?= $data->slug_produk ?></td>
-                       <td><img src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" width="100px" class="mb-3">
-                       <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk1)?>" width="100px" class="mb-3">
-                       <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk2)?>" width="100px" class="mb-3">
-                       <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk3)?>" width="100px">
-                    
-                      </td>
+                       <td><?= $data['judul_artikel'] ?></td> 
+                       <td><?= $data['id_artikel_kategori'] ?></td> 
+											 <td><?= $data['id_penjual_artikel'] ?></td> 
+                       <td><?= strlen($data['konten_artikel']) > 200 ? implode(' ', array_slice(explode(' ', $data['konten_artikel'] ), 0, 30)) . '....' : $data['konten_artikel'];  ?></td>
+											 <td><img src="<?=base_url("./assets/upload/images/".$data['gambar_artikel'])?>" width="100px" class="mb-3"></td>
+											 <td><?= $data['published'] ?></td>
+                       <td><?= $data['slug_artikel'] ?></td>
+                     
                       
                        <td>
-                    <a href='<?= base_url(); ?>Overview/editproduk/<?= $data->id_produk ?>' class='btn btn-sm btn-info mb-2'>Edit</a>
-                    <a href="<?= base_url(); ?>Overview/hapusproduk/<?= $data->id_produk ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" >Hapus</a>
+                    <a href='<?= base_url(); ?>Overview/editartikel/<?= $data['id_artikel']  ?>' class='btn btn-sm btn-info mb-2'>Edit</a>
+                    <a href="<?= base_url(); ?>Overview/hapusartikel/<?= $data['id_artikel'] ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" >Hapus</a>
             
 				              	</td>
                     

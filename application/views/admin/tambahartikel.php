@@ -103,75 +103,77 @@
 					<?php endif; ?>
 					<!-- Page Heading -->
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 font-weight-bold text-danger">Penjual</h1>
+						<h1 class="h3 mb-0 font-weight-bold text-danger">Artikel</h1>
 					</div>
-
+				
 					<!-- Content Row -->
 					<div class="col-xl-12 col-lg-12 col-md-12 mb-4">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-danger">Tambah Data Penjual</h6>
+								<h6 class="m-0 font-weight-bold text-danger">Tambah Data Artikel</h6>
 							</div>
 							<div class="card-body">
-							<?php if (validation_errors()) : ?>
+								<?php if (validation_errors()) : ?>
 									<div class="alert alert-danger" role="alert">
 										<?= validation_errors(); ?>
 									</div>
 								<?php endif; ?>
 								<form action="" method="post" enctype="multipart/form-data">
 									<div class="form-group">
-										<label for="nama_penjual">Nama Penjual</label>
-										<input type="text" class="form-control" name="nama_penjual" id="nama_penjual">
-										<small class="form-text text-danger"><?= form_error('nama_penjual'); ?></small>
+										<label for="judul_artikel">Judul Artikel</label>
+										<input type="text" class="form-control" name="judul_artikel" id="judul_artikel">
+										<small class="form-text text-danger"><?= form_error('judul_artikel'); ?></small>
 									</div>
 									<div class="form-group">
-										<label for="alamat_penjual">Alamat Penjual</label>
-										<textarea class="form-control" name="alamat_penjual" id="alamat_penjual"></textarea>
-										<small class="form-text text-danger"><?= form_error('alamat_penjual'); ?></small>
-									</div>
-
-									<div class="form-group">
-										<label for="hp_penjual">No HP Penjual</label>
-										<div class="row">
-										<div class="col-5 col-md-2  pr-0">
-											<input class="form-control" type="tel" placeholder="+62" readonly>
-										</div>
-										<div class="col-7 col-md-10 pl-0">
-										<input type="text" class="form-control" name="hp_penjual" id="hp_penjual">
-										</div>
-										</div> 
-										<small class="form-text text-danger"><?= form_error('hp_penjual'); ?></small>
-									</div>
-									<div class="form-group">
-										<label for="hp_penjual">No KTP</label>
-
-										<input type="text" class="form-control" name="no_ktp" id="no_ktp">
-										<small class="form-text text-danger"><?= form_error('no_ktp'); ?></small>
-									</div>
-
-									<div class="form-group">
-										<label for="jk_penjual" name="jk_penjual" id="hp_penjual">Jenis Kelamin</label>
-										<select class="form-control" name="jk_penjual" id="hp_penjual">
+										<label for="id_artikel_kategori" name="id_artikel_kategori" id="kategori_artikel">Kategori</label>
+										<select class="form-control" name="id_artikel_kategori" id="kategori_artikel">
 											<option selected>-- Pilih --</option>
-											<option value="Laki-Laki">Laki-Laki</option>
-											<option value="Perempuan">Perempuan</option>
+											<?php
+											$no = 1;
+											foreach ($kategori as $data) : ?>
+										
+												<option value="<?= $data->id_artikel_kategori; ?>"><?= $data->nama_artikel_kategori; ?></option>
+											<?php endforeach; ?>
 										</select>
 									</div>
 									<div class="form-group">
-										<label for="facebook_penjual">Facebook Penjual</label>
-										<input type="text" class="form-control" name="facebook_penjual" id="facebook_penjual">
+										<label for="id_penjual_artikel" name="id_penjual_artikel" id="id_penjual_artikel">Penjual</label>
+										<select class="form-control" name="id_penjual_artikel" id="id_penjual_artikel">
+											<option selected>-- Pilih --</option>
+											<?php
+											$no = 1;
+											foreach ($penjual as $data) : ?>
+										
+												<option value="<?= $data->id_penjual; ?>"><?= $data->nama_penjual; ?></option>
+											<?php endforeach; ?>
+										</select>
 									</div>
 									<div class="form-group">
-										<label for="foto_ktp">Foto KTP</label>
-										<input type="file" class="form-control" name="foto_ktp">
-
+										<label for="konten_artikel">Konten Artikel</label>
+										<textarea type="text" class="form-control" name="konten_artikel" id="editor"></textarea>
+										<small class="form-text text-danger"><?= form_error('konten_artikel'); ?></small>
 									</div>
 
 
 									<div class="form-group">
-										<label for="instagram_penjual">Instagram Penjual</label>
-										<input type="text" class="form-control" name="instagram_penjual" id="instagram_penjual">
+										<label for="gambar_artikel">Gambar Artikel</label>
+										<input type="file" class="form-control" name="gambar_artikel" id="gambar_artikel">
+										<small class="form-text text-danger"><?= form_error('gambar_artikel'); ?></small>
 									</div>
+
+									<div class="form-group">
+										<label for="published" name="published" id="published">Publish</label>
+										<select class="form-control" name="published" id="published">
+											<option selected>-- Pilih --</option>
+											<option value="publish">Publish</option>
+											<option value="notpublish">Don't Publish</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="slug_artikel">Slug Artikel</label>
+										<input type="text" class="form-control" name="slug_artikel" id="slug_artikel">
+									</div>
+
 									<button type="submit" name="tambah" class="btn btn-danger float-right">Tambah</button>
 								</form>
 							</div>
