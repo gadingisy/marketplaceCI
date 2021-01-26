@@ -27,7 +27,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Menu
+        Marketplace
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -36,24 +36,35 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo site_url('Overview/lihatdata') ?>" >
           <i class="fas fa-fw fa-table"></i>
-          <span>Lihat Data Penjual</span></a>
+          <span>Data Penjual</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="<?php echo site_url('Overview/lihat_kategori') ?>" >
           <i class="fas fa-fw fa-table"></i>
-          <span>Lihat Kategori</span></a>
+          <span>Kategori</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="<?php echo site_url('Overview/lihatproduk') ?>" >
           <i class="fas fa-box-open"></i>
-          <span>Lihat Produk</span></a>
+          <span>Produk</span></a>
+      </li>
+		
+
+			<hr class="sidebar-divider d-none d-md-block">
+			<div class="sidebar-heading">
+      Artikel
+      </div>
+			<li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('Overview/lihatartikel') ?>" >
+          <i class="fas fa-book-open"></i>
+          <span>Artikel</span></a>
       </li>
 			<li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('Overview/lihatproduk') ?>" >
+        <a class="nav-link" href="<?php echo site_url('Overview/lihat_kategori_artikel') ?>" >
           <i class="fas fa-book-open"></i>
-          <span>Lihat Artikel</span></a>
+          <span>Kategori Artikel</span></a>
       </li>
 
       <!-- Divider -->
@@ -75,10 +86,23 @@
                       
                     </div>
                 </div>
-            </li>
+			</li>
+
+			<hr class="sidebar-divider d-none d-md-block">
+			<div class="sidebar-heading">
+       Homepage
+      </div>
+			<li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>" >
+          <i class="fas fa-fw fa-home"></i>
+          <span>Kembali ke Homepage</span></a>
+      </li>
+
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
+
+			
 
     </ul>

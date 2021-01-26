@@ -8,13 +8,13 @@ $this->load->view('header');
 	<div id="iklanCarousel" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner ">
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="<?= base_url("./assets/img/dummy1.png") ?>">
+				<img  style="height:490px;"  class="d-block w-100" src="<?= base_url("./assets/img/dummy1.png") ?>">
 			</div>
 			<?php foreach ($banner as  $key => $data) : ?>
 
 			<div class="carousel-item">
 
-				<img class="d-block w-100" src="<?= base_url("./assets/upload/images/" . $data->hero_iklan) ?>"
+				<img  style="height:490px;"  class="d-block w-100" src="<?= base_url("./assets/upload/images/" . $data->hero_iklan) ?>"
 					alt="<?= $data->alt_hero; ?>">
 			</div>
 			<?php endforeach; ?>
@@ -98,10 +98,28 @@ $this->load->view('header');
 
 
 <!-- Deal Of The Week Section Begin-->
-<section class="deal-of-week set-bg" data-setbg="<?= base_url('./assets/images/banner1.png'); ?>">
-	
+<section>
+	<div class="container">
+		<div class="col-sm-12">
+			<div class="row">
+		<?php foreach ($iklan2 as  $key => $data) : ?>
+				<?php if(isset($data)){ ?>	
+				<div class="col-sm-12 text-center">		
+				<img style="height:200px; width:720px;" src="<?= base_url("./assets/upload/images/" . $data->gambar_iklan2) ?>" alt="<?= $data->alt_iklan2; ?>" />
+				</div>
+				<?php } else { ?>
+					<div class="col-sm-12 text-center">	
+					<img src="<?= base_url('./assets/images/banner1.png'); ?>" />
+					</div>
+				<?php } ?>
+
+				<?php endforeach; ?>
+				</div>
+		</div>
+	</div>
 </section>
 <!-- Deal Of The Week Section End -->
+
 
 <section class="kategori deal-of-week">
 	<div class="container">
@@ -160,10 +178,10 @@ $this->load->view('header');
 <div class="partner-logo">
 	<div class="container">
 		<div class="row my-3 justify-content-center section-title">
-			<h2 class="text-white">Blog</h2>
+			<h2 class="text-white text-uppercase">Blog</h2>
 		</div>
 		<div class="row">
-			<div class="col-lg-3 col-sm-6">
+			<div class="col-lg-3 col-sm-6 text-center">
 
 				<div class="product-item col-md">
 					<div class="pi-pic">
@@ -184,7 +202,7 @@ $this->load->view('header');
 				</div>
 			</div>
 
-			<div class="col-lg-3 col-sm-6">
+			<div class="col-lg-3 col-sm-6 text-center">
 
 				<div class="product-item col-md">
 					<div class="pi-pic">
@@ -207,7 +225,7 @@ $this->load->view('header');
 				</div>
 			</div>
 
-			<div class="col-lg-3 col-sm-6">
+			<div class="col-lg-3 col-sm-6 text-center">
 
 				<div class="product-item col-md">
 					<div class="pi-pic">
@@ -229,7 +247,7 @@ $this->load->view('header');
 				</div>
 			</div>
 
-			<div class="col-lg-3 col-sm-6">
+			<div class="col-lg-3 col-sm-6 text-center">
 
 				<div class="product-item col-md">
 					<div class="pi-pic">

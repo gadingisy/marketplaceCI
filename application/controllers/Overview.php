@@ -72,6 +72,14 @@ class Overview extends CI_Controller
 		$data['data'] = $this->Model_gerbang->get_kategori();
 		$this->load->view('admin/lihatkategori.php', $data);
 	}
+
+	public function lihat_kategori_artikel()
+	{
+		$data['title'] = "Data Kategori Artikel";
+		$this->load->model('Model_gerbang');
+		$data['data'] = $this->Model_gerbang->get_artikel_kategori();
+		$this->load->view('admin/lihatartikelkategori.php', $data);
+	}
 	public function tambah()
 	{
 		$data['title'] = 'Form Tambah Penjual';
@@ -202,7 +210,24 @@ class Overview extends CI_Controller
 		} else {
 			$this->Model_gerbang->tambahkategori();
 			$this->session->set_flashdata('flash', 'Data sudah ditambahkan');
-			redirect('Overview/lihatkategori2');
+			redirect('Overview/lihat_kategori');
+		}
+	}
+
+	public function tambahkategoriartikel()
+	{
+		$data['title'] = 'Form Tambah Kategori Artikel';
+		$this->form_validation->set_rules('nama_artikel_kategori', 'Nama', 'required');
+		$this->form_validation->set_rules('slug_artikel_kategori', 'Slug', 'required');
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('admin/_partials/head', $data);
+			$this->load->view('admin/_partials/navbar_add');
+			$this->load->view('admin/tambahkategori_artikel');
+			$this->load->view('admin/_partials/footer');
+		} else {
+			$this->Model_gerbang->tambahkategori_artikel();
+			$this->session->set_flashdata('flash', 'Data sudah ditambahkan');
+			redirect('Overview/lihat_kategori_artikel');
 		}
 	}
 
@@ -222,14 +247,42 @@ class Overview extends CI_Controller
 		} else {
 			$this->Model_gerbang->ubahkategori();
 			$this->session->set_flashdata('flash', 'Data sudah diubah');
-			redirect('Overview/lihatkategori2');
+			redirect('Overview/lihat_kategori');
 		}
 	}
+
+	public function editkategori_artikel($id_kat)
+	{
+		$data['title'] = 'Form Ubah Kategori Artikel';
+		$data['data'] = $this->Model_gerbang->getDataArtikelByID($id_kat);
+
+
+		$this->form_validation->set_rules('nama_artikel_kategori', 'Nama', 'required');
+		$this->form_validation->set_rules('slug_artikel_kategori', 'Slug', 'required');
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('admin/_partials/head', $data);
+			$this->load->view('admin/_partials/navbar_add');
+			$this->load->view('admin/ubah_kat_artikel', $data);
+			$this->load->view('admin/_partials/footer');
+		} else {
+			$this->Model_gerbang->ubahkategori_artikel();
+			$this->session->set_flashdata('flash', 'Data sudah diubah');
+			redirect('Overview/lihat_kategori_artikel');
+		}
+	}
+
 	public function hapuskategori($id_kat)
 	{
 		$this->Model_gerbang->hapuskategori($id_kat);
 		$this->session->set_flashdata('flash', 'Data Sudah Dihapus');
-		redirect('Overview/lihatkategori2');
+		redirect('Overview/lihat_kategori');
+	}
+
+	public function hapuskategori_artikel($id_kat)
+	{
+		$this->Model_gerbang->hapuskategori_artikel($id_kat);
+		$this->session->set_flashdata('flash', 'Data Sudah Dihapus');
+		redirect('Overview/lihat_kategori_artikel');
 	}
 
 	public function tambahproduk()

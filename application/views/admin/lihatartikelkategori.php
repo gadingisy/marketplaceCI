@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
  <?php $this->load->view("admin/_partials/head.php") ?>
 </head>
@@ -7,10 +8,10 @@
 <body id="page-top">
 
   <!-- Page Wrapper -->
-
+  <div id="wrapper">
 
     <!-- Sidebar -->
-    <div id="wrapper">
+    
 <?php $this->load->view("admin/_partials/sidebar.php") ?>
     <!-- End of Sidebar -->
 
@@ -30,7 +31,6 @@
 
           <!-- Topbar Search -->
         
-
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -60,7 +60,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow"> 
             <a class="nav-link dropdown-toggle" href="#"  data-toggle="modal" data-target="#logoutModal"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('user_admin'); ?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('user_admin') ?></span>
                 <img class="img-profile bg-danger rounded-circle">
               </a>
               <!-- Dropdown - User Information -->
@@ -102,59 +102,42 @@
           <div class="col-xl-12 col-lg-12 col-md-12 mb-4">
           <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-danger">Data Artikel</h6>
+                <h6 class="m-0 font-weight-bold text-danger">Data Kategori Artikel</h6>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                 <a href="<?=site_url('Overview/tambahartikel')?>" class="btn btn-danger mb-2"><i class="fas fa-plus-circle"> Tambah Artikel</i></a>
-                      <tr>
+                 <a href="<?= base_url(); ?>Overview/tambahkategoriartikel" class="btn btn-danger mb-2"><i class="fas fa-plus-circle"> Tambah Kategori Artikel</i></a>
+                      <tr class="text-center">
                         <th>No</th>
-                        <th>Nama Produk</th>
-                        <th>Kategori</th>
-                        <th>Penjual</th>
-                        <th>Deskripsi</th>
-                        <th>Berat</th>
-                        <th>Ukuran</th>
-                        <th>Harga</th>
+                        <th>Nama</th>
+               
                         <th>Slug</th>
-                        <th>Gambar</th>
-                        <th>Aksi</th>
+                        <th>Aksi</th>                     
                       </tr>
                     </thead>
                     <tbody>
                     <?php
                     $no=1;
-                    foreach ($row->result() as $key => $data) : ?>
-                   
-                    <tr>
+                    foreach ($data as $data) : ?>
+                    <tr class="text-center">
                        <td><?= $no++ ?></td>
-                       <td><?= $data->nama_produk ?></td> 
-                       <td><?= $data->nama_kat ?></td> 
-                       <td><?= $data->nama_penjual ?></td>
-                       <td><?= strlen($data->deskripsi_produk) > 200 ? implode(' ', array_slice(explode(' ', $data->deskripsi_produk ), 0, 30)) . '....' : $data->deskripsi_produk;  ?></td>
-                       <td><?= $data->berat_produk ?></td>
-                       <td><?= $data->ukuran_produk ?></td>
-                       <td>Rp. <?= number_format($data->harga_produk,'0',',','.') ?></td>
-                       <td><?= $data->slug_produk ?></td>
-                       <td><img src="<?=base_url("./assets/upload/images/".$data->gambar_produk)?>" width="100px" class="mb-3">
-                       <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk1)?>" width="100px" class="mb-3">
-                       <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk2)?>" width="100px" class="mb-3">
-                       <img src="<?=base_url("./assets/upload/images/".$data->thumb_produk3)?>" width="100px">
-                    
-                      </td>
-                      
-                       <td>
-                    <a href='<?= base_url(); ?>Overview/editproduk/<?= $data->id_produk ?>' class='btn btn-sm btn-info mb-2'>Edit</a>
-                    <a href="<?= base_url(); ?>Overview/hapusproduk/<?= $data->id_produk ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" >Hapus</a>
+                       <td><?= $data['nama_artikel_kategori']; ?></td>   
+               
+                       <td><?= $data['slug_artikel_kategori']; ?></td>
+                                
+                        <td>
+                    <a href='<?= base_url(); ?>Overview/editkategori_artikel/<?= $data['id_artikel_kategori']; ?>' class='btn btn-sm btn-info'>Edit</a>
+                    <a href="<?= base_url(); ?>Overview/hapuskategori_artikel/<?= $data['id_artikel_kategori']; ?>" class='btn btn-sm btn-danger' onclick="return confirm('Yakin?');" >Hapus</a>
             
 				              	</td>
+                         
+                         </tr>
+                         <?php endforeach; ?>
                     
-                        <?php endforeach; ?>
-                   
-                  </tr>
-               
+                 
+                      
                     </tbody>
                   </table>
                 </div>
@@ -165,7 +148,7 @@
           <!-- /.container-fluid -->
   
         </div>
-      
+       
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -186,8 +169,8 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
+  <!-- Logout Modal-->
   <?php $this->load->view("admin/_partials/modal.php") ?>
-
  <!-- Bootstrap core JavaScript-->
  <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/bootstrap/js/bootstrap.bundle.min.js"></script>
