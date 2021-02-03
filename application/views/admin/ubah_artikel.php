@@ -86,7 +86,7 @@
 
 				</nav>
 				<!-- End of Topbar -->
-
+	
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 					<?php if ($this->session->flashdata('flash')) : ?>
@@ -105,50 +105,60 @@
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 font-weight-bold text-danger">Artikel</h1>
 					</div>
-				
+
 					<!-- Content Row -->
 					<div class="col-xl-12 col-lg-12 col-md-12 mb-4">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-danger">Tambah Data Artikel</h6>
+								<h6 class="m-0 font-weight-bold text-danger">Edit Data Artikel</h6>
 							</div>
 							<div class="card-body">
-								<?php if (validation_errors()) : ?>
+							<?php if (validation_errors()) : ?>
 									<div class="alert alert-danger" role="alert">
 										<?= validation_errors(); ?>
 									</div>
 								<?php endif; ?>
+							
 								<form action="" method="post" enctype="multipart/form-data">
+									<input type="hidden" name="id_artikel" value="<?= $datas->id_artikel ?>">
 									<div class="form-group">
 										<label for="judul_artikel">Judul Artikel</label>
-										<input type="text" class="form-control" name="judul_artikel" id="judul_artikel">
+										<input type="text" class="form-control" value="<?= $datas->judul_artikel; ?>" name="judul_artikel" id="judul_artikel">
 										<small class="form-text text-danger"><?= form_error('judul_artikel'); ?></small>
 									</div>
 									<div class="form-group">
-										<label for="id_artikel_kategori" name="id_artikel_kategori" id="kategori_artikel">Kategori</label>
+										<label for="id_artikel_kategori"  name="id_artikel_kategori" id="kategori_artikel">Kategori</label>
 										<select class="form-control" name="id_artikel_kategori" id="kategori_artikel">
 											<option selected>-- Pilih --</option>
 											<?php
 											$no = 1;
 											foreach ($kategori as $data) : ?>
-										
+											<?php if ($data->id_kategori == $datas->id_penjual_kategori) : ?>		
+												<option value="<?= $data->id_artikel_kategori; ?>" selected><?= $data->nama_artikel_kategori; ?></option>
+											<?php else : ?>
 												<option value="<?= $data->id_artikel_kategori; ?>"><?= $data->nama_artikel_kategori; ?></option>
+											<?php endif; ?>
 											<?php endforeach; ?>
 										</select>
 									</div>
 									<div class="form-group">
+						
 										<label for="id_penjual_artikel">Penjual</label>
 										<select class="form-control" name="id_penjual_artikel" id="id_penjual_artikel">
-											<option selected>-- Pilih --</option>
+									
+											<option>-- Pilih --</option>
 											<?php
 											$no = 1;
-											foreach ($penjual as $data) : ?>
-										
-												<option value="<?= $data->id_penjual; ?>"><?= $data->nama_penjual; ?></option>
+											
+											foreach ($penjual as $penj) :  ?>
+												<option value="<?= $penj->id_penjual; ?>"><?= $penj->nama_penjual; ?></option>
+									
 											<?php endforeach; ?>
 										</select>
 									</div>
 
+
+									
 									<div class="form-group">
 										<label for="id_produk_artikel">Produk</label>
 										<select class="form-control" name="id_produk_artikel" id="id_produk_artikel">
@@ -156,33 +166,38 @@
 											
 										</select>
 									</div>
-									<div class="form-group">
+							
+									<div class="form-group">								
 										<label for="konten_artikel">Konten Artikel</label>
-										<textarea type="text" class="form-control" name="konten_artikel" id="editor"></textarea>
-										<small class="form-text text-danger"><?= form_error('konten_artikel'); ?></small>
+										<textarea type="text" class="form-control" name="konten_artikel" id="editor" value="<?= $datas->konten_artikel ?>"><?= $datas->konten_artikel ?></textarea>
 									</div>
 
 
 									<div class="form-group">
-										<label for="gambar_artikel">Gambar Artikel</label>
-										<input type="file" class="form-control" name="gambar_artikel" id="gambar_artikel">
-										<small class="form-text text-danger"><?= form_error('gambar_artikel'); ?></small>
+									<label for="gambar_artikel">Gambar Artikel</label>
+										<input type="file" class="form-control" name="gambar_artikel">
 									</div>
 
 									<div class="form-group">
-										<label for="published" name="published" id="published">Publish</label>
+										<label for="published" value="<?= $datas->published ?>"  name="published" id="published">Publish</label>
 										<select class="form-control" name="published" id="published">
-											<option selected>-- Pilih --</option>
-											<option value="publish">Publish</option>
-											<option value="notpublish">Don't Publish</option>
+											<option selected>-- Pilih --</option>								
+																						
+											<?php
+											switch($datas->published) {
+											case "publish": ?> <option value="publish" selected>Publish</option><option value="notpublish">Don't Publish</option> <?php break; ?>
+											<?php case "notpublish": ?> <option value="publish" >Publish</option><option value="notpublish" selected>Don't Publish</option> <?php break; ?>
+											<?php default: ?> <option value="publish">Publish</option><option value="notpublish">Don't Publish</option> <?php break; ?>
+											
+											<?php } ?>
+											
 										</select>
 									</div>
 									<div class="form-group">
 										<label for="slug_artikel">Slug Artikel</label>
-										<input type="text" class="form-control" name="slug_artikel" id="slug_artikel">
+										<input type="text" value="<?= $datas->slug_artikel ?>"  class="form-control" name="slug_artikel" id="slug_artikel">
 									</div>
-
-									<button type="submit" name="tambah" class="btn btn-danger float-right">Tambah</button>
+									<button type="submit" name="edit" class="btn btn-danger float-right">Edit</button>
 								</form>
 							</div>
 						</div>
@@ -245,6 +260,7 @@ $("#id_penjual_artikel").on('change', function(){
 	 data: {id: id},
 	 dataType:'json',
 	 cache:false,
+	 async:false,
 	 success: 
 		  function(data){
 		   
@@ -265,3 +281,4 @@ $("#id_penjual_artikel").on('change', function(){
 });
 </script>
 
+		

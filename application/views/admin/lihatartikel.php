@@ -114,6 +114,7 @@
                         <th>Judul Artikel</th>
                         <th>Kategori Artikel</th>
 												<th>Penjual</th>
+												<th>Produk / Artikel Umum</th>
 												<th>Konten Artikel</th>
                         <th>Gambar Artikel</th>
                         <th>Publish</th>
@@ -129,8 +130,9 @@
                     <tr>
                        <td><?= $no++ ?></td>
                        <td><?= $data['judul_artikel'] ?></td> 
-                       <td><?= $data['id_artikel_kategori'] ?></td> 
-											 <td><?= $data['id_penjual_artikel'] ?></td> 
+                       <td><?= $data['nama_kat'] ?></td> 
+											 <td><?= $data['nama_penjual'] ?></td>
+											 <td><?php if($data['nama_produk'] == null){ echo 'Artikel Umum'; } else { echo $data['nama_produk']; } ?></td>  
                        <td><?= strlen($data['konten_artikel']) > 200 ? implode(' ', array_slice(explode(' ', $data['konten_artikel'] ), 0, 30)) . '....' : $data['konten_artikel'];  ?></td>
 											 <td><img src="<?=base_url("./assets/upload/images/".$data['gambar_artikel'])?>" width="100px" class="mb-3"></td>
 											 <td><?= $data['published'] ?></td>

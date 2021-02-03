@@ -143,8 +143,9 @@ class Overview extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('admin/_partials/head', $data);		
 			$this->load->view('admin/tambahartikel', $data);
-			$this->load->view('admin/_partials/footer');
+		
 		} else {
+		
 			$config['upload_path'] = './assets/upload/images/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size']  = '2400';
@@ -168,6 +169,7 @@ class Overview extends CI_Controller
 				'judul_artikel'  => $this->input->post('judul_artikel', true),
 				'konten_artikel'  => $this->input->post('konten_artikel', true),
 				'gambar_artikel' => $gambar,
+				'id_produk_artikel' => $this->input->post('id_produk_artikel',true),
 				'id_penjual_artikel' => $this->input->post('id_penjual_artikel',true),
 				'id_artikel_kategori' => $this->input->post('id_artikel_kategori', true),
 				'slug_artikel' => $this->input->post('slug_artikel', true),
@@ -181,11 +183,72 @@ class Overview extends CI_Controller
 		}
 	}
 
+	public function editartikel($id_artikel)
+	{
+		$data['title'] = 'Form Ubah Artikel';
+		$data['datas'] = $this->Model_gerbang->getDataByIDArtikel($id_artikel)->row();
+		
+		$data['kategori'] = $this->Model_gerbang->get_nama_kategori_artikel()->result();
+		$data['penjual'] = $this->Model_gerbang->get_penjual_premium();
+	
+
+		$this->form_validation->set_rules('judul_artikel', 'Judul Artikel', 'required');
+		$this->form_validation->set_rules('konten_artikel', 'Konten Artikel', 'required');
+	
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('admin/_partials/head', $data);		
+			$this->load->view('admin/ubah_artikel', $data);
+		
+		} else {
+		
+			$config['upload_path'] = './assets/upload/images/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size']  = '2400';
+			$config['max_width']  = '2024';
+			$config['max_height']  = '2024';
+
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if (!$this->upload->do_upload('gambar_artikel')) {
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			} else {
+				$fileData = $this->upload->data();
+				$post['gambar_artikel'] = $fileData['file_name'];
+			}
+		
+			$gambar = $post['gambar_artikel'];
+		
+			$data = array(
+				'judul_artikel'  => $this->input->post('judul_artikel', true),
+				'konten_artikel'  => $this->input->post('konten_artikel', true),
+				'id_produk_artikel' => $this->input->post('id_produk_artikel',true),
+				'gambar_artikel' => $gambar,
+				'id_penjual_artikel' => $this->input->post('id_penjual_artikel',true),
+				'id_artikel_kategori' => $this->input->post('id_artikel_kategori', true),
+				'slug_artikel' => $this->input->post('slug_artikel', true),
+				'published' => $this->input->post('published', true)
+			);
+
+			$this->Model_gerbang->ubah_data_artikel($data);
+			$this->session->set_flashdata('flash', 'Data sudah ditambahkan');
+			redirect('Overview/lihatartikel');
+		}
+	}
+
 	public function hapus($id_penjual)
 	{
 		$this->Model_gerbang->hapusdatapenjual($id_penjual);
 		$this->session->set_flashdata('flash', ' Dihapus');
 		redirect('Overview/lihatdata');
+	}
+
+	public function hapusartikel($id_penjual)
+	{
+		$this->Model_gerbang->hapusdatartikel($id_penjual);
+		$this->session->set_flashdata('flash', ' Dihapus');
+		redirect('Overview/lihatartikel');
 	}
 	public function edit($id_penjual)
 	{
@@ -207,6 +270,7 @@ class Overview extends CI_Controller
 			$this->load->view('admin/ubah_penjual', $data);
 			$this->load->view('admin/_partials/footer');
 		} else {
+		
 			$config['upload_path'] = './assets/upload/images/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size']  = '2400';
@@ -224,6 +288,7 @@ class Overview extends CI_Controller
 				$post['foto_ktp'] = $fileData['file_name'];
 			}
 			$gambar = $post['foto_ktp'];
+			
 			$data = array(
 				'nama_penjual'  => $this->input->post('nama_penjual', true),
 				'alamat_penjual'  => $this->input->post('alamat_penjual', true),
@@ -534,7 +599,13 @@ class Overview extends CI_Controller
 	}
 
 
-
+	public function getIDitems() {
+		
+			$id = $this->input->post('id',TRUE);
+			$data = $this->Model_gerbang->getIDitems($id)->result();
+			echo json_encode($data);
+		
+	}
 	
 }
 

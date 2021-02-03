@@ -18,7 +18,7 @@ class Model_produk extends CI_Model{
 	}
 	public function get_artikel($id_artikel = null){
 		$this->db->from('tb_artikel');
-		if($id_penjual != NULL) {
+		if($id_artikel != NULL) {
 		  $this->db->where('id_artikel', $id_artikel);
 		}
 		$query = $this->db->get();

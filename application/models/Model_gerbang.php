@@ -8,7 +8,13 @@ class Model_gerbang extends CI_Model
 	}
 	public function get_artikel()
 	{
-		return $this->db->get('tb_artikel')->result_array();
+		$this->db->select('*');
+		$this->db->from('tb_artikel');
+		$this->db->join('tb_kategori','tb_kategori.id_kat = tb_artikel.id_artikel_kategori');
+		$this->db->join('tb_penjual','tb_penjual.id_penjual = tb_artikel.id_penjual_artikel');
+		$this->db->join('tb_produk','tb_produk.id_produk = tb_artikel.id_produk_artikel','left');
+	  $query = $this->db->get()->result_array();
+	  return $query;
 	}
 	public function get_kategori()
 	{
@@ -56,6 +62,18 @@ class Model_gerbang extends CI_Model
 
 		return $this->db->get();
 	}
+
+	public function getIDitems($id)
+	{
+
+		$this->db->select('*');
+		$this->db->from('tb_produk');
+		$this->db->join('tb_penjual', 'tb_penjual.id_penjual = tb_produk.id_penjual');
+		$this->db->where('tb_produk.id_penjual', $id);
+
+		return $this->db->get();
+	}
+
 
 	public function get_published_banner()
 	{
@@ -186,6 +204,11 @@ class Model_gerbang extends CI_Model
 		$this->db->where('id_penjual', $id_penjual);
 		$this->db->delete('tb_penjual');
 	}
+	public function hapusdatartikel($id_penjual)
+	{
+		$this->db->where('id_artikel', $id_penjual);
+		$this->db->delete('tb_artikel');
+	}
 	public function hapuskategori($id_kat)
 	{
 		$this->db->where('id_kat', $id_kat);
@@ -201,6 +224,20 @@ class Model_gerbang extends CI_Model
 	public function getDataByID($id_penjual)
 	{
 		return $this->db->get_where('tb_penjual', ['id_penjual' => $id_penjual])->row_array();
+	}
+
+	public function getDataByIDArtikel($id_penjual)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_artikel');
+		$this->db->join('tb_kategori','tb_kategori.id_kat = tb_artikel.id_artikel_kategori');
+		$this->db->join('tb_penjual','tb_penjual.id_penjual = tb_artikel.id_penjual_artikel');
+	  
+		$this->db->where('id_artikel', $id_penjual);
+	  
+	  $query = $this->db->get();
+	  return $query;
+	 
 	}
 
 	public function getDataByIDKat($id_kat)
@@ -224,6 +261,12 @@ class Model_gerbang extends CI_Model
 	{
 		$this->db->where('id_penjual', $this->input->post('id_penjual'));
 		$this->db->update('tb_penjual', $data);
+	}
+
+	public function ubah_data_artikel($data)
+	{
+		$this->db->where('id_artikel', $this->input->post('id_artikel'));
+		$this->db->update('tb_artikel', $data);
 	}
 
 	public function ubahkategori()
